@@ -28,6 +28,7 @@ namespace GSTSoft_windows
                 btn_New.Enabled = true;
                 btn_Edit.Enabled = true;
                 btn_Delete.Enabled = true;
+                button2.Enabled = false;
                 btn_Close.Text = "&Close";
             }
             else
@@ -46,7 +47,8 @@ namespace GSTSoft_windows
 
             //get the last product id
 
-           
+
+            productDetails.Enabled = false;
 
             cmb_ProductID.BackColor = Color.LightGray;
             cmb_ProductID.Enabled = false;
@@ -76,8 +78,13 @@ namespace GSTSoft_windows
             System.Globalization.RegionInfo objRegInfo = new RegionInfo("en-IN");
             string syb = objRegInfo.CurrencySymbol;
             lbl_Rate.Text = "Rate in " + syb + " : ";
+            btn_New.Enabled = true;
+            btn_Edit.Enabled = true;
+            btn_Delete.Enabled = true;
+            button2.Enabled = false;
+            productDetails.Enabled = false;
 
-           
+
 
         }
 
@@ -89,14 +96,14 @@ namespace GSTSoft_windows
         private void button2_Click(object sender, EventArgs e)
         {
             try {
-                if (ProductName.Text != "" || ProductSize.Text != "" || cmb_size.Text != "")
+                if (ProductName.Text != "" || HSNCode.Text != "")
                 {
                     OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\DB.accdb;Jet OLEDB:Database Password=GST");
                     con.Open();
-                    OleDbCommand command = new OleDbCommand("INSERT INTO ProductInfo (ProductID, ProductName, ProductSize,ProductRate, ValidInd, Product_RateCurrency) Values (?,?,?,?,?,?);", con);
+                    OleDbCommand command = new OleDbCommand("INSERT INTO ProductInfo (ProductID, ProductName,HSNCode,ProductRate, ValidInd, Product_RateCurrency) Values (?,?,?,?,?,?);", con);
                     command.Parameters.AddWithValue("@ProductID", cmb_ProductID.Text);
                     command.Parameters.AddWithValue("@Name", ProductName.Text);
-                    command.Parameters.AddWithValue("@size", ProductSize.Text + cmb_size.Text);
+                    command.Parameters.AddWithValue("@HSNCode", HSNCode.Text);
                     command.Parameters.AddWithValue("@rate", ProductRate.Text);
                     command.Parameters.AddWithValue("@ValidInd", "Y");
                     command.Parameters.AddWithValue("@Product_RateCurrency", "RS");
@@ -111,7 +118,7 @@ namespace GSTSoft_windows
                     cmb_ProductID.Text = "";
                     ProductName.Text = "";
                     ProductRate.Text = "";
-                    ProductSize.Text = "";
+                    HSNCode.Text = "";
 
                 }
             }

@@ -36,8 +36,7 @@
             this.btn_New = new System.Windows.Forms.Button();
             this.productDetails = new System.Windows.Forms.Panel();
             this.cmb_ProductID = new System.Windows.Forms.ComboBox();
-            this.cmb_size = new System.Windows.Forms.ComboBox();
-            this.ProductSize = new System.Windows.Forms.TextBox();
+            this.HSNCode = new System.Windows.Forms.TextBox();
             this.ProductRate = new System.Windows.Forms.TextBox();
             this.ProductName = new System.Windows.Forms.TextBox();
             this.lbl_Rate = new System.Windows.Forms.Label();
@@ -123,8 +122,7 @@
             // 
             this.productDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.productDetails.Controls.Add(this.cmb_ProductID);
-            this.productDetails.Controls.Add(this.cmb_size);
-            this.productDetails.Controls.Add(this.ProductSize);
+            this.productDetails.Controls.Add(this.HSNCode);
             this.productDetails.Controls.Add(this.ProductRate);
             this.productDetails.Controls.Add(this.ProductName);
             this.productDetails.Controls.Add(this.lbl_Rate);
@@ -146,26 +144,14 @@
             this.cmb_ProductID.TabIndex = 1;
             this.cmb_ProductID.SelectedIndexChanged += new System.EventHandler(this.cmb_ProductID_SelectedIndexChanged);
             // 
-            // cmb_size
+            // HSNCode
             // 
-            this.cmb_size.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_size.FormattingEnabled = true;
-            this.cmb_size.Items.AddRange(new object[] {
-            "gms",
-            "kg"});
-            this.cmb_size.Location = new System.Drawing.Point(279, 92);
-            this.cmb_size.Name = "cmb_size";
-            this.cmb_size.Size = new System.Drawing.Size(71, 27);
-            this.cmb_size.TabIndex = 4;
-            // 
-            // ProductSize
-            // 
-            this.ProductSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProductSize.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductSize.Location = new System.Drawing.Point(178, 93);
-            this.ProductSize.Name = "ProductSize";
-            this.ProductSize.Size = new System.Drawing.Size(95, 27);
-            this.ProductSize.TabIndex = 3;
+            this.HSNCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HSNCode.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HSNCode.Location = new System.Drawing.Point(178, 93);
+            this.HSNCode.Name = "HSNCode";
+            this.HSNCode.Size = new System.Drawing.Size(95, 27);
+            this.HSNCode.TabIndex = 3;
             // 
             // ProductRate
             // 
@@ -201,9 +187,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(37, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 18);
+            this.label3.Size = new System.Drawing.Size(103, 18);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Product Size : ";
+            this.label3.Text = "HSN Code : ";
             // 
             // label2
             // 
@@ -259,8 +245,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmb_size;
-        private System.Windows.Forms.TextBox ProductSize;
+        private System.Windows.Forms.TextBox HSNCode;
         private System.Windows.Forms.TextBox ProductRate;
         private System.Windows.Forms.TextBox ProductName;
         private System.Windows.Forms.ComboBox cmb_ProductID;

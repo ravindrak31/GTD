@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Test_Invoice11 = new GSTSoft_windows.Test_Invoice1();
+           // this.Test_Invoice11 = new GSTSoft_windows.Test_Invoice1();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
 
         #endregion
         
-        private Test_Invoice1 Test_Invoice11;
+       
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         //private invoice invoice1;
     }

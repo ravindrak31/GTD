@@ -186,7 +186,7 @@
     <EmbeddedResource Include="Purchase.resx">
       <DependentUpon>Purchase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PurchaseSummary.rdlc" />
+    <EmbeddedResource Include="Purchase Summary.rdlc" />
     <EmbeddedResource Include="Supplier.resx">
       <DependentUpon>Supplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,7 +212,7 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales-Summary.rdlc">
+    <EmbeddedResource Include="Sales Summary.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowInvoice.resx">

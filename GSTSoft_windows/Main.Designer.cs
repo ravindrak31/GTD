@@ -38,6 +38,9 @@
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.invoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +59,8 @@
             this.supplierToolStripMenuItem});
             this.CustomerMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.CustomerMenu.Name = "CustomerMenu";
-            this.CustomerMenu.Size = new System.Drawing.Size(117, 28);
+            this.CustomerMenu.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.CustomerMenu.Size = new System.Drawing.Size(117, 50);
             this.CustomerMenu.Text = "&Party";
             this.CustomerMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.CustomerMenu.Click += new System.EventHandler(this.CustomerMenu_Click);
@@ -79,7 +83,8 @@
             // 
             this.productsToolStripMenuItem.AutoSize = false;
             this.productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-            this.productsToolStripMenuItem.Size = new System.Drawing.Size(117, 28);
+            this.productsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.productsToolStripMenuItem.Size = new System.Drawing.Size(117, 50);
             this.productsToolStripMenuItem.Text = "P&roducts";
             this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
             // 
@@ -87,7 +92,8 @@
             // 
             this.editMenu.AutoSize = false;
             this.editMenu.Name = "editMenu";
-            this.editMenu.Size = new System.Drawing.Size(101, 28);
+            this.editMenu.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.editMenu.Size = new System.Drawing.Size(101, 50);
             this.editMenu.Text = "&Purchase";
             this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
@@ -95,17 +101,43 @@
             // 
             this.viewMenu.AutoSize = false;
             this.viewMenu.Name = "viewMenu";
-            this.viewMenu.Size = new System.Drawing.Size(117, 28);
+            this.viewMenu.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.viewMenu.Size = new System.Drawing.Size(117, 50);
             this.viewMenu.Text = "&Sales Invoice";
             this.viewMenu.Click += new System.EventHandler(this.viewMenu_Click);
             // 
             // toolsMenu
             // 
             this.toolsMenu.AutoSize = false;
+            this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.invoiceToolStripMenuItem,
+            this.salesSummaryToolStripMenuItem,
+            this.purchaseSummaryToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(101, 28);
+            this.toolsMenu.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.toolsMenu.Size = new System.Drawing.Size(101, 50);
             this.toolsMenu.Text = "&Reports";
             this.toolsMenu.Click += new System.EventHandler(this.toolsMenu_Click);
+            // 
+            // invoiceToolStripMenuItem
+            // 
+            this.invoiceToolStripMenuItem.Name = "invoiceToolStripMenuItem";
+            this.invoiceToolStripMenuItem.Size = new System.Drawing.Size(251, 28);
+            this.invoiceToolStripMenuItem.Text = "Invoice";
+            // 
+            // salesSummaryToolStripMenuItem
+            // 
+            this.salesSummaryToolStripMenuItem.Name = "salesSummaryToolStripMenuItem";
+            this.salesSummaryToolStripMenuItem.Size = new System.Drawing.Size(251, 28);
+            this.salesSummaryToolStripMenuItem.Text = "Sale Summary";
+            this.salesSummaryToolStripMenuItem.Click += new System.EventHandler(this.salesSummaryToolStripMenuItem_Click);
+            // 
+            // purchaseSummaryToolStripMenuItem
+            // 
+            this.purchaseSummaryToolStripMenuItem.Name = "purchaseSummaryToolStripMenuItem";
+            this.purchaseSummaryToolStripMenuItem.Size = new System.Drawing.Size(251, 28);
+            this.purchaseSummaryToolStripMenuItem.Text = "Purchase Summary";
+            this.purchaseSummaryToolStripMenuItem.Click += new System.EventHandler(this.purchaseSummaryToolStripMenuItem_Click);
             // 
             // menuStrip
             // 
@@ -127,14 +159,15 @@
             this.menuStrip.Padding = new System.Windows.Forms.Padding(15, 10, 0, 15);
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip.ShowItemToolTips = true;
-            this.menuStrip.Size = new System.Drawing.Size(135, 646);
+            this.menuStrip.Size = new System.Drawing.Size(150, 646);
             this.menuStrip.TabIndex = 0;
             // 
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.AutoSize = false;
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(117, 28);
+            this.stockToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(117, 50);
             this.stockToolStripMenuItem.Text = "Stock";
             this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
             // 
@@ -142,7 +175,8 @@
             // 
             this.exitToolStripMenuItem.AutoSize = false;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(101, 28);
+            this.exitToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(101, 50);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.ToolTipText = "You can also use ALT+X";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -154,9 +188,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel,
             this.toolStripLabel1});
-            this.toolStrip1.Location = new System.Drawing.Point(135, 618);
+            this.toolStrip1.Location = new System.Drawing.Point(150, 618);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1036, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(1021, 28);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -223,6 +257,9 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem invoiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salesSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem purchaseSummaryToolStripMenuItem;
     }
 }
 

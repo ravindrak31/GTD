@@ -26,7 +26,7 @@ namespace GSTSoft_windows
         {
             reportViewer1.Visible = true;
             
-            if (cmb_reportType.Text=="Invoice")
+            if (this.Name=="Invoice")
                 {
                 reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString+@"\DetailedInvoice - update.rdlc";
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
@@ -35,7 +35,7 @@ namespace GSTSoft_windows
 
                 reportViewer1.LocalReport.DataSources.Clear();
 
-                string cmdText = "select * from BillSummary WHERE InvoiceNo='"+txt_invoiceNumber.Text + "';";
+             /*   string cmdText = "select * from BillSummary WHERE InvoiceNo='"+txt_invoiceNumber.Text + "';";
                 using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand(cmdText, con))
@@ -48,31 +48,38 @@ namespace GSTSoft_windows
                             DataTable dt = ds.Tables[0];
                             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet2", ds.Tables[0]));
 
-                            using (SqlDataAdapter da1 = new SqlDataAdapter("Select * from BillDetails WHERE InvoiceNo='"+ txt_invoiceNumber.Text + "';", con))
+                            using (SqlDataAdapter da1 = new SqlDataAdapter("Select * from BillDetails WHERE InvoiceNo='"+ + "';", con))
                             {
                                 DataSet ds1 = new DataSet();
                                 da1.Fill(ds1);
                                 reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds1.Tables[0]));
                             }
-                            // Add the reportviewer to the form
+                            
                         }
                         con.Close();
                     }
                 }
                 reportViewer1.LocalReport.Refresh();
-                reportViewer1.RefreshReport();
+                reportViewer1.RefreshReport();*/
             }
-            else if (cmb_reportType.Text == "Sales Summary")
+            else
             {
 
-                reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString+@"\Summary.rdlc";
+                reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString+this.Name+".rdlc";
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
 
 
 
                 reportViewer1.LocalReport.DataSources.Clear();
-
-                string cmdText = "select * from BillSummary WHERE [InvoiceDate] > = '"+FromDate1.Value.Date +"' AND [InvoiceDate] < =' "+Todate1.Value.Date+"';";
+                string cmdText = "";
+                if (this.Name == "Sale Summary")
+                {
+                    cmdText = "select * from BillSummary WHERE [InvoiceDate] > = '" + FromDate1.Value.Date + "' AND [InvoiceDate] < =' " + Todate1.Value.Date + "';";
+                }
+                else
+                {
+                    cmdText = "select * from PurchaseSummary WHERE [PurchaseDate] > = '" + FromDate1.Value.Date + "' AND [PurchaseDate] < =' " + Todate1.Value.Date + "';";
+                }
                 using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand(cmdText, con))
@@ -105,6 +112,7 @@ namespace GSTSoft_windows
                 reportViewer1.LocalReport.Refresh();
                 reportViewer1.RefreshReport();
             }
+
         }
 
         private void PrintReports_Load(object sender, EventArgs e)
@@ -141,16 +149,6 @@ namespace GSTSoft_windows
 
         private void cmb_reportType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmb_reportType.Text == "Invoice")
-            {
-                grp_Invoice.Enabled = true;
-                grp_Summary.Enabled = false;
-            }
-            else if(cmb_reportType.Text == "Sales Summary")
-            {
-                grp_Invoice.Enabled = false;
-                grp_Summary.Enabled = true;
-            }
         }
 
         private void btn_Email_Click(object sender, EventArgs e)
@@ -159,7 +157,7 @@ namespace GSTSoft_windows
 
         private void btn_Send_Click(object sender, EventArgs e)
         {
-
+            Application.UseWaitCursor = true;
             //save report to local
             Warning[] warnings;
             string[] streamids;
@@ -203,7 +201,7 @@ namespace GSTSoft_windows
                 byte[] bytes = reportViewer1.LocalReport.Render(
                     typeofFile, null, out mimeType, out encoding, out filenameExtension,
                     out streamids, out warnings);
-                String FileName = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString + "\\output"+DateTime.Now.Day.ToString()+ DateTime.Now.Month.ToString()+ DateTime.Now.Year.ToString()+ DateTime.Now.Hour.ToString()+ DateTime.Now.Minute.ToString()+ DateTime.Now.Second.ToString() + extensionforfile;
+                String FileName = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString + "\\"+this.Name+DateTime.Now.Day.ToString()+ DateTime.Now.Month.ToString()+ DateTime.Now.Year.ToString()+ DateTime.Now.Hour.ToString()+ DateTime.Now.Minute.ToString()+ DateTime.Now.Second.ToString() + extensionforfile;
                 using (FileStream fs = new FileStream(FileName, FileMode.Create))
                 {
                     fs.Write(bytes, 0, bytes.Length);
@@ -215,12 +213,13 @@ namespace GSTSoft_windows
                     MailMessage message = new MailMessage();
                     SmtpClient smtp = new SmtpClient();
 
-                    message.From = new MailAddress("ravindra.kulkarni1@gmail.com");
+                    message.From = new MailAddress("ravindra.kulkarni1@gmail.com", "Gajanan Tea Depot");
+                    
                     message.To.Add(new MailAddress(txt_MailTO.Text));
-                    if (cmb_reportType.Text == "Invoice")
+                    if (this.Name == "Invoice")
                     {
 
-                        message.Subject = "Gajanan Tea Depot - " + cmb_reportType.Text + " ID - INV/" + cmb_InvYear.Text + "/" + txt_invoiceNumber.Text;
+                      //  message.Subject = "Gajanan Tea Depot - " + cmb_reportType.Text + " ID - INV/" + cmb_InvYear.Text + "/" + txt_invoiceNumber.Text;
                         String body = "<h3>Greetings,</h3><p>Thanks for being our loyal customer, we appreciate it.</p><p>Please find attached copy of your recent trasanction with us. Should you have any quaries/questions please contact us via email -&nbsp;<a href='mailto: Aaghate19 @gmail.com'>Aaghate19@gmail.com</a>&nbsp;or ring us on <strong>09823052863</strong>.</p><p><strong>Please keep a copy of this invoice stored.</strong></p><p><strong>Regards</strong></p><p><strong>Gajanan Tea Depot&nbsp;</strong></p>";
                         message.Attachments.Add(new Attachment(FileName));
                         AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body);
@@ -228,10 +227,10 @@ namespace GSTSoft_windows
                         message.AlternateViews.Add(htmlView);
 
                     }
-                    else if (cmb_reportType.Text == "Sales Summary")
+                    else
                     {
-                        message.Subject = "Gajanan Tea Depot - " + cmb_reportType.Text + " From Date : " + FromDate1.Text + " To Date : " + Todate1.Text;
-                        String body="<h3>Greetings,</h3><p>Please find attached copy of " + cmb_reportType.Text + " From Date " + FromDate1.Text + " To Date " + Todate1.Text + ", Should you have any quaries/questions please contact us via email -&nbsp;<a href='mailto: Aaghate19 @gmail.com'>Aaghate19@gmail.com</a>&nbsp;or ring us on <strong>09823052863</strong>.</p><p><strong>Regards</strong></p><p><strong>Gajanan Tea Depot&nbsp;</strong></p>";
+                        message.Subject = "Gajanan Tea Depot - " + this.Name + " From Date : " + FromDate1.Text + " To Date : " + Todate1.Text;
+                        String body="<h3>Greetings,</h3><p>Please find attached copy of " + this.Name + " From Date " + FromDate1.Text + " To Date " + Todate1.Text + ", Should you have any quaries/questions please contact us via email -&nbsp;<a href='mailto: Aaghate19 @gmail.com'>Aaghate19@gmail.com</a>&nbsp;or ring us on <strong>09823052863</strong>.</p><p><strong>Regards</strong></p><p><strong>Gajanan Tea Depot&nbsp;</strong></p>";
                         message.Attachments.Add(new Attachment(FileName));
                         AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body);
                         htmlView.ContentType = new System.Net.Mime.ContentType("text/html");
@@ -246,12 +245,16 @@ namespace GSTSoft_windows
                     smtp.Credentials = new NetworkCredential("ravindra.kulkarni1@gmail.com", "donbhai31$");
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                     smtp.Send(message);
+                    Application.UseWaitCursor = false;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("err: " + ex.Message);
+                    Application.UseWaitCursor = false;
                 }
             }
         }
+
+       
     }
 }

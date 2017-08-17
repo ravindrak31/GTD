@@ -9,10 +9,10 @@
               <Width>0.46667in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.025in</Width>
+              <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98833in</Width>
+              <Width>1.025in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.415in</Width>
@@ -87,59 +87,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox1">
+                    <Textbox Name="Textbox9">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Purchase No</Value>
-                              <Style>
-                                <FontFamily>Microsoft Sans Serif</FontFamily>
-                                <FontSize>9pt</FontSize>
-                                <FontWeight>SemiBold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>0.3pt</Width>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                        </TopBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                        </RightBorder>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox8">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Purchase Date</Value>
+                              <Value>Invoice Date</Value>
                               <Style>
                                 <FontFamily>Microsoft Sans Serif</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -177,6 +132,51 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Invoice No</Value>
+                              <Style>
+                                <FontFamily>Microsoft Sans Serif</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                          <Width>0.3pt</Width>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                        </TopBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                        </RightBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox5">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -184,7 +184,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Supplier Name</Value>
+                              <Value>Customer Name</Value>
                               <Style>
                                 <FontFamily>Microsoft Sans Serif</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -229,7 +229,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Supplier GSTNumber</Value>
+                              <Value>GSTNumber</Value>
                               <Style>
                                 <FontFamily>Microsoft Sans Serif</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -541,14 +541,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PurchaseNo">
+                    <Textbox Name="PurchaseDate2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>="PUR/"&amp;Fields!PurchaseYear.Value &amp; "/" &amp; Fields!PurchaseNo.Value</Value>
+                              <Value>=System.String.Format("{0:dd/MM/yyyy}", Fields!InvoiceDate.Value)</Value>
                               <Style>
                                 <FontFamily>Microsoft Sans Serif</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -560,7 +560,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PurchaseNo</rd:DefaultName>
+                      <rd:DefaultName>PurchaseDate</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -585,14 +585,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PurchaseDate">
+                    <Textbox Name="PurchaseNo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=String.Format("{0:dd/MM/yyyy}",Fields!PurchaseDate.Value)</Value>
+                              <Value>="INV/"&amp;Fields!InvoiceYear.Value &amp; "/" &amp; Fields!InvoiceNo.Value</Value>
                               <Style>
                                 <FontFamily>Microsoft Sans Serif</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -604,7 +604,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PurchaseDate</rd:DefaultName>
+                      <rd:DefaultName>PurchaseNo</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -722,7 +722,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=cDbl(Fields!TotalPurchaseValue.Value)-(cDbl(Fields!TotalCGST.Value)+cDbl(Fields!TotalSGST.Value)+cDbl(Fields!OtherTaxes.Value))</Value>
+                              <Value>=cDbl(Fields!TotalInvoiceValue.Value)-(cDbl(Fields!TotalCGST.Value)+cDbl(Fields!TotalSGST.Value)+cDbl(Fields!OtherTaxes.Value))</Value>
                               <Style>
                                 <FontFamily>Microsoft Sans Serif</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -883,14 +883,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TotalPurchaseValue">
+                    <Textbox Name="TotalInvoiceValue">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TotalPurchaseValue.Value</Value>
+                              <Value>=Fields!TotalInvoiceValue.Value</Value>
                               <Style>
                                 <FontFamily>Microsoft Sans Serif</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -902,7 +902,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TotalPurchaseValue</rd:DefaultName>
+                      <rd:DefaultName>TotalInvoiceValue</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -977,6 +977,52 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontFamily>Microsoft Sans Serif</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                          <Width>0.3pt</Width>
+                        </Border>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                          <Style>None</Style>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                        </RightBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Textbox33">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -1019,54 +1065,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox34">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Microsoft Sans Serif</FontFamily>
-                                <FontSize>9pt</FontSize>
-                                <FontWeight>SemiBold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Right</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox34</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                          <Width>0.3pt</Width>
-                        </Border>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>None</Style>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                        </RightBorder>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1111,7 +1109,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1158,7 +1155,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1203,7 +1199,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1326,7 +1321,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(cDbl(Fields!TotalPurchaseValue.Value))</Value>
+                              <Value>=Sum(cDbl(Fields!TotalInvoiceValue.Value))</Value>
                               <Style>
                                 <FontFamily>Microsoft Sans Serif</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -1389,7 +1384,7 @@
         <Top>0.07223in</Top>
         <Left>0.0625in</Left>
         <Height>0.80833in</Height>
-        <Width>10.86083in</Width>
+        <Width>10.87251in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1400,7 +1395,7 @@
     <Height>1.01389in</Height>
     <Style />
   </Body>
-  <Width>10.97333in</Width>
+  <Width>11.92334in</Width>
   <Page>
     <PageHeader>
       <Height>1.25139in</Height>
@@ -1524,7 +1519,7 @@ GST Number - 27AGEEPG2265K1ZD</Value>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Purchase Summary for Period of </Value>
+                  <Value>Sales Summary for Period of </Value>
                   <Style>
                     <FontFamily>Microsoft Sans Serif</FontFamily>
                     <FontWeight>SemiBold</FontWeight>
@@ -1696,21 +1691,21 @@ GST Number - 27AGEEPG2265K1ZD</Value>
           <DataField>ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="PurchaseNo">
-          <DataField>PurchaseNo</DataField>
+        <Field Name="InvoiceNo">
+          <DataField>InvoiceNo</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="PurchaseYear">
-          <DataField>PurchaseYear</DataField>
+        <Field Name="InvoiceYear">
+          <DataField>InvoiceYear</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="PurchaseCreatedBy">
-          <DataField>PurchaseCreatedBy</DataField>
+        <Field Name="InvoiceCreatedBy">
+          <DataField>InvoiceCreatedBy</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PurchaseDate">
-          <DataField>PurchaseDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
+        <Field Name="InvoiceDate">
+          <DataField>InvoiceDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="CustomerName">
           <DataField>CustomerName</DataField>
@@ -1748,18 +1743,18 @@ GST Number - 27AGEEPG2265K1ZD</Value>
           <DataField>TotalTax</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TotalPurchaseValue">
-          <DataField>TotalPurchaseValue</DataField>
+        <Field Name="TotalInvoiceValue">
+          <DataField>TotalInvoiceValue</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>GTDDataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Ravindra Kulkarni\Documents\Visual Studio 2015\Projects\GSTSoft_windows\GSTSoft_windows\GTDDataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>PurchaseSummary</rd:TableName>
+        <rd:DataSetName>GTDDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Ravindra Kulkarni\Documents\Visual Studio 2015\Projects\GSTSoft_windows\GSTSoft_windows\GTDDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>BillSummary</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>PurchaseSummaryTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>BillSummaryTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

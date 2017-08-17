@@ -122,11 +122,7 @@ namespace GSTSoft_windows
 
         private void toolsMenu_Click(object sender, EventArgs e)
         {
-            Form childform = new PrintReports();
-            childform.MdiParent = this;
-            childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
-
-            childform.Show();
+           
         }
 
         private void Close_Form(object sender, FormClosedEventArgs e)
@@ -183,6 +179,24 @@ namespace GSTSoft_windows
             Form childForm = new Purchase();
             childForm.Show();
             childForm.MdiParent = this;
+        }
+
+        private void salesSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childform = new PrintReports();
+            childform.MdiParent = this;
+            childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
+            childform.Name = "Sale Summary";
+            childform.Show();
+        }
+
+        private void purchaseSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childform = new PrintReports();
+            childform.MdiParent = this;
+            childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
+            childform.Name = "Purchase Summary";
+            childform.Show();
         }
     }
 }

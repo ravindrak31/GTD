@@ -275,7 +275,7 @@ namespace GSTSoft_windows
 
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(dataGridView1.Rows.Count + 1, HSNCode.Text, cmb_Item.Text, txt_ItemRate.Text, txt_quantity.Text, txt_Discount.Text, txt_TaxableValue.Text, txt_ItemCGST.Text, txt_ItemSGST.Text, txt_TotalItemValue.Text,txt_CGSTRate.Text,txt_SGSTRate.Text,lbl_Stock.Text,lbl_productID.Text);
+            dataGridView1.Rows.Add(dataGridView1.Rows.Count + 1, HSNCode.Text, cmb_Item.Text, txt_ItemRate.Text, txt_quantity.Text, txt_Discount.Text, txt_TaxableValue.Text, txt_ItemCGST.Text, txt_ItemSGST.Text, txt_TotalItemValue.Text,txt_CGSTRate.Text,txt_SGSTRate.Text,"",lbl_productID.Text);
             cmb_Item.Text = "";
           //  dataGridView1.Rows.HeaderCell.Value = String.Format("{0}", row.Index + 1);
             txt_ItemRate.Text = "0.00";
@@ -369,9 +369,7 @@ namespace GSTSoft_windows
 
                         // SqlDataReader reader = command.ExecuteReader();
                         //   reader.Read();
-                        SqlCommand cmd1 = new SqlCommand();
-                        cmd1.Connection = con;
-
+                        
                         
                         con.Close();
 
@@ -447,7 +445,7 @@ namespace GSTSoft_windows
             lbl_SGST.Text = "0.00";
             lbl_PurchaseTotal.Text = "0.00";
             txt_Discount.Text = "0.00";
-            lbl_Stock.Text = "";
+         //   lbl_Stock.Text = "";
             txt_ItemCGST.Text = "0.00";
             txt_ItemRate.Text = "0.00";
             txt_ItemSGST.Text = "0.00";

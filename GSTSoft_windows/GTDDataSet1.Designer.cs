@@ -20,21 +20,19 @@ namespace GSTSoft_windows {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DBDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("GTDDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DBDataSet : global::System.Data.DataSet {
+    public partial class GTDDataSet1 : global::System.Data.DataSet {
         
-        private BillDetailsDataTable tableBillDetails;
+        private PurchaseDetailsDataTable tablePurchaseDetails;
         
-        private BillSummaryDataTable tableBillSummary;
-        
-        private global::System.Data.DataRelation relationBillDetailsBillSummary;
+        private PurchaseSummaryDataTable tablePurchaseSummary;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DBDataSet() {
+        public GTDDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +43,7 @@ namespace GSTSoft_windows {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DBDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected GTDDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -58,11 +56,11 @@ namespace GSTSoft_windows {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["BillDetails"] != null)) {
-                    base.Tables.Add(new BillDetailsDataTable(ds.Tables["BillDetails"]));
+                if ((ds.Tables["PurchaseDetails"] != null)) {
+                    base.Tables.Add(new PurchaseDetailsDataTable(ds.Tables["PurchaseDetails"]));
                 }
-                if ((ds.Tables["BillSummary"] != null)) {
-                    base.Tables.Add(new BillSummaryDataTable(ds.Tables["BillSummary"]));
+                if ((ds.Tables["PurchaseSummary"] != null)) {
+                    base.Tables.Add(new PurchaseSummaryDataTable(ds.Tables["PurchaseSummary"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -86,9 +84,9 @@ namespace GSTSoft_windows {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public BillDetailsDataTable BillDetails {
+        public PurchaseDetailsDataTable PurchaseDetails {
             get {
-                return this.tableBillDetails;
+                return this.tablePurchaseDetails;
             }
         }
         
@@ -96,9 +94,9 @@ namespace GSTSoft_windows {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public BillSummaryDataTable BillSummary {
+        public PurchaseSummaryDataTable PurchaseSummary {
             get {
-                return this.tableBillSummary;
+                return this.tablePurchaseSummary;
             }
         }
         
@@ -144,7 +142,7 @@ namespace GSTSoft_windows {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DBDataSet cln = ((DBDataSet)(base.Clone()));
+            GTDDataSet1 cln = ((GTDDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -169,11 +167,11 @@ namespace GSTSoft_windows {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["BillDetails"] != null)) {
-                    base.Tables.Add(new BillDetailsDataTable(ds.Tables["BillDetails"]));
+                if ((ds.Tables["PurchaseDetails"] != null)) {
+                    base.Tables.Add(new PurchaseDetailsDataTable(ds.Tables["PurchaseDetails"]));
                 }
-                if ((ds.Tables["BillSummary"] != null)) {
-                    base.Tables.Add(new BillSummaryDataTable(ds.Tables["BillSummary"]));
+                if ((ds.Tables["PurchaseSummary"] != null)) {
+                    base.Tables.Add(new PurchaseSummaryDataTable(ds.Tables["PurchaseSummary"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -208,48 +206,43 @@ namespace GSTSoft_windows {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableBillDetails = ((BillDetailsDataTable)(base.Tables["BillDetails"]));
+            this.tablePurchaseDetails = ((PurchaseDetailsDataTable)(base.Tables["PurchaseDetails"]));
             if ((initTable == true)) {
-                if ((this.tableBillDetails != null)) {
-                    this.tableBillDetails.InitVars();
+                if ((this.tablePurchaseDetails != null)) {
+                    this.tablePurchaseDetails.InitVars();
                 }
             }
-            this.tableBillSummary = ((BillSummaryDataTable)(base.Tables["BillSummary"]));
+            this.tablePurchaseSummary = ((PurchaseSummaryDataTable)(base.Tables["PurchaseSummary"]));
             if ((initTable == true)) {
-                if ((this.tableBillSummary != null)) {
-                    this.tableBillSummary.InitVars();
+                if ((this.tablePurchaseSummary != null)) {
+                    this.tablePurchaseSummary.InitVars();
                 }
             }
-            this.relationBillDetailsBillSummary = this.Relations["BillDetailsBillSummary"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DBDataSet";
+            this.DataSetName = "GTDDataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DBDataSet.xsd";
+            this.Namespace = "http://tempuri.org/GTDDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableBillDetails = new BillDetailsDataTable();
-            base.Tables.Add(this.tableBillDetails);
-            this.tableBillSummary = new BillSummaryDataTable();
-            base.Tables.Add(this.tableBillSummary);
-            this.relationBillDetailsBillSummary = new global::System.Data.DataRelation("BillDetailsBillSummary", new global::System.Data.DataColumn[] {
-                        this.tableBillDetails.InvoiceNoColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBillSummary.InvoiceNoColumn}, false);
-            this.Relations.Add(this.relationBillDetailsBillSummary);
+            this.tablePurchaseDetails = new PurchaseDetailsDataTable();
+            base.Tables.Add(this.tablePurchaseDetails);
+            this.tablePurchaseSummary = new PurchaseSummaryDataTable();
+            base.Tables.Add(this.tablePurchaseSummary);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeBillDetails() {
+        private bool ShouldSerializePurchaseDetails() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeBillSummary() {
+        private bool ShouldSerializePurchaseSummary() {
             return false;
         }
         
@@ -264,7 +257,7 @@ namespace GSTSoft_windows {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DBDataSet ds = new DBDataSet();
+            GTDDataSet1 ds = new GTDDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -309,21 +302,21 @@ namespace GSTSoft_windows {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void BillDetailsRowChangeEventHandler(object sender, BillDetailsRowChangeEvent e);
+        public delegate void PurchaseDetailsRowChangeEventHandler(object sender, PurchaseDetailsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void BillSummaryRowChangeEventHandler(object sender, BillSummaryRowChangeEvent e);
+        public delegate void PurchaseSummaryRowChangeEventHandler(object sender, PurchaseSummaryRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class BillDetailsDataTable : global::System.Data.TypedTableBase<BillDetailsRow> {
+        public partial class PurchaseDetailsDataTable : global::System.Data.TypedTableBase<PurchaseDetailsRow> {
             
-            private global::System.Data.DataColumn columnID;
+            private global::System.Data.DataColumn columnId;
             
-            private global::System.Data.DataColumn columnInvoiceNo;
+            private global::System.Data.DataColumn columnPurchaseNo;
             
             private global::System.Data.DataColumn columnProductID;
             
@@ -343,10 +336,14 @@ namespace GSTSoft_windows {
             
             private global::System.Data.DataColumn columnTotalValue;
             
+            private global::System.Data.DataColumn columnCGSTRate;
+            
+            private global::System.Data.DataColumn columnSGSTRate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillDetailsDataTable() {
-                this.TableName = "BillDetails";
+            public PurchaseDetailsDataTable() {
+                this.TableName = "PurchaseDetails";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -354,7 +351,7 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal BillDetailsDataTable(global::System.Data.DataTable table) {
+            internal PurchaseDetailsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -371,24 +368,24 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected BillDetailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PurchaseDetailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
+            public global::System.Data.DataColumn IdColumn {
                 get {
-                    return this.columnID;
+                    return this.columnId;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InvoiceNoColumn {
+            public global::System.Data.DataColumn PurchaseNoColumn {
                 get {
-                    return this.columnInvoiceNo;
+                    return this.columnPurchaseNo;
                 }
             }
             
@@ -466,6 +463,22 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CGSTRateColumn {
+                get {
+                    return this.columnCGSTRate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SGSTRateColumn {
+                get {
+                    return this.columnSGSTRate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -475,37 +488,37 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillDetailsRow this[int index] {
+            public PurchaseDetailsRow this[int index] {
                 get {
-                    return ((BillDetailsRow)(this.Rows[index]));
+                    return ((PurchaseDetailsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BillDetailsRowChangeEventHandler BillDetailsRowChanging;
+            public event PurchaseDetailsRowChangeEventHandler PurchaseDetailsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BillDetailsRowChangeEventHandler BillDetailsRowChanged;
+            public event PurchaseDetailsRowChangeEventHandler PurchaseDetailsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BillDetailsRowChangeEventHandler BillDetailsRowDeleting;
+            public event PurchaseDetailsRowChangeEventHandler PurchaseDetailsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BillDetailsRowChangeEventHandler BillDetailsRowDeleted;
+            public event PurchaseDetailsRowChangeEventHandler PurchaseDetailsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddBillDetailsRow(BillDetailsRow row) {
+            public void AddPurchaseDetailsRow(PurchaseDetailsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillDetailsRow AddBillDetailsRow(string InvoiceNo, string ProductID, string ProductName, string Quantity, string Rate, string Discount, string TaxableValue, string CGST, string SGST, string TotalValue) {
-                BillDetailsRow rowBillDetailsRow = ((BillDetailsRow)(this.NewRow()));
+            public PurchaseDetailsRow AddPurchaseDetailsRow(string Id, int PurchaseNo, string ProductID, string ProductName, string Quantity, string Rate, string Discount, string TaxableValue, string CGST, string SGST, string TotalValue, string CGSTRate, string SGSTRate) {
+                PurchaseDetailsRow rowPurchaseDetailsRow = ((PurchaseDetailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        InvoiceNo,
+                        Id,
+                        PurchaseNo,
                         ProductID,
                         ProductName,
                         Quantity,
@@ -514,23 +527,25 @@ namespace GSTSoft_windows {
                         TaxableValue,
                         CGST,
                         SGST,
-                        TotalValue};
-                rowBillDetailsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowBillDetailsRow);
-                return rowBillDetailsRow;
+                        TotalValue,
+                        CGSTRate,
+                        SGSTRate};
+                rowPurchaseDetailsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPurchaseDetailsRow);
+                return rowPurchaseDetailsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillDetailsRow FindByID(int ID) {
-                return ((BillDetailsRow)(this.Rows.Find(new object[] {
-                            ID})));
+            public PurchaseDetailsRow FindById(string Id) {
+                return ((PurchaseDetailsRow)(this.Rows.Find(new object[] {
+                            Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                BillDetailsDataTable cln = ((BillDetailsDataTable)(base.Clone()));
+                PurchaseDetailsDataTable cln = ((PurchaseDetailsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -538,14 +553,14 @@ namespace GSTSoft_windows {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new BillDetailsDataTable();
+                return new PurchaseDetailsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnInvoiceNo = base.Columns["InvoiceNo"];
+                this.columnId = base.Columns["Id"];
+                this.columnPurchaseNo = base.Columns["PurchaseNo"];
                 this.columnProductID = base.Columns["ProductID"];
                 this.columnProductName = base.Columns["ProductName"];
                 this.columnQuantity = base.Columns["Quantity"];
@@ -555,15 +570,17 @@ namespace GSTSoft_windows {
                 this.columnCGST = base.Columns["CGST"];
                 this.columnSGST = base.Columns["SGST"];
                 this.columnTotalValue = base.Columns["TotalValue"];
+                this.columnCGSTRate = base.Columns["CGSTRate"];
+                this.columnSGSTRate = base.Columns["SGSTRate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnInvoiceNo = new global::System.Data.DataColumn("InvoiceNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceNo);
+                this.columnId = new global::System.Data.DataColumn("Id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId);
+                this.columnPurchaseNo = new global::System.Data.DataColumn("PurchaseNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchaseNo);
                 this.columnProductID = new global::System.Data.DataColumn("ProductID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductID);
                 this.columnProductName = new global::System.Data.DataColumn("ProductName", typeof(string), null, global::System.Data.MappingType.Element);
@@ -582,49 +599,53 @@ namespace GSTSoft_windows {
                 base.Columns.Add(this.columnSGST);
                 this.columnTotalValue = new global::System.Data.DataColumn("TotalValue", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalValue);
+                this.columnCGSTRate = new global::System.Data.DataColumn("CGSTRate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCGSTRate);
+                this.columnSGSTRate = new global::System.Data.DataColumn("SGSTRate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSGSTRate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.Unique = true;
-                this.columnInvoiceNo.MaxLength = 255;
-                this.columnProductID.MaxLength = 255;
-                this.columnProductName.MaxLength = 255;
-                this.columnQuantity.MaxLength = 255;
-                this.columnRate.MaxLength = 255;
-                this.columnDiscount.MaxLength = 255;
-                this.columnTaxableValue.MaxLength = 255;
-                this.columnCGST.MaxLength = 255;
-                this.columnSGST.MaxLength = 255;
-                this.columnTotalValue.MaxLength = 255;
+                                this.columnId}, true));
+                this.columnId.AllowDBNull = false;
+                this.columnId.Unique = true;
+                this.columnId.MaxLength = 10;
+                this.columnPurchaseNo.AllowDBNull = false;
+                this.columnProductID.MaxLength = 5;
+                this.columnProductName.MaxLength = 35;
+                this.columnQuantity.MaxLength = 15;
+                this.columnRate.MaxLength = 15;
+                this.columnDiscount.MaxLength = 15;
+                this.columnTaxableValue.MaxLength = 15;
+                this.columnCGST.MaxLength = 15;
+                this.columnSGST.MaxLength = 15;
+                this.columnTotalValue.MaxLength = 15;
+                this.columnCGSTRate.MaxLength = 10;
+                this.columnSGSTRate.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillDetailsRow NewBillDetailsRow() {
-                return ((BillDetailsRow)(this.NewRow()));
+            public PurchaseDetailsRow NewPurchaseDetailsRow() {
+                return ((PurchaseDetailsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new BillDetailsRow(builder);
+                return new PurchaseDetailsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(BillDetailsRow);
+                return typeof(PurchaseDetailsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.BillDetailsRowChanged != null)) {
-                    this.BillDetailsRowChanged(this, new BillDetailsRowChangeEvent(((BillDetailsRow)(e.Row)), e.Action));
+                if ((this.PurchaseDetailsRowChanged != null)) {
+                    this.PurchaseDetailsRowChanged(this, new PurchaseDetailsRowChangeEvent(((PurchaseDetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -632,8 +653,8 @@ namespace GSTSoft_windows {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.BillDetailsRowChanging != null)) {
-                    this.BillDetailsRowChanging(this, new BillDetailsRowChangeEvent(((BillDetailsRow)(e.Row)), e.Action));
+                if ((this.PurchaseDetailsRowChanging != null)) {
+                    this.PurchaseDetailsRowChanging(this, new PurchaseDetailsRowChangeEvent(((PurchaseDetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -641,8 +662,8 @@ namespace GSTSoft_windows {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.BillDetailsRowDeleted != null)) {
-                    this.BillDetailsRowDeleted(this, new BillDetailsRowChangeEvent(((BillDetailsRow)(e.Row)), e.Action));
+                if ((this.PurchaseDetailsRowDeleted != null)) {
+                    this.PurchaseDetailsRowDeleted(this, new PurchaseDetailsRowChangeEvent(((PurchaseDetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -650,14 +671,14 @@ namespace GSTSoft_windows {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.BillDetailsRowDeleting != null)) {
-                    this.BillDetailsRowDeleting(this, new BillDetailsRowChangeEvent(((BillDetailsRow)(e.Row)), e.Action));
+                if ((this.PurchaseDetailsRowDeleting != null)) {
+                    this.PurchaseDetailsRowDeleting(this, new PurchaseDetailsRowChangeEvent(((PurchaseDetailsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveBillDetailsRow(BillDetailsRow row) {
+            public void RemovePurchaseDetailsRow(PurchaseDetailsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -666,7 +687,7 @@ namespace GSTSoft_windows {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DBDataSet ds = new DBDataSet();
+                GTDDataSet1 ds = new GTDDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -684,7 +705,7 @@ namespace GSTSoft_windows {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "BillDetailsDataTable";
+                attribute2.FixedValue = "PurchaseDetailsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -730,15 +751,17 @@ namespace GSTSoft_windows {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class BillSummaryDataTable : global::System.Data.TypedTableBase<BillSummaryRow> {
+        public partial class PurchaseSummaryDataTable : global::System.Data.TypedTableBase<PurchaseSummaryRow> {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnInvoiceNo;
+            private global::System.Data.DataColumn columnPurchaseNo;
             
-            private global::System.Data.DataColumn columnInvoiceCreatedBy;
+            private global::System.Data.DataColumn columnPurchaseYear;
             
-            private global::System.Data.DataColumn columnInvoiceDate;
+            private global::System.Data.DataColumn columnPurchaseCreatedBy;
+            
+            private global::System.Data.DataColumn columnPurchaseDate;
             
             private global::System.Data.DataColumn columnCustomerName;
             
@@ -758,12 +781,12 @@ namespace GSTSoft_windows {
             
             private global::System.Data.DataColumn columnTotalTax;
             
-            private global::System.Data.DataColumn columnTotalInvoiceValue;
+            private global::System.Data.DataColumn columnTotalPurchaseValue;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillSummaryDataTable() {
-                this.TableName = "BillSummary";
+            public PurchaseSummaryDataTable() {
+                this.TableName = "PurchaseSummary";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -771,7 +794,7 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal BillSummaryDataTable(global::System.Data.DataTable table) {
+            internal PurchaseSummaryDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -788,7 +811,7 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected BillSummaryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PurchaseSummaryDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -803,25 +826,33 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InvoiceNoColumn {
+            public global::System.Data.DataColumn PurchaseNoColumn {
                 get {
-                    return this.columnInvoiceNo;
+                    return this.columnPurchaseNo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InvoiceCreatedByColumn {
+            public global::System.Data.DataColumn PurchaseYearColumn {
                 get {
-                    return this.columnInvoiceCreatedBy;
+                    return this.columnPurchaseYear;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InvoiceDateColumn {
+            public global::System.Data.DataColumn PurchaseCreatedByColumn {
                 get {
-                    return this.columnInvoiceDate;
+                    return this.columnPurchaseCreatedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PurchaseDateColumn {
+                get {
+                    return this.columnPurchaseDate;
                 }
             }
             
@@ -899,9 +930,9 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TotalInvoiceValueColumn {
+            public global::System.Data.DataColumn TotalPurchaseValueColumn {
                 get {
-                    return this.columnTotalInvoiceValue;
+                    return this.columnTotalPurchaseValue;
                 }
             }
             
@@ -916,39 +947,40 @@ namespace GSTSoft_windows {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillSummaryRow this[int index] {
+            public PurchaseSummaryRow this[int index] {
                 get {
-                    return ((BillSummaryRow)(this.Rows[index]));
+                    return ((PurchaseSummaryRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BillSummaryRowChangeEventHandler BillSummaryRowChanging;
+            public event PurchaseSummaryRowChangeEventHandler PurchaseSummaryRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BillSummaryRowChangeEventHandler BillSummaryRowChanged;
+            public event PurchaseSummaryRowChangeEventHandler PurchaseSummaryRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BillSummaryRowChangeEventHandler BillSummaryRowDeleting;
+            public event PurchaseSummaryRowChangeEventHandler PurchaseSummaryRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BillSummaryRowChangeEventHandler BillSummaryRowDeleted;
+            public event PurchaseSummaryRowChangeEventHandler PurchaseSummaryRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddBillSummaryRow(BillSummaryRow row) {
+            public void AddPurchaseSummaryRow(PurchaseSummaryRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillSummaryRow AddBillSummaryRow(BillDetailsRow parentBillDetailsRowByBillDetailsBillSummary, string InvoiceCreatedBy, string InvoiceDate, string CustomerName, string CustomerAddress, string CustomerGSTNumber, string CustomerContactNumber, string CompanyID, string TotalCGST, string TotalSGST, string OtherTaxes, string TotalTax, string TotalInvoiceValue) {
-                BillSummaryRow rowBillSummaryRow = ((BillSummaryRow)(this.NewRow()));
+            public PurchaseSummaryRow AddPurchaseSummaryRow(int ID, int PurchaseNo, int PurchaseYear, string PurchaseCreatedBy, System.DateTime PurchaseDate, string CustomerName, string CustomerAddress, string CustomerGSTNumber, string CustomerContactNumber, string CompanyID, string TotalCGST, string TotalSGST, string OtherTaxes, string TotalTax, string TotalPurchaseValue) {
+                PurchaseSummaryRow rowPurchaseSummaryRow = ((PurchaseSummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        InvoiceCreatedBy,
-                        InvoiceDate,
+                        ID,
+                        PurchaseNo,
+                        PurchaseYear,
+                        PurchaseCreatedBy,
+                        PurchaseDate,
                         CustomerName,
                         CustomerAddress,
                         CustomerGSTNumber,
@@ -958,26 +990,23 @@ namespace GSTSoft_windows {
                         TotalSGST,
                         OtherTaxes,
                         TotalTax,
-                        TotalInvoiceValue};
-                if ((parentBillDetailsRowByBillDetailsBillSummary != null)) {
-                    columnValuesArray[1] = parentBillDetailsRowByBillDetailsBillSummary[1];
-                }
-                rowBillSummaryRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowBillSummaryRow);
-                return rowBillSummaryRow;
+                        TotalPurchaseValue};
+                rowPurchaseSummaryRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPurchaseSummaryRow);
+                return rowPurchaseSummaryRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillSummaryRow FindByID(int ID) {
-                return ((BillSummaryRow)(this.Rows.Find(new object[] {
+            public PurchaseSummaryRow FindByID(int ID) {
+                return ((PurchaseSummaryRow)(this.Rows.Find(new object[] {
                             ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                BillSummaryDataTable cln = ((BillSummaryDataTable)(base.Clone()));
+                PurchaseSummaryDataTable cln = ((PurchaseSummaryDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -985,16 +1014,17 @@ namespace GSTSoft_windows {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new BillSummaryDataTable();
+                return new PurchaseSummaryDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnInvoiceNo = base.Columns["InvoiceNo"];
-                this.columnInvoiceCreatedBy = base.Columns["InvoiceCreatedBy"];
-                this.columnInvoiceDate = base.Columns["InvoiceDate"];
+                this.columnPurchaseNo = base.Columns["PurchaseNo"];
+                this.columnPurchaseYear = base.Columns["PurchaseYear"];
+                this.columnPurchaseCreatedBy = base.Columns["PurchaseCreatedBy"];
+                this.columnPurchaseDate = base.Columns["PurchaseDate"];
                 this.columnCustomerName = base.Columns["CustomerName"];
                 this.columnCustomerAddress = base.Columns["CustomerAddress"];
                 this.columnCustomerGSTNumber = base.Columns["CustomerGSTNumber"];
@@ -1004,7 +1034,7 @@ namespace GSTSoft_windows {
                 this.columnTotalSGST = base.Columns["TotalSGST"];
                 this.columnOtherTaxes = base.Columns["OtherTaxes"];
                 this.columnTotalTax = base.Columns["TotalTax"];
-                this.columnTotalInvoiceValue = base.Columns["TotalInvoiceValue"];
+                this.columnTotalPurchaseValue = base.Columns["TotalPurchaseValue"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1012,12 +1042,14 @@ namespace GSTSoft_windows {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnInvoiceNo = new global::System.Data.DataColumn("InvoiceNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceNo);
-                this.columnInvoiceCreatedBy = new global::System.Data.DataColumn("InvoiceCreatedBy", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceCreatedBy);
-                this.columnInvoiceDate = new global::System.Data.DataColumn("InvoiceDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvoiceDate);
+                this.columnPurchaseNo = new global::System.Data.DataColumn("PurchaseNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchaseNo);
+                this.columnPurchaseYear = new global::System.Data.DataColumn("PurchaseYear", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchaseYear);
+                this.columnPurchaseCreatedBy = new global::System.Data.DataColumn("PurchaseCreatedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchaseCreatedBy);
+                this.columnPurchaseDate = new global::System.Data.DataColumn("PurchaseDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchaseDate);
                 this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomerName);
                 this.columnCustomerAddress = new global::System.Data.DataColumn("CustomerAddress", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1036,54 +1068,51 @@ namespace GSTSoft_windows {
                 base.Columns.Add(this.columnOtherTaxes);
                 this.columnTotalTax = new global::System.Data.DataColumn("TotalTax", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalTax);
-                this.columnTotalInvoiceValue = new global::System.Data.DataColumn("TotalInvoiceValue", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalInvoiceValue);
+                this.columnTotalPurchaseValue = new global::System.Data.DataColumn("TotalPurchaseValue", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalPurchaseValue);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
-                this.columnInvoiceNo.MaxLength = 255;
-                this.columnInvoiceCreatedBy.MaxLength = 255;
-                this.columnInvoiceDate.MaxLength = 255;
-                this.columnCustomerName.MaxLength = 255;
-                this.columnCustomerAddress.MaxLength = 536870910;
-                this.columnCustomerGSTNumber.MaxLength = 255;
-                this.columnCustomerContactNumber.MaxLength = 255;
-                this.columnCompanyID.MaxLength = 255;
-                this.columnTotalCGST.MaxLength = 255;
-                this.columnTotalSGST.MaxLength = 255;
-                this.columnOtherTaxes.MaxLength = 255;
-                this.columnTotalTax.MaxLength = 255;
-                this.columnTotalInvoiceValue.MaxLength = 255;
+                this.columnPurchaseNo.AllowDBNull = false;
+                this.columnPurchaseYear.AllowDBNull = false;
+                this.columnPurchaseCreatedBy.MaxLength = 20;
+                this.columnCustomerName.MaxLength = 50;
+                this.columnCustomerAddress.MaxLength = 150;
+                this.columnCustomerGSTNumber.MaxLength = 15;
+                this.columnCustomerContactNumber.MaxLength = 12;
+                this.columnCompanyID.MaxLength = 10;
+                this.columnTotalCGST.MaxLength = 10;
+                this.columnTotalSGST.MaxLength = 10;
+                this.columnOtherTaxes.MaxLength = 10;
+                this.columnTotalTax.MaxLength = 10;
+                this.columnTotalPurchaseValue.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillSummaryRow NewBillSummaryRow() {
-                return ((BillSummaryRow)(this.NewRow()));
+            public PurchaseSummaryRow NewPurchaseSummaryRow() {
+                return ((PurchaseSummaryRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new BillSummaryRow(builder);
+                return new PurchaseSummaryRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(BillSummaryRow);
+                return typeof(PurchaseSummaryRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.BillSummaryRowChanged != null)) {
-                    this.BillSummaryRowChanged(this, new BillSummaryRowChangeEvent(((BillSummaryRow)(e.Row)), e.Action));
+                if ((this.PurchaseSummaryRowChanged != null)) {
+                    this.PurchaseSummaryRowChanged(this, new PurchaseSummaryRowChangeEvent(((PurchaseSummaryRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1091,8 +1120,8 @@ namespace GSTSoft_windows {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.BillSummaryRowChanging != null)) {
-                    this.BillSummaryRowChanging(this, new BillSummaryRowChangeEvent(((BillSummaryRow)(e.Row)), e.Action));
+                if ((this.PurchaseSummaryRowChanging != null)) {
+                    this.PurchaseSummaryRowChanging(this, new PurchaseSummaryRowChangeEvent(((PurchaseSummaryRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1100,8 +1129,8 @@ namespace GSTSoft_windows {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.BillSummaryRowDeleted != null)) {
-                    this.BillSummaryRowDeleted(this, new BillSummaryRowChangeEvent(((BillSummaryRow)(e.Row)), e.Action));
+                if ((this.PurchaseSummaryRowDeleted != null)) {
+                    this.PurchaseSummaryRowDeleted(this, new PurchaseSummaryRowChangeEvent(((PurchaseSummaryRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1109,14 +1138,14 @@ namespace GSTSoft_windows {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.BillSummaryRowDeleting != null)) {
-                    this.BillSummaryRowDeleting(this, new BillSummaryRowChangeEvent(((BillSummaryRow)(e.Row)), e.Action));
+                if ((this.PurchaseSummaryRowDeleting != null)) {
+                    this.PurchaseSummaryRowDeleting(this, new PurchaseSummaryRowChangeEvent(((PurchaseSummaryRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveBillSummaryRow(BillSummaryRow row) {
+            public void RemovePurchaseSummaryRow(PurchaseSummaryRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1125,7 +1154,7 @@ namespace GSTSoft_windows {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DBDataSet ds = new DBDataSet();
+                GTDDataSet1 ds = new GTDDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1143,7 +1172,7 @@ namespace GSTSoft_windows {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "BillSummaryDataTable";
+                attribute2.FixedValue = "PurchaseSummaryDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1187,41 +1216,36 @@ namespace GSTSoft_windows {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class BillDetailsRow : global::System.Data.DataRow {
+        public partial class PurchaseDetailsRow : global::System.Data.DataRow {
             
-            private BillDetailsDataTable tableBillDetails;
+            private PurchaseDetailsDataTable tablePurchaseDetails;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal BillDetailsRow(global::System.Data.DataRowBuilder rb) : 
+            internal PurchaseDetailsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableBillDetails = ((BillDetailsDataTable)(this.Table));
+                this.tablePurchaseDetails = ((PurchaseDetailsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ID {
+            public string Id {
                 get {
-                    return ((int)(this[this.tableBillDetails.IDColumn]));
+                    return ((string)(this[this.tablePurchaseDetails.IdColumn]));
                 }
                 set {
-                    this[this.tableBillDetails.IDColumn] = value;
+                    this[this.tablePurchaseDetails.IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string InvoiceNo {
+            public int PurchaseNo {
                 get {
-                    try {
-                        return ((string)(this[this.tableBillDetails.InvoiceNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceNo\' in table \'BillDetails\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablePurchaseDetails.PurchaseNoColumn]));
                 }
                 set {
-                    this[this.tableBillDetails.InvoiceNoColumn] = value;
+                    this[this.tablePurchaseDetails.PurchaseNoColumn] = value;
                 }
             }
             
@@ -1230,14 +1254,14 @@ namespace GSTSoft_windows {
             public string ProductID {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.ProductIDColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.ProductIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductID\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductID\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.ProductIDColumn] = value;
+                    this[this.tablePurchaseDetails.ProductIDColumn] = value;
                 }
             }
             
@@ -1246,14 +1270,14 @@ namespace GSTSoft_windows {
             public string ProductName {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.ProductNameColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.ProductNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ProductName\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProductName\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.ProductNameColumn] = value;
+                    this[this.tablePurchaseDetails.ProductNameColumn] = value;
                 }
             }
             
@@ -1262,14 +1286,14 @@ namespace GSTSoft_windows {
             public string Quantity {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.QuantityColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.QuantityColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.QuantityColumn] = value;
+                    this[this.tablePurchaseDetails.QuantityColumn] = value;
                 }
             }
             
@@ -1278,14 +1302,14 @@ namespace GSTSoft_windows {
             public string Rate {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.RateColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.RateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Rate\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rate\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.RateColumn] = value;
+                    this[this.tablePurchaseDetails.RateColumn] = value;
                 }
             }
             
@@ -1294,14 +1318,14 @@ namespace GSTSoft_windows {
             public string Discount {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.DiscountColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.DiscountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Discount\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Discount\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.DiscountColumn] = value;
+                    this[this.tablePurchaseDetails.DiscountColumn] = value;
                 }
             }
             
@@ -1310,14 +1334,14 @@ namespace GSTSoft_windows {
             public string TaxableValue {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.TaxableValueColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.TaxableValueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TaxableValue\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TaxableValue\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.TaxableValueColumn] = value;
+                    this[this.tablePurchaseDetails.TaxableValueColumn] = value;
                 }
             }
             
@@ -1326,14 +1350,14 @@ namespace GSTSoft_windows {
             public string CGST {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.CGSTColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.CGSTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CGST\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CGST\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.CGSTColumn] = value;
+                    this[this.tablePurchaseDetails.CGSTColumn] = value;
                 }
             }
             
@@ -1342,14 +1366,14 @@ namespace GSTSoft_windows {
             public string SGST {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.SGSTColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.SGSTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SGST\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SGST\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.SGSTColumn] = value;
+                    this[this.tablePurchaseDetails.SGSTColumn] = value;
                 }
             }
             
@@ -1358,219 +1382,258 @@ namespace GSTSoft_windows {
             public string TotalValue {
                 get {
                     try {
-                        return ((string)(this[this.tableBillDetails.TotalValueColumn]));
+                        return ((string)(this[this.tablePurchaseDetails.TotalValueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalValue\' in table \'BillDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalValue\' in table \'PurchaseDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillDetails.TotalValueColumn] = value;
+                    this[this.tablePurchaseDetails.TotalValueColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsInvoiceNoNull() {
-                return this.IsNull(this.tableBillDetails.InvoiceNoColumn);
+            public string CGSTRate {
+                get {
+                    try {
+                        return ((string)(this[this.tablePurchaseDetails.CGSTRateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CGSTRate\' in table \'PurchaseDetails\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePurchaseDetails.CGSTRateColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetInvoiceNoNull() {
-                this[this.tableBillDetails.InvoiceNoColumn] = global::System.Convert.DBNull;
+            public string SGSTRate {
+                get {
+                    try {
+                        return ((string)(this[this.tablePurchaseDetails.SGSTRateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SGSTRate\' in table \'PurchaseDetails\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePurchaseDetails.SGSTRateColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsProductIDNull() {
-                return this.IsNull(this.tableBillDetails.ProductIDColumn);
+                return this.IsNull(this.tablePurchaseDetails.ProductIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetProductIDNull() {
-                this[this.tableBillDetails.ProductIDColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.ProductIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsProductNameNull() {
-                return this.IsNull(this.tableBillDetails.ProductNameColumn);
+                return this.IsNull(this.tablePurchaseDetails.ProductNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetProductNameNull() {
-                this[this.tableBillDetails.ProductNameColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.ProductNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsQuantityNull() {
-                return this.IsNull(this.tableBillDetails.QuantityColumn);
+                return this.IsNull(this.tablePurchaseDetails.QuantityColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetQuantityNull() {
-                this[this.tableBillDetails.QuantityColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.QuantityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsRateNull() {
-                return this.IsNull(this.tableBillDetails.RateColumn);
+                return this.IsNull(this.tablePurchaseDetails.RateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRateNull() {
-                this[this.tableBillDetails.RateColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.RateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDiscountNull() {
-                return this.IsNull(this.tableBillDetails.DiscountColumn);
+                return this.IsNull(this.tablePurchaseDetails.DiscountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDiscountNull() {
-                this[this.tableBillDetails.DiscountColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.DiscountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTaxableValueNull() {
-                return this.IsNull(this.tableBillDetails.TaxableValueColumn);
+                return this.IsNull(this.tablePurchaseDetails.TaxableValueColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTaxableValueNull() {
-                this[this.tableBillDetails.TaxableValueColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.TaxableValueColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCGSTNull() {
-                return this.IsNull(this.tableBillDetails.CGSTColumn);
+                return this.IsNull(this.tablePurchaseDetails.CGSTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCGSTNull() {
-                this[this.tableBillDetails.CGSTColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.CGSTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSGSTNull() {
-                return this.IsNull(this.tableBillDetails.SGSTColumn);
+                return this.IsNull(this.tablePurchaseDetails.SGSTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetSGSTNull() {
-                this[this.tableBillDetails.SGSTColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.SGSTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalValueNull() {
-                return this.IsNull(this.tableBillDetails.TotalValueColumn);
+                return this.IsNull(this.tablePurchaseDetails.TotalValueColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalValueNull() {
-                this[this.tableBillDetails.TotalValueColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseDetails.TotalValueColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillSummaryRow[] GetBillSummaryRows() {
-                if ((this.Table.ChildRelations["BillDetailsBillSummary"] == null)) {
-                    return new BillSummaryRow[0];
-                }
-                else {
-                    return ((BillSummaryRow[])(base.GetChildRows(this.Table.ChildRelations["BillDetailsBillSummary"])));
-                }
+            public bool IsCGSTRateNull() {
+                return this.IsNull(this.tablePurchaseDetails.CGSTRateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCGSTRateNull() {
+                this[this.tablePurchaseDetails.CGSTRateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSGSTRateNull() {
+                return this.IsNull(this.tablePurchaseDetails.SGSTRateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSGSTRateNull() {
+                this[this.tablePurchaseDetails.SGSTRateColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class BillSummaryRow : global::System.Data.DataRow {
+        public partial class PurchaseSummaryRow : global::System.Data.DataRow {
             
-            private BillSummaryDataTable tableBillSummary;
+            private PurchaseSummaryDataTable tablePurchaseSummary;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal BillSummaryRow(global::System.Data.DataRowBuilder rb) : 
+            internal PurchaseSummaryRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableBillSummary = ((BillSummaryDataTable)(this.Table));
+                this.tablePurchaseSummary = ((PurchaseSummaryDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ID {
                 get {
-                    return ((int)(this[this.tableBillSummary.IDColumn]));
+                    return ((int)(this[this.tablePurchaseSummary.IDColumn]));
                 }
                 set {
-                    this[this.tableBillSummary.IDColumn] = value;
+                    this[this.tablePurchaseSummary.IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string InvoiceNo {
+            public int PurchaseNo {
                 get {
-                    try {
-                        return ((string)(this[this.tableBillSummary.InvoiceNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceNo\' in table \'BillSummary\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablePurchaseSummary.PurchaseNoColumn]));
                 }
                 set {
-                    this[this.tableBillSummary.InvoiceNoColumn] = value;
+                    this[this.tablePurchaseSummary.PurchaseNoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string InvoiceCreatedBy {
+            public int PurchaseYear {
                 get {
-                    try {
-                        return ((string)(this[this.tableBillSummary.InvoiceCreatedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceCreatedBy\' in table \'BillSummary\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tablePurchaseSummary.PurchaseYearColumn]));
                 }
                 set {
-                    this[this.tableBillSummary.InvoiceCreatedByColumn] = value;
+                    this[this.tablePurchaseSummary.PurchaseYearColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string InvoiceDate {
+            public string PurchaseCreatedBy {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.InvoiceDateColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.PurchaseCreatedByColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceDate\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PurchaseCreatedBy\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.InvoiceDateColumn] = value;
+                    this[this.tablePurchaseSummary.PurchaseCreatedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime PurchaseDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablePurchaseSummary.PurchaseDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PurchaseDate\' in table \'PurchaseSummary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePurchaseSummary.PurchaseDateColumn] = value;
                 }
             }
             
@@ -1579,14 +1642,14 @@ namespace GSTSoft_windows {
             public string CustomerName {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.CustomerNameColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.CustomerNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.CustomerNameColumn] = value;
+                    this[this.tablePurchaseSummary.CustomerNameColumn] = value;
                 }
             }
             
@@ -1595,14 +1658,14 @@ namespace GSTSoft_windows {
             public string CustomerAddress {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.CustomerAddressColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.CustomerAddressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerAddress\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerAddress\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.CustomerAddressColumn] = value;
+                    this[this.tablePurchaseSummary.CustomerAddressColumn] = value;
                 }
             }
             
@@ -1611,14 +1674,14 @@ namespace GSTSoft_windows {
             public string CustomerGSTNumber {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.CustomerGSTNumberColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.CustomerGSTNumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerGSTNumber\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerGSTNumber\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.CustomerGSTNumberColumn] = value;
+                    this[this.tablePurchaseSummary.CustomerGSTNumberColumn] = value;
                 }
             }
             
@@ -1627,14 +1690,15 @@ namespace GSTSoft_windows {
             public string CustomerContactNumber {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.CustomerContactNumberColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.CustomerContactNumberColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerContactNumber\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerContactNumber\' in table \'PurchaseSummary\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.CustomerContactNumberColumn] = value;
+                    this[this.tablePurchaseSummary.CustomerContactNumberColumn] = value;
                 }
             }
             
@@ -1643,14 +1707,14 @@ namespace GSTSoft_windows {
             public string CompanyID {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.CompanyIDColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.CompanyIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CompanyID\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CompanyID\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.CompanyIDColumn] = value;
+                    this[this.tablePurchaseSummary.CompanyIDColumn] = value;
                 }
             }
             
@@ -1659,14 +1723,14 @@ namespace GSTSoft_windows {
             public string TotalCGST {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.TotalCGSTColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.TotalCGSTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalCGST\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalCGST\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.TotalCGSTColumn] = value;
+                    this[this.tablePurchaseSummary.TotalCGSTColumn] = value;
                 }
             }
             
@@ -1675,14 +1739,14 @@ namespace GSTSoft_windows {
             public string TotalSGST {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.TotalSGSTColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.TotalSGSTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalSGST\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalSGST\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.TotalSGSTColumn] = value;
+                    this[this.tablePurchaseSummary.TotalSGSTColumn] = value;
                 }
             }
             
@@ -1691,14 +1755,14 @@ namespace GSTSoft_windows {
             public string OtherTaxes {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.OtherTaxesColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.OtherTaxesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OtherTaxes\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'OtherTaxes\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.OtherTaxesColumn] = value;
+                    this[this.tablePurchaseSummary.OtherTaxesColumn] = value;
                 }
             }
             
@@ -1707,198 +1771,175 @@ namespace GSTSoft_windows {
             public string TotalTax {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.TotalTaxColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.TotalTaxColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalTax\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalTax\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.TotalTaxColumn] = value;
+                    this[this.tablePurchaseSummary.TotalTaxColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TotalInvoiceValue {
+            public string TotalPurchaseValue {
                 get {
                     try {
-                        return ((string)(this[this.tableBillSummary.TotalInvoiceValueColumn]));
+                        return ((string)(this[this.tablePurchaseSummary.TotalPurchaseValueColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalInvoiceValue\' in table \'BillSummary\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalPurchaseValue\' in table \'PurchaseSummary\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBillSummary.TotalInvoiceValueColumn] = value;
+                    this[this.tablePurchaseSummary.TotalPurchaseValueColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillDetailsRow BillDetailsRow {
-                get {
-                    return ((BillDetailsRow)(this.GetParentRow(this.Table.ParentRelations["BillDetailsBillSummary"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["BillDetailsBillSummary"]);
-                }
+            public bool IsPurchaseCreatedByNull() {
+                return this.IsNull(this.tablePurchaseSummary.PurchaseCreatedByColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsInvoiceNoNull() {
-                return this.IsNull(this.tableBillSummary.InvoiceNoColumn);
+            public void SetPurchaseCreatedByNull() {
+                this[this.tablePurchaseSummary.PurchaseCreatedByColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetInvoiceNoNull() {
-                this[this.tableBillSummary.InvoiceNoColumn] = global::System.Convert.DBNull;
+            public bool IsPurchaseDateNull() {
+                return this.IsNull(this.tablePurchaseSummary.PurchaseDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsInvoiceCreatedByNull() {
-                return this.IsNull(this.tableBillSummary.InvoiceCreatedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetInvoiceCreatedByNull() {
-                this[this.tableBillSummary.InvoiceCreatedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsInvoiceDateNull() {
-                return this.IsNull(this.tableBillSummary.InvoiceDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetInvoiceDateNull() {
-                this[this.tableBillSummary.InvoiceDateColumn] = global::System.Convert.DBNull;
+            public void SetPurchaseDateNull() {
+                this[this.tablePurchaseSummary.PurchaseDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomerNameNull() {
-                return this.IsNull(this.tableBillSummary.CustomerNameColumn);
+                return this.IsNull(this.tablePurchaseSummary.CustomerNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomerNameNull() {
-                this[this.tableBillSummary.CustomerNameColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.CustomerNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomerAddressNull() {
-                return this.IsNull(this.tableBillSummary.CustomerAddressColumn);
+                return this.IsNull(this.tablePurchaseSummary.CustomerAddressColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomerAddressNull() {
-                this[this.tableBillSummary.CustomerAddressColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.CustomerAddressColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomerGSTNumberNull() {
-                return this.IsNull(this.tableBillSummary.CustomerGSTNumberColumn);
+                return this.IsNull(this.tablePurchaseSummary.CustomerGSTNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomerGSTNumberNull() {
-                this[this.tableBillSummary.CustomerGSTNumberColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.CustomerGSTNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomerContactNumberNull() {
-                return this.IsNull(this.tableBillSummary.CustomerContactNumberColumn);
+                return this.IsNull(this.tablePurchaseSummary.CustomerContactNumberColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomerContactNumberNull() {
-                this[this.tableBillSummary.CustomerContactNumberColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.CustomerContactNumberColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCompanyIDNull() {
-                return this.IsNull(this.tableBillSummary.CompanyIDColumn);
+                return this.IsNull(this.tablePurchaseSummary.CompanyIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCompanyIDNull() {
-                this[this.tableBillSummary.CompanyIDColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.CompanyIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalCGSTNull() {
-                return this.IsNull(this.tableBillSummary.TotalCGSTColumn);
+                return this.IsNull(this.tablePurchaseSummary.TotalCGSTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalCGSTNull() {
-                this[this.tableBillSummary.TotalCGSTColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.TotalCGSTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalSGSTNull() {
-                return this.IsNull(this.tableBillSummary.TotalSGSTColumn);
+                return this.IsNull(this.tablePurchaseSummary.TotalSGSTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalSGSTNull() {
-                this[this.tableBillSummary.TotalSGSTColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.TotalSGSTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsOtherTaxesNull() {
-                return this.IsNull(this.tableBillSummary.OtherTaxesColumn);
+                return this.IsNull(this.tablePurchaseSummary.OtherTaxesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOtherTaxesNull() {
-                this[this.tableBillSummary.OtherTaxesColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.OtherTaxesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalTaxNull() {
-                return this.IsNull(this.tableBillSummary.TotalTaxColumn);
+                return this.IsNull(this.tablePurchaseSummary.TotalTaxColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalTaxNull() {
-                this[this.tableBillSummary.TotalTaxColumn] = global::System.Convert.DBNull;
+                this[this.tablePurchaseSummary.TotalTaxColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTotalInvoiceValueNull() {
-                return this.IsNull(this.tableBillSummary.TotalInvoiceValueColumn);
+            public bool IsTotalPurchaseValueNull() {
+                return this.IsNull(this.tablePurchaseSummary.TotalPurchaseValueColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTotalInvoiceValueNull() {
-                this[this.tableBillSummary.TotalInvoiceValueColumn] = global::System.Convert.DBNull;
+            public void SetTotalPurchaseValueNull() {
+                this[this.tablePurchaseSummary.TotalPurchaseValueColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1906,22 +1947,22 @@ namespace GSTSoft_windows {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class BillDetailsRowChangeEvent : global::System.EventArgs {
+        public class PurchaseDetailsRowChangeEvent : global::System.EventArgs {
             
-            private BillDetailsRow eventRow;
+            private PurchaseDetailsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillDetailsRowChangeEvent(BillDetailsRow row, global::System.Data.DataRowAction action) {
+            public PurchaseDetailsRowChangeEvent(PurchaseDetailsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillDetailsRow Row {
+            public PurchaseDetailsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1940,22 +1981,22 @@ namespace GSTSoft_windows {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class BillSummaryRowChangeEvent : global::System.EventArgs {
+        public class PurchaseSummaryRowChangeEvent : global::System.EventArgs {
             
-            private BillSummaryRow eventRow;
+            private PurchaseSummaryRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillSummaryRowChangeEvent(BillSummaryRow row, global::System.Data.DataRowAction action) {
+            public PurchaseSummaryRowChangeEvent(PurchaseSummaryRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BillSummaryRow Row {
+            public PurchaseSummaryRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1971,7 +2012,7 @@ namespace GSTSoft_windows {
         }
     }
 }
-namespace GSTSoft_windows.DBDataSetTableAdapters {
+namespace GSTSoft_windows.GTDDataSet1TableAdapters {
     
     
     /// <summary>
@@ -1983,27 +2024,27 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class BillDetailsTableAdapter : global::System.ComponentModel.Component {
+    public partial class PurchaseDetailsTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
-        private global::System.Data.OleDb.OleDbConnection _connection;
+        private global::System.Data.SqlClient.SqlConnection _connection;
         
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
         
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public BillDetailsTableAdapter() {
+        public PurchaseDetailsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -2014,7 +2055,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
+        internal global::System.Data.SqlClient.SqlConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -2034,7 +2075,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -2042,7 +2083,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -2068,7 +2109,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -2091,12 +2132,12 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "BillDetails";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("InvoiceNo", "InvoiceNo");
+            tableMapping.DataSetTable = "PurchaseDetails";
+            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.ColumnMappings.Add("PurchaseNo", "PurchaseNo");
             tableMapping.ColumnMappings.Add("ProductID", "ProductID");
             tableMapping.ColumnMappings.Add("ProductName", "ProductName");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
@@ -2106,100 +2147,132 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("CGST", "CGST");
             tableMapping.ColumnMappings.Add("SGST", "SGST");
             tableMapping.ColumnMappings.Add("TotalValue", "TotalValue");
+            tableMapping.ColumnMappings.Add("CGSTRate", "CGSTRate");
+            tableMapping.ColumnMappings.Add("SGSTRate", "SGSTRate");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `BillDetails` WHERE ((`ID` = ?) AND ((? = 1 AND `InvoiceNo` IS NULL) OR (`InvoiceNo` = ?)) AND ((? = 1 AND `ProductID` IS NULL) OR (`ProductID` = ?)) AND ((? = 1 AND `ProductName` IS NULL) OR (`ProductName` = ?)) AND ((? = 1 AND `Quantity` IS NULL) OR (`Quantity` = ?)) AND ((? = 1 AND `Rate` IS NULL) OR (`Rate` = ?)) AND ((? = 1 AND `Discount` IS NULL) OR (`Discount` = ?)) AND ((? = 1 AND `TaxableValue` IS NULL) OR (`TaxableValue` = ?)) AND ((? = 1 AND `CGST` IS NULL) OR (`CGST` = ?)) AND ((? = 1 AND `SGST` IS NULL) OR (`SGST` = ?)) AND ((? = 1 AND `TotalValue` IS NULL) OR (`TotalValue` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[PurchaseDetails] WHERE (([Id] = @Original_Id) AND ([PurchaseNo] = @Original_PurchaseNo) AND ((@IsNull_ProductID = 1 AND [ProductID] IS NULL) OR ([ProductID] = @Original_ProductID)) AND ((@IsNull_ProductName = 1 AND [ProductName] IS NULL) OR ([ProductName] = @Original_ProductName)) AND ((@IsNull_Quantity = 1 AND [Quantity] IS NULL) OR ([Quantity] = @Original_Quantity)) AND ((@IsNull_Rate = 1 AND [Rate] IS NULL) OR ([Rate] = @Original_Rate)) AND ((@IsNull_Discount = 1 AND [Discount] IS NULL) OR ([Discount] = @Original_Discount)) AND ((@IsNull_TaxableValue = 1 AND [TaxableValue] IS NULL) OR ([TaxableValue] = @Original_TaxableValue)) AND ((@IsNull_CGST = 1 AND [CGST] IS NULL) OR ([CGST] = @Original_CGST)) AND ((@IsNull_SGST = 1 AND [SGST] IS NULL) OR ([SGST] = @Original_SGST)) AND ((@IsNull_TotalValue = 1 AND [TotalValue] IS NULL) OR ([TotalValue] = @Original_TotalValue)) AND ((@IsNull_CGSTRate = 1 AND [CGSTRate] IS NULL) OR ([CGSTRate] = @Original_CGSTRate)) AND ((@IsNull_SGSTRate = 1 AND [SGSTRate] IS NULL) OR ([SGSTRate] = @Original_SGSTRate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_InvoiceNo", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_InvoiceNo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProductID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProductName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Quantity", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Rate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rate", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Rate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rate", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Discount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Discount", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Discount", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Discount", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TaxableValue", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TaxableValue", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TaxableValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TaxableValue", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CGST", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CGST", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CGST", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_SGST", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "SGST", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_SGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "SGST", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalValue", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalValue", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalValue", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantity", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Rate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Discount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Discount", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TaxableValue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaxableValue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TaxableValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaxableValue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CGST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SGST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalValue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalValue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalValue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CGSTRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGSTRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CGSTRate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGSTRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SGSTRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGSTRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SGSTRate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGSTRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `BillDetails` (`InvoiceNo`, `ProductID`, `ProductName`, `Quantity`, `" +
-                "Rate`, `Discount`, `TaxableValue`, `CGST`, `SGST`, `TotalValue`) VALUES (?, ?, ?" +
-                ", ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[PurchaseDetails] ([Id], [PurchaseNo], [ProductID], [ProductName], [Quantity], [Rate], [Discount], [TaxableValue], [CGST], [SGST], [TotalValue], [CGSTRate], [SGSTRate]) VALUES (@Id, @PurchaseNo, @ProductID, @ProductName, @Quantity, @Rate, @Discount, @TaxableValue, @CGST, @SGST, @TotalValue, @CGSTRate, @SGSTRate);
+SELECT Id, PurchaseNo, ProductID, ProductName, Quantity, Rate, Discount, TaxableValue, CGST, SGST, TotalValue, CGSTRate, SGSTRate FROM PurchaseDetails WHERE (Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InvoiceNo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Quantity", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Rate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rate", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Discount", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Discount", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TaxableValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TaxableValue", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CGST", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("SGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "SGST", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalValue", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Discount", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TaxableValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaxableValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CGSTRate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGSTRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SGSTRate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGSTRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `BillDetails` SET `InvoiceNo` = ?, `ProductID` = ?, `ProductName` = ?, `Quantity` = ?, `Rate` = ?, `Discount` = ?, `TaxableValue` = ?, `CGST` = ?, `SGST` = ?, `TotalValue` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `InvoiceNo` IS NULL) OR (`InvoiceNo` = ?)) AND ((? = 1 AND `ProductID` IS NULL) OR (`ProductID` = ?)) AND ((? = 1 AND `ProductName` IS NULL) OR (`ProductName` = ?)) AND ((? = 1 AND `Quantity` IS NULL) OR (`Quantity` = ?)) AND ((? = 1 AND `Rate` IS NULL) OR (`Rate` = ?)) AND ((? = 1 AND `Discount` IS NULL) OR (`Discount` = ?)) AND ((? = 1 AND `TaxableValue` IS NULL) OR (`TaxableValue` = ?)) AND ((? = 1 AND `CGST` IS NULL) OR (`CGST` = ?)) AND ((? = 1 AND `SGST` IS NULL) OR (`SGST` = ?)) AND ((? = 1 AND `TotalValue` IS NULL) OR (`TotalValue` = ?)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[PurchaseDetails] SET [Id] = @Id, [PurchaseNo] = @PurchaseNo, [Produ" +
+                "ctID] = @ProductID, [ProductName] = @ProductName, [Quantity] = @Quantity, [Rate]" +
+                " = @Rate, [Discount] = @Discount, [TaxableValue] = @TaxableValue, [CGST] = @CGST" +
+                ", [SGST] = @SGST, [TotalValue] = @TotalValue, [CGSTRate] = @CGSTRate, [SGSTRate]" +
+                " = @SGSTRate WHERE (([Id] = @Original_Id) AND ([PurchaseNo] = @Original_Purchase" +
+                "No) AND ((@IsNull_ProductID = 1 AND [ProductID] IS NULL) OR ([ProductID] = @Orig" +
+                "inal_ProductID)) AND ((@IsNull_ProductName = 1 AND [ProductName] IS NULL) OR ([P" +
+                "roductName] = @Original_ProductName)) AND ((@IsNull_Quantity = 1 AND [Quantity] " +
+                "IS NULL) OR ([Quantity] = @Original_Quantity)) AND ((@IsNull_Rate = 1 AND [Rate]" +
+                " IS NULL) OR ([Rate] = @Original_Rate)) AND ((@IsNull_Discount = 1 AND [Discount" +
+                "] IS NULL) OR ([Discount] = @Original_Discount)) AND ((@IsNull_TaxableValue = 1 " +
+                "AND [TaxableValue] IS NULL) OR ([TaxableValue] = @Original_TaxableValue)) AND ((" +
+                "@IsNull_CGST = 1 AND [CGST] IS NULL) OR ([CGST] = @Original_CGST)) AND ((@IsNull" +
+                "_SGST = 1 AND [SGST] IS NULL) OR ([SGST] = @Original_SGST)) AND ((@IsNull_TotalV" +
+                "alue = 1 AND [TotalValue] IS NULL) OR ([TotalValue] = @Original_TotalValue)) AND" +
+                " ((@IsNull_CGSTRate = 1 AND [CGSTRate] IS NULL) OR ([CGSTRate] = @Original_CGSTR" +
+                "ate)) AND ((@IsNull_SGSTRate = 1 AND [SGSTRate] IS NULL) OR ([SGSTRate] = @Origi" +
+                "nal_SGSTRate)));\r\nSELECT Id, PurchaseNo, ProductID, ProductName, Quantity, Rate," +
+                " Discount, TaxableValue, CGST, SGST, TotalValue, CGSTRate, SGSTRate FROM Purchas" +
+                "eDetails WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InvoiceNo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Quantity", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Rate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rate", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Discount", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Discount", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TaxableValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TaxableValue", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CGST", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("SGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "SGST", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalValue", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_InvoiceNo", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_InvoiceNo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProductID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ProductName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ProductName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ProductName", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Quantity", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Quantity", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Quantity", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Rate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rate", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Rate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Rate", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Discount", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Discount", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Discount", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Discount", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TaxableValue", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TaxableValue", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TaxableValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TaxableValue", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CGST", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CGST", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CGST", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_SGST", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "SGST", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_SGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "SGST", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalValue", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalValue", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalValue", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Quantity", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Discount", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TaxableValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaxableValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CGSTRate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGSTRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SGSTRate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGSTRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ProductName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ProductName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Quantity", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Quantity", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Quantity", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Rate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Discount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Discount", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TaxableValue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaxableValue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TaxableValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TaxableValue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CGST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SGST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalValue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalValue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalValue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CGSTRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGSTRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CGSTRate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CGSTRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SGSTRate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGSTRate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SGSTRate", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SGSTRate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::GSTSoft_windows.Properties.Settings.Default.DBConnectionString1;
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::GSTSoft_windows.Properties.Settings.Default.GTDConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, InvoiceNo, ProductID, ProductName, Quantity, Rate, Discount, TaxableVa" +
-                "lue, CGST, SGST, TotalValue FROM BillDetails";
+            this._commandCollection[0].CommandText = "SELECT Id, PurchaseNo, ProductID, ProductName, Quantity, Rate, Discount, TaxableV" +
+                "alue, CGST, SGST, TotalValue, CGSTRate, SGSTRate FROM dbo.PurchaseDetails";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2207,7 +2280,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DBDataSet.BillDetailsDataTable dataTable) {
+        public virtual int Fill(GTDDataSet1.PurchaseDetailsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2220,9 +2293,9 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DBDataSet.BillDetailsDataTable GetData() {
+        public virtual GTDDataSet1.PurchaseDetailsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DBDataSet.BillDetailsDataTable dataTable = new DBDataSet.BillDetailsDataTable();
+            GTDDataSet1.PurchaseDetailsDataTable dataTable = new GTDDataSet1.PurchaseDetailsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2230,15 +2303,15 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DBDataSet.BillDetailsDataTable dataTable) {
+        public virtual int Update(GTDDataSet1.PurchaseDetailsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "BillDetails");
+        public virtual int Update(GTDDataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "PurchaseDetails");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2260,87 +2333,101 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_InvoiceNo, string Original_ProductID, string Original_ProductName, string Original_Quantity, string Original_Rate, string Original_Discount, string Original_TaxableValue, string Original_CGST, string Original_SGST, string Original_TotalValue) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_InvoiceNo == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+        public virtual int Delete(string Original_Id, int Original_PurchaseNo, string Original_ProductID, string Original_ProductName, string Original_Quantity, string Original_Rate, string Original_Discount, string Original_TaxableValue, string Original_CGST, string Original_SGST, string Original_TotalValue, string Original_CGSTRate, string Original_SGSTRate) {
+            if ((Original_Id == null)) {
+                throw new global::System.ArgumentNullException("Original_Id");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_InvoiceNo));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Id));
             }
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PurchaseNo));
             if ((Original_ProductID == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_ProductID));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_ProductID));
             }
             if ((Original_ProductName == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_ProductName));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_ProductName));
             }
             if ((Original_Quantity == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Quantity));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Quantity));
             }
             if ((Original_Rate == null)) {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Rate));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Rate));
             }
             if ((Original_Discount == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Discount));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Discount));
             }
             if ((Original_TaxableValue == null)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_TaxableValue));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_TaxableValue));
             }
             if ((Original_CGST == null)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_CGST));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_CGST));
             }
             if ((Original_SGST == null)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_SGST));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_SGST));
             }
             if ((Original_TotalValue == null)) {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_TotalValue));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_TotalValue));
+            }
+            if ((Original_CGSTRate == null)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_CGSTRate));
+            }
+            if ((Original_SGSTRate == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_SGSTRate));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2362,66 +2449,79 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string InvoiceNo, string ProductID, string ProductName, string Quantity, string Rate, string Discount, string TaxableValue, string CGST, string SGST, string TotalValue) {
-            if ((InvoiceNo == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+        public virtual int Insert(string Id, int PurchaseNo, string ProductID, string ProductName, string Quantity, string Rate, string Discount, string TaxableValue, string CGST, string SGST, string TotalValue, string CGSTRate, string SGSTRate) {
+            if ((Id == null)) {
+                throw new global::System.ArgumentNullException("Id");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(InvoiceNo));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Id));
             }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PurchaseNo));
             if ((ProductID == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(ProductID));
-            }
-            if ((ProductName == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ProductName));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ProductID));
             }
-            if ((Quantity == null)) {
+            if ((ProductName == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Quantity));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(ProductName));
             }
-            if ((Rate == null)) {
+            if ((Quantity == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Rate));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Quantity));
             }
-            if ((Discount == null)) {
+            if ((Rate == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Discount));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Rate));
             }
-            if ((TaxableValue == null)) {
+            if ((Discount == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(TaxableValue));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Discount));
             }
-            if ((CGST == null)) {
+            if ((TaxableValue == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(CGST));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(TaxableValue));
             }
-            if ((SGST == null)) {
+            if ((CGST == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(SGST));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(CGST));
             }
-            if ((TotalValue == null)) {
+            if ((SGST == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(TotalValue));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(SGST));
+            }
+            if ((TotalValue == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(TotalValue));
+            }
+            if ((CGSTRate == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(CGSTRate));
+            }
+            if ((SGSTRate == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(SGSTRate));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2444,7 +2544,8 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string InvoiceNo, 
+                    string Id, 
+                    int PurchaseNo, 
                     string ProductID, 
                     string ProductName, 
                     string Quantity, 
@@ -2454,8 +2555,10 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                     string CGST, 
                     string SGST, 
                     string TotalValue, 
-                    int Original_ID, 
-                    string Original_InvoiceNo, 
+                    string CGSTRate, 
+                    string SGSTRate, 
+                    string Original_Id, 
+                    int Original_PurchaseNo, 
                     string Original_ProductID, 
                     string Original_ProductName, 
                     string Original_Quantity, 
@@ -2464,147 +2567,176 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                     string Original_TaxableValue, 
                     string Original_CGST, 
                     string Original_SGST, 
-                    string Original_TotalValue) {
-            if ((InvoiceNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                    string Original_TotalValue, 
+                    string Original_CGSTRate, 
+                    string Original_SGSTRate) {
+            if ((Id == null)) {
+                throw new global::System.ArgumentNullException("Id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(InvoiceNo));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Id));
             }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PurchaseNo));
             if ((ProductID == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(ProductID));
-            }
-            if ((ProductName == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ProductName));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ProductID));
             }
-            if ((Quantity == null)) {
+            if ((ProductName == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Quantity));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ProductName));
             }
-            if ((Rate == null)) {
+            if ((Quantity == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Rate));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Quantity));
             }
-            if ((Discount == null)) {
+            if ((Rate == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Discount));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Rate));
             }
-            if ((TaxableValue == null)) {
+            if ((Discount == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(TaxableValue));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Discount));
             }
-            if ((CGST == null)) {
+            if ((TaxableValue == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(CGST));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(TaxableValue));
             }
-            if ((SGST == null)) {
+            if ((CGST == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(SGST));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(CGST));
             }
-            if ((TotalValue == null)) {
+            if ((SGST == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(TotalValue));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(SGST));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ID));
-            if ((Original_InvoiceNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+            if ((TotalValue == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(TotalValue));
+            }
+            if ((CGSTRate == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(CGSTRate));
+            }
+            if ((SGSTRate == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_InvoiceNo));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(SGSTRate));
             }
-            if ((Original_ProductID == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            if ((Original_Id == null)) {
+                throw new global::System.ArgumentNullException("Original_Id");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_ProductID));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Id));
             }
-            if ((Original_ProductName == null)) {
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_PurchaseNo));
+            if ((Original_ProductID == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_ProductName));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_ProductID));
             }
-            if ((Original_Quantity == null)) {
+            if ((Original_ProductName == null)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Quantity));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_ProductName));
             }
-            if ((Original_Rate == null)) {
+            if ((Original_Quantity == null)) {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Rate));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Quantity));
             }
-            if ((Original_Discount == null)) {
+            if ((Original_Rate == null)) {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Discount));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Rate));
             }
-            if ((Original_TaxableValue == null)) {
+            if ((Original_Discount == null)) {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_TaxableValue));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Discount));
             }
-            if ((Original_CGST == null)) {
+            if ((Original_TaxableValue == null)) {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_CGST));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_TaxableValue));
             }
-            if ((Original_SGST == null)) {
+            if ((Original_CGST == null)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_SGST));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_CGST));
             }
-            if ((Original_TotalValue == null)) {
+            if ((Original_SGST == null)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_TotalValue));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_SGST));
+            }
+            if ((Original_TotalValue == null)) {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_TotalValue));
+            }
+            if ((Original_CGSTRate == null)) {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_CGSTRate));
+            }
+            if ((Original_SGSTRate == null)) {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_SGSTRate));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2620,6 +2752,39 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int PurchaseNo, 
+                    string ProductID, 
+                    string ProductName, 
+                    string Quantity, 
+                    string Rate, 
+                    string Discount, 
+                    string TaxableValue, 
+                    string CGST, 
+                    string SGST, 
+                    string TotalValue, 
+                    string CGSTRate, 
+                    string SGSTRate, 
+                    string Original_Id, 
+                    int Original_PurchaseNo, 
+                    string Original_ProductID, 
+                    string Original_ProductName, 
+                    string Original_Quantity, 
+                    string Original_Rate, 
+                    string Original_Discount, 
+                    string Original_TaxableValue, 
+                    string Original_CGST, 
+                    string Original_SGST, 
+                    string Original_TotalValue, 
+                    string Original_CGSTRate, 
+                    string Original_SGSTRate) {
+            return this.Update(Original_Id, PurchaseNo, ProductID, ProductName, Quantity, Rate, Discount, TaxableValue, CGST, SGST, TotalValue, CGSTRate, SGSTRate, Original_Id, Original_PurchaseNo, Original_ProductID, Original_ProductName, Original_Quantity, Original_Rate, Original_Discount, Original_TaxableValue, Original_CGST, Original_SGST, Original_TotalValue, Original_CGSTRate, Original_SGSTRate);
         }
     }
     
@@ -2632,27 +2797,27 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class BillSummaryTableAdapter : global::System.ComponentModel.Component {
+    public partial class PurchaseSummaryTableAdapter : global::System.ComponentModel.Component {
         
-        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
-        private global::System.Data.OleDb.OleDbConnection _connection;
+        private global::System.Data.SqlClient.SqlConnection _connection;
         
-        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
         
-        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
         
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public BillSummaryTableAdapter() {
+        public PurchaseSummaryTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
             get {
                 if ((this._adapter == null)) {
                     this.InitAdapter();
@@ -2663,7 +2828,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.OleDb.OleDbConnection Connection {
+        internal global::System.Data.SqlClient.SqlConnection Connection {
             get {
                 if ((this._connection == null)) {
                     this.InitConnection();
@@ -2683,7 +2848,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                 }
                 for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
                     if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
                     }
                 }
             }
@@ -2691,7 +2856,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
             get {
                 return this._transaction;
             }
@@ -2717,7 +2882,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
             get {
                 if ((this._commandCollection == null)) {
                     this.InitCommandCollection();
@@ -2740,14 +2905,15 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitAdapter() {
-            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "BillSummary";
+            tableMapping.DataSetTable = "PurchaseSummary";
             tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("InvoiceNo", "InvoiceNo");
-            tableMapping.ColumnMappings.Add("InvoiceCreatedBy", "InvoiceCreatedBy");
-            tableMapping.ColumnMappings.Add("InvoiceDate", "InvoiceDate");
+            tableMapping.ColumnMappings.Add("PurchaseNo", "PurchaseNo");
+            tableMapping.ColumnMappings.Add("PurchaseYear", "PurchaseYear");
+            tableMapping.ColumnMappings.Add("PurchaseCreatedBy", "PurchaseCreatedBy");
+            tableMapping.ColumnMappings.Add("PurchaseDate", "PurchaseDate");
             tableMapping.ColumnMappings.Add("CustomerName", "CustomerName");
             tableMapping.ColumnMappings.Add("CustomerAddress", "CustomerAddress");
             tableMapping.ColumnMappings.Add("CustomerGSTNumber", "CustomerGSTNumber");
@@ -2757,114 +2923,151 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("TotalSGST", "TotalSGST");
             tableMapping.ColumnMappings.Add("OtherTaxes", "OtherTaxes");
             tableMapping.ColumnMappings.Add("TotalTax", "TotalTax");
-            tableMapping.ColumnMappings.Add("TotalInvoiceValue", "TotalInvoiceValue");
+            tableMapping.ColumnMappings.Add("TotalPurchaseValue", "TotalPurchaseValue");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `BillSummary` WHERE ((`ID` = ?) AND ((? = 1 AND `InvoiceNo` IS NULL) OR (`InvoiceNo` = ?)) AND ((? = 1 AND `InvoiceCreatedBy` IS NULL) OR (`InvoiceCreatedBy` = ?)) AND ((? = 1 AND `InvoiceDate` IS NULL) OR (`InvoiceDate` = ?)) AND ((? = 1 AND `CustomerName` IS NULL) OR (`CustomerName` = ?)) AND ((? = 1 AND `CustomerGSTNumber` IS NULL) OR (`CustomerGSTNumber` = ?)) AND ((? = 1 AND `CustomerContactNumber` IS NULL) OR (`CustomerContactNumber` = ?)) AND ((? = 1 AND `CompanyID` IS NULL) OR (`CompanyID` = ?)) AND ((? = 1 AND `TotalCGST` IS NULL) OR (`TotalCGST` = ?)) AND ((? = 1 AND `TotalSGST` IS NULL) OR (`TotalSGST` = ?)) AND ((? = 1 AND `OtherTaxes` IS NULL) OR (`OtherTaxes` = ?)) AND ((? = 1 AND `TotalTax` IS NULL) OR (`TotalTax` = ?)) AND ((? = 1 AND `TotalInvoiceValue` IS NULL) OR (`TotalInvoiceValue` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[PurchaseSummary] WHERE (([ID] = @Original_ID) AND ([PurchaseNo] = @Original_PurchaseNo) AND ([PurchaseYear] = @Original_PurchaseYear) AND ((@IsNull_PurchaseCreatedBy = 1 AND [PurchaseCreatedBy] IS NULL) OR ([PurchaseCreatedBy] = @Original_PurchaseCreatedBy)) AND ((@IsNull_PurchaseDate = 1 AND [PurchaseDate] IS NULL) OR ([PurchaseDate] = @Original_PurchaseDate)) AND ((@IsNull_CustomerName = 1 AND [CustomerName] IS NULL) OR ([CustomerName] = @Original_CustomerName)) AND ((@IsNull_CustomerAddress = 1 AND [CustomerAddress] IS NULL) OR ([CustomerAddress] = @Original_CustomerAddress)) AND ((@IsNull_CustomerGSTNumber = 1 AND [CustomerGSTNumber] IS NULL) OR ([CustomerGSTNumber] = @Original_CustomerGSTNumber)) AND ((@IsNull_CustomerContactNumber = 1 AND [CustomerContactNumber] IS NULL) OR ([CustomerContactNumber] = @Original_CustomerContactNumber)) AND ((@IsNull_CompanyID = 1 AND [CompanyID] IS NULL) OR ([CompanyID] = @Original_CompanyID)) AND ((@IsNull_TotalCGST = 1 AND [TotalCGST] IS NULL) OR ([TotalCGST] = @Original_TotalCGST)) AND ((@IsNull_TotalSGST = 1 AND [TotalSGST] IS NULL) OR ([TotalSGST] = @Original_TotalSGST)) AND ((@IsNull_OtherTaxes = 1 AND [OtherTaxes] IS NULL) OR ([OtherTaxes] = @Original_OtherTaxes)) AND ((@IsNull_TotalTax = 1 AND [TotalTax] IS NULL) OR ([TotalTax] = @Original_TotalTax)) AND ((@IsNull_TotalPurchaseValue = 1 AND [TotalPurchaseValue] IS NULL) OR ([TotalPurchaseValue] = @Original_TotalPurchaseValue)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_InvoiceNo", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_InvoiceNo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_InvoiceCreatedBy", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceCreatedBy", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_InvoiceCreatedBy", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceCreatedBy", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_InvoiceDate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceDate", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_InvoiceDate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceDate", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CustomerName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerName", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CustomerName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerName", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CustomerGSTNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerGSTNumber", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CustomerGSTNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerGSTNumber", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CustomerContactNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerContactNumber", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CustomerContactNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerContactNumber", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CompanyID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CompanyID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CompanyID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CompanyID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalCGST", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalCGST", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalCGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalCGST", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalSGST", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalSGST", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalSGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalSGST", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_OtherTaxes", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OtherTaxes", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_OtherTaxes", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OtherTaxes", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalTax", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalTax", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalTax", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalTax", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalInvoiceValue", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalInvoiceValue", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalInvoiceValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalInvoiceValue", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseYear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseYear", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PurchaseCreatedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseCreatedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseCreatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseCreatedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PurchaseDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerGSTNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerGSTNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerGSTNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerGSTNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerContactNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerContactNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerContactNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerContactNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CompanyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompanyID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalCGST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalCGST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalCGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalCGST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalSGST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSGST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalSGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSGST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OtherTaxes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherTaxes", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OtherTaxes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherTaxes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalTax", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalTax", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalTax", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalTax", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalPurchaseValue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPurchaseValue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalPurchaseValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPurchaseValue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `BillSummary` (`InvoiceNo`, `InvoiceCreatedBy`, `InvoiceDate`, `CustomerName`, `CustomerAddress`, `CustomerGSTNumber`, `CustomerContactNumber`, `CompanyID`, `TotalCGST`, `TotalSGST`, `OtherTaxes`, `TotalTax`, `TotalInvoiceValue`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[PurchaseSummary] ([ID], [PurchaseNo], [PurchaseYear], [PurchaseCreatedBy], [PurchaseDate], [CustomerName], [CustomerAddress], [CustomerGSTNumber], [CustomerContactNumber], [CompanyID], [TotalCGST], [TotalSGST], [OtherTaxes], [TotalTax], [TotalPurchaseValue]) VALUES (@ID, @PurchaseNo, @PurchaseYear, @PurchaseCreatedBy, @PurchaseDate, @CustomerName, @CustomerAddress, @CustomerGSTNumber, @CustomerContactNumber, @CompanyID, @TotalCGST, @TotalSGST, @OtherTaxes, @TotalTax, @TotalPurchaseValue);
+SELECT ID, PurchaseNo, PurchaseYear, PurchaseCreatedBy, PurchaseDate, CustomerName, CustomerAddress, CustomerGSTNumber, CustomerContactNumber, CompanyID, TotalCGST, TotalSGST, OtherTaxes, TotalTax, TotalPurchaseValue FROM PurchaseSummary WHERE (ID = @ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InvoiceNo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InvoiceCreatedBy", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceCreatedBy", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InvoiceDate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceDate", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerName", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerAddress", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerAddress", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerGSTNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerGSTNumber", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerContactNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerContactNumber", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CompanyID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CompanyID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalCGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalCGST", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalSGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalSGST", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("OtherTaxes", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OtherTaxes", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalTax", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalTax", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalInvoiceValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalInvoiceValue", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseYear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseCreatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseCreatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerGSTNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerGSTNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerContactNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerContactNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalCGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalCGST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalSGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSGST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OtherTaxes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherTaxes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalTax", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalTax", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalPurchaseValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPurchaseValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `BillSummary` SET `InvoiceNo` = ?, `InvoiceCreatedBy` = ?, `InvoiceDate` = ?, `CustomerName` = ?, `CustomerAddress` = ?, `CustomerGSTNumber` = ?, `CustomerContactNumber` = ?, `CompanyID` = ?, `TotalCGST` = ?, `TotalSGST` = ?, `OtherTaxes` = ?, `TotalTax` = ?, `TotalInvoiceValue` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `InvoiceNo` IS NULL) OR (`InvoiceNo` = ?)) AND ((? = 1 AND `InvoiceCreatedBy` IS NULL) OR (`InvoiceCreatedBy` = ?)) AND ((? = 1 AND `InvoiceDate` IS NULL) OR (`InvoiceDate` = ?)) AND ((? = 1 AND `CustomerName` IS NULL) OR (`CustomerName` = ?)) AND ((? = 1 AND `CustomerGSTNumber` IS NULL) OR (`CustomerGSTNumber` = ?)) AND ((? = 1 AND `CustomerContactNumber` IS NULL) OR (`CustomerContactNumber` = ?)) AND ((? = 1 AND `CompanyID` IS NULL) OR (`CompanyID` = ?)) AND ((? = 1 AND `TotalCGST` IS NULL) OR (`TotalCGST` = ?)) AND ((? = 1 AND `TotalSGST` IS NULL) OR (`TotalSGST` = ?)) AND ((? = 1 AND `OtherTaxes` IS NULL) OR (`OtherTaxes` = ?)) AND ((? = 1 AND `TotalTax` IS NULL) OR (`TotalTax` = ?)) AND ((? = 1 AND `TotalInvoiceValue` IS NULL) OR (`TotalInvoiceValue` = ?)))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[PurchaseSummary] SET [ID] = @ID, [PurchaseNo] = @PurchaseNo, [Purch" +
+                "aseYear] = @PurchaseYear, [PurchaseCreatedBy] = @PurchaseCreatedBy, [PurchaseDat" +
+                "e] = @PurchaseDate, [CustomerName] = @CustomerName, [CustomerAddress] = @Custome" +
+                "rAddress, [CustomerGSTNumber] = @CustomerGSTNumber, [CustomerContactNumber] = @C" +
+                "ustomerContactNumber, [CompanyID] = @CompanyID, [TotalCGST] = @TotalCGST, [Total" +
+                "SGST] = @TotalSGST, [OtherTaxes] = @OtherTaxes, [TotalTax] = @TotalTax, [TotalPu" +
+                "rchaseValue] = @TotalPurchaseValue WHERE (([ID] = @Original_ID) AND ([PurchaseNo" +
+                "] = @Original_PurchaseNo) AND ([PurchaseYear] = @Original_PurchaseYear) AND ((@I" +
+                "sNull_PurchaseCreatedBy = 1 AND [PurchaseCreatedBy] IS NULL) OR ([PurchaseCreate" +
+                "dBy] = @Original_PurchaseCreatedBy)) AND ((@IsNull_PurchaseDate = 1 AND [Purchas" +
+                "eDate] IS NULL) OR ([PurchaseDate] = @Original_PurchaseDate)) AND ((@IsNull_Cust" +
+                "omerName = 1 AND [CustomerName] IS NULL) OR ([CustomerName] = @Original_Customer" +
+                "Name)) AND ((@IsNull_CustomerAddress = 1 AND [CustomerAddress] IS NULL) OR ([Cus" +
+                "tomerAddress] = @Original_CustomerAddress)) AND ((@IsNull_CustomerGSTNumber = 1 " +
+                "AND [CustomerGSTNumber] IS NULL) OR ([CustomerGSTNumber] = @Original_CustomerGST" +
+                "Number)) AND ((@IsNull_CustomerContactNumber = 1 AND [CustomerContactNumber] IS " +
+                "NULL) OR ([CustomerContactNumber] = @Original_CustomerContactNumber)) AND ((@IsN" +
+                "ull_CompanyID = 1 AND [CompanyID] IS NULL) OR ([CompanyID] = @Original_CompanyID" +
+                ")) AND ((@IsNull_TotalCGST = 1 AND [TotalCGST] IS NULL) OR ([TotalCGST] = @Origi" +
+                "nal_TotalCGST)) AND ((@IsNull_TotalSGST = 1 AND [TotalSGST] IS NULL) OR ([TotalS" +
+                "GST] = @Original_TotalSGST)) AND ((@IsNull_OtherTaxes = 1 AND [OtherTaxes] IS NU" +
+                "LL) OR ([OtherTaxes] = @Original_OtherTaxes)) AND ((@IsNull_TotalTax = 1 AND [To" +
+                "talTax] IS NULL) OR ([TotalTax] = @Original_TotalTax)) AND ((@IsNull_TotalPurcha" +
+                "seValue = 1 AND [TotalPurchaseValue] IS NULL) OR ([TotalPurchaseValue] = @Origin" +
+                "al_TotalPurchaseValue)));\r\nSELECT ID, PurchaseNo, PurchaseYear, PurchaseCreatedB" +
+                "y, PurchaseDate, CustomerName, CustomerAddress, CustomerGSTNumber, CustomerConta" +
+                "ctNumber, CompanyID, TotalCGST, TotalSGST, OtherTaxes, TotalTax, TotalPurchaseVa" +
+                "lue FROM PurchaseSummary WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InvoiceNo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InvoiceCreatedBy", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceCreatedBy", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("InvoiceDate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceDate", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerName", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerAddress", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerAddress", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerGSTNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerGSTNumber", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CustomerContactNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerContactNumber", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CompanyID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CompanyID", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalCGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalCGST", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalSGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalSGST", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("OtherTaxes", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OtherTaxes", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalTax", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalTax", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("TotalInvoiceValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalInvoiceValue", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_InvoiceNo", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_InvoiceNo", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceNo", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_InvoiceCreatedBy", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceCreatedBy", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_InvoiceCreatedBy", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceCreatedBy", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_InvoiceDate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceDate", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_InvoiceDate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "InvoiceDate", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CustomerName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerName", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CustomerName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerName", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CustomerGSTNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerGSTNumber", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CustomerGSTNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerGSTNumber", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CustomerContactNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerContactNumber", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CustomerContactNumber", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CustomerContactNumber", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CompanyID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CompanyID", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CompanyID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CompanyID", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalCGST", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalCGST", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalCGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalCGST", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalSGST", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalSGST", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalSGST", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalSGST", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_OtherTaxes", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OtherTaxes", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_OtherTaxes", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "OtherTaxes", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalTax", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalTax", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalTax", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalTax", global::System.Data.DataRowVersion.Original, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_TotalInvoiceValue", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalInvoiceValue", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_TotalInvoiceValue", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "TotalInvoiceValue", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseYear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseYear", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseCreatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseCreatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PurchaseDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerGSTNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerGSTNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerContactNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerContactNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalCGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalCGST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalSGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSGST", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OtherTaxes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherTaxes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalTax", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalTax", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalPurchaseValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPurchaseValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseNo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseYear", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseYear", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PurchaseCreatedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseCreatedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseCreatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseCreatedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PurchaseDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PurchaseDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PurchaseDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerAddress", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerGSTNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerGSTNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerGSTNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerGSTNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CustomerContactNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerContactNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerContactNumber", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerContactNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CompanyID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompanyID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalCGST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalCGST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalCGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalCGST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalSGST", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSGST", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalSGST", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalSGST", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OtherTaxes", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherTaxes", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OtherTaxes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OtherTaxes", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalTax", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalTax", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalTax", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalTax", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TotalPurchaseValue", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPurchaseValue", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TotalPurchaseValue", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalPurchaseValue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
-            this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::GSTSoft_windows.Properties.Settings.Default.DBConnectionString1;
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::GSTSoft_windows.Properties.Settings.Default.GTDConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
-            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, InvoiceNo, InvoiceCreatedBy, InvoiceDate, CustomerName, CustomerAddres" +
-                "s, CustomerGSTNumber, CustomerContactNumber, CompanyID, TotalCGST, TotalSGST, Ot" +
-                "herTaxes, TotalTax, TotalInvoiceValue FROM BillSummary";
+            this._commandCollection[0].CommandText = "SELECT ID, PurchaseNo, PurchaseYear, PurchaseCreatedBy, PurchaseDate, CustomerNam" +
+                "e, CustomerAddress, CustomerGSTNumber, CustomerContactNumber, CompanyID, TotalCG" +
+                "ST, TotalSGST, OtherTaxes, TotalTax, TotalPurchaseValue FROM dbo.PurchaseSummary" +
+                "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2872,7 +3075,7 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DBDataSet.BillSummaryDataTable dataTable) {
+        public virtual int Fill(GTDDataSet1.PurchaseSummaryDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2885,9 +3088,9 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DBDataSet.BillSummaryDataTable GetData() {
+        public virtual GTDDataSet1.PurchaseSummaryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DBDataSet.BillSummaryDataTable dataTable = new DBDataSet.BillSummaryDataTable();
+            GTDDataSet1.PurchaseSummaryDataTable dataTable = new GTDDataSet1.PurchaseSummaryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2895,15 +3098,15 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DBDataSet.BillSummaryDataTable dataTable) {
+        public virtual int Update(GTDDataSet1.PurchaseSummaryDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "BillSummary");
+        public virtual int Update(GTDDataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "PurchaseSummary");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2925,31 +3128,25 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_InvoiceNo, string Original_InvoiceCreatedBy, string Original_InvoiceDate, string Original_CustomerName, string Original_CustomerGSTNumber, string Original_CustomerContactNumber, string Original_CompanyID, string Original_TotalCGST, string Original_TotalSGST, string Original_OtherTaxes, string Original_TotalTax, string Original_TotalInvoiceValue) {
+        public virtual int Delete(int Original_ID, int Original_PurchaseNo, int Original_PurchaseYear, string Original_PurchaseCreatedBy, global::System.Nullable<global::System.DateTime> Original_PurchaseDate, string Original_CustomerName, string Original_CustomerAddress, string Original_CustomerGSTNumber, string Original_CustomerContactNumber, string Original_CompanyID, string Original_TotalCGST, string Original_TotalSGST, string Original_OtherTaxes, string Original_TotalTax, string Original_TotalPurchaseValue) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            if ((Original_InvoiceNo == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_InvoiceNo));
-            }
-            if ((Original_InvoiceCreatedBy == null)) {
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_PurchaseNo));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_PurchaseYear));
+            if ((Original_PurchaseCreatedBy == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_InvoiceCreatedBy));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_PurchaseCreatedBy));
             }
-            if ((Original_InvoiceDate == null)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Original_PurchaseDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_PurchaseDate.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_InvoiceDate));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             if ((Original_CustomerName == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
@@ -2959,69 +3156,77 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_CustomerName));
             }
-            if ((Original_CustomerGSTNumber == null)) {
+            if ((Original_CustomerAddress == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_CustomerGSTNumber));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_CustomerAddress));
             }
-            if ((Original_CustomerContactNumber == null)) {
+            if ((Original_CustomerGSTNumber == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_CustomerContactNumber));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_CustomerGSTNumber));
             }
-            if ((Original_CompanyID == null)) {
+            if ((Original_CustomerContactNumber == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_CompanyID));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_CustomerContactNumber));
             }
-            if ((Original_TotalCGST == null)) {
+            if ((Original_CompanyID == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_TotalCGST));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_CompanyID));
             }
-            if ((Original_TotalSGST == null)) {
+            if ((Original_TotalCGST == null)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_TotalSGST));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((string)(Original_TotalCGST));
             }
-            if ((Original_OtherTaxes == null)) {
+            if ((Original_TotalSGST == null)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_OtherTaxes));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((string)(Original_TotalSGST));
             }
-            if ((Original_TotalTax == null)) {
+            if ((Original_OtherTaxes == null)) {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_TotalTax));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((string)(Original_OtherTaxes));
             }
-            if ((Original_TotalInvoiceValue == null)) {
+            if ((Original_TotalTax == null)) {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_TotalInvoiceValue));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((string)(Original_TotalTax));
+            }
+            if ((Original_TotalPurchaseValue == null)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((string)(Original_TotalPurchaseValue));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3043,84 +3248,81 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string InvoiceNo, string InvoiceCreatedBy, string InvoiceDate, string CustomerName, string CustomerAddress, string CustomerGSTNumber, string CustomerContactNumber, string CompanyID, string TotalCGST, string TotalSGST, string OtherTaxes, string TotalTax, string TotalInvoiceValue) {
-            if ((InvoiceNo == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(InvoiceNo));
-            }
-            if ((InvoiceCreatedBy == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(InvoiceCreatedBy));
-            }
-            if ((InvoiceDate == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(InvoiceDate));
-            }
-            if ((CustomerName == null)) {
+        public virtual int Insert(int ID, int PurchaseNo, int PurchaseYear, string PurchaseCreatedBy, global::System.Nullable<global::System.DateTime> PurchaseDate, string CustomerName, string CustomerAddress, string CustomerGSTNumber, string CustomerContactNumber, string CompanyID, string TotalCGST, string TotalSGST, string OtherTaxes, string TotalTax, string TotalPurchaseValue) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PurchaseNo));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(PurchaseYear));
+            if ((PurchaseCreatedBy == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(CustomerName));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(PurchaseCreatedBy));
             }
-            if ((CustomerAddress == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            if ((PurchaseDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(PurchaseDate.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(CustomerAddress));
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((CustomerGSTNumber == null)) {
+            if ((CustomerName == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(CustomerGSTNumber));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(CustomerName));
             }
-            if ((CustomerContactNumber == null)) {
+            if ((CustomerAddress == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(CustomerContactNumber));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(CustomerAddress));
             }
-            if ((CompanyID == null)) {
+            if ((CustomerGSTNumber == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(CompanyID));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(CustomerGSTNumber));
             }
-            if ((TotalCGST == null)) {
+            if ((CustomerContactNumber == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(TotalCGST));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(CustomerContactNumber));
             }
-            if ((TotalSGST == null)) {
+            if ((CompanyID == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(TotalSGST));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(CompanyID));
             }
-            if ((OtherTaxes == null)) {
+            if ((TotalCGST == null)) {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(OtherTaxes));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(TotalCGST));
             }
-            if ((TotalTax == null)) {
+            if ((TotalSGST == null)) {
                 this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(TotalTax));
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(TotalSGST));
             }
-            if ((TotalInvoiceValue == null)) {
+            if ((OtherTaxes == null)) {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(TotalInvoiceValue));
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(OtherTaxes));
+            }
+            if ((TotalTax == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(TotalTax));
+            }
+            if ((TotalPurchaseValue == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(TotalPurchaseValue));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3143,9 +3345,11 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    string InvoiceNo, 
-                    string InvoiceCreatedBy, 
-                    string InvoiceDate, 
+                    int ID, 
+                    int PurchaseNo, 
+                    int PurchaseYear, 
+                    string PurchaseCreatedBy, 
+                    global::System.Nullable<global::System.DateTime> PurchaseDate, 
                     string CustomerName, 
                     string CustomerAddress, 
                     string CustomerGSTNumber, 
@@ -3155,12 +3359,14 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                     string TotalSGST, 
                     string OtherTaxes, 
                     string TotalTax, 
-                    string TotalInvoiceValue, 
+                    string TotalPurchaseValue, 
                     int Original_ID, 
-                    string Original_InvoiceNo, 
-                    string Original_InvoiceCreatedBy, 
-                    string Original_InvoiceDate, 
+                    int Original_PurchaseNo, 
+                    int Original_PurchaseYear, 
+                    string Original_PurchaseCreatedBy, 
+                    global::System.Nullable<global::System.DateTime> Original_PurchaseDate, 
                     string Original_CustomerName, 
+                    string Original_CustomerAddress, 
                     string Original_CustomerGSTNumber, 
                     string Original_CustomerContactNumber, 
                     string Original_CompanyID, 
@@ -3168,181 +3374,180 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                     string Original_TotalSGST, 
                     string Original_OtherTaxes, 
                     string Original_TotalTax, 
-                    string Original_TotalInvoiceValue) {
-            if ((InvoiceNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(InvoiceNo));
-            }
-            if ((InvoiceCreatedBy == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(InvoiceCreatedBy));
-            }
-            if ((InvoiceDate == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(InvoiceDate));
-            }
-            if ((CustomerName == null)) {
+                    string Original_TotalPurchaseValue) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(ID));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(PurchaseNo));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(PurchaseYear));
+            if ((PurchaseCreatedBy == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(CustomerName));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(PurchaseCreatedBy));
             }
-            if ((CustomerAddress == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            if ((PurchaseDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(PurchaseDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(CustomerAddress));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((CustomerGSTNumber == null)) {
+            if ((CustomerName == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(CustomerGSTNumber));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(CustomerName));
             }
-            if ((CustomerContactNumber == null)) {
+            if ((CustomerAddress == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(CustomerContactNumber));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(CustomerAddress));
             }
-            if ((CompanyID == null)) {
+            if ((CustomerGSTNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(CompanyID));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(CustomerGSTNumber));
             }
-            if ((TotalCGST == null)) {
+            if ((CustomerContactNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(TotalCGST));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(CustomerContactNumber));
             }
-            if ((TotalSGST == null)) {
+            if ((CompanyID == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(TotalSGST));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(CompanyID));
             }
-            if ((OtherTaxes == null)) {
+            if ((TotalCGST == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(OtherTaxes));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(TotalCGST));
             }
-            if ((TotalTax == null)) {
+            if ((TotalSGST == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(TotalTax));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(TotalSGST));
             }
-            if ((TotalInvoiceValue == null)) {
+            if ((OtherTaxes == null)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(TotalInvoiceValue));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(OtherTaxes));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_ID));
-            if ((Original_InvoiceNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            if ((TotalTax == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_InvoiceNo));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(TotalTax));
             }
-            if ((Original_InvoiceCreatedBy == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            if ((TotalPurchaseValue == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_InvoiceCreatedBy));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(TotalPurchaseValue));
             }
-            if ((Original_InvoiceDate == null)) {
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_PurchaseNo));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_PurchaseYear));
+            if ((Original_PurchaseCreatedBy == null)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_InvoiceDate));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_PurchaseCreatedBy));
             }
-            if ((Original_CustomerName == null)) {
+            if ((Original_PurchaseDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(Original_PurchaseDate.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_CustomerName));
-            }
-            if ((Original_CustomerGSTNumber == null)) {
+            if ((Original_CustomerName == null)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_CustomerGSTNumber));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_CustomerName));
             }
-            if ((Original_CustomerContactNumber == null)) {
+            if ((Original_CustomerAddress == null)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_CustomerContactNumber));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_CustomerAddress));
             }
-            if ((Original_CompanyID == null)) {
+            if ((Original_CustomerGSTNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_CompanyID));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_CustomerGSTNumber));
             }
-            if ((Original_TotalCGST == null)) {
+            if ((Original_CustomerContactNumber == null)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_TotalCGST));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_CustomerContactNumber));
             }
-            if ((Original_TotalSGST == null)) {
+            if ((Original_CompanyID == null)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_TotalSGST));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_CompanyID));
             }
-            if ((Original_OtherTaxes == null)) {
+            if ((Original_TotalCGST == null)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_OtherTaxes));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_TotalCGST));
             }
-            if ((Original_TotalTax == null)) {
+            if ((Original_TotalSGST == null)) {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_TotalTax));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_TotalSGST));
             }
-            if ((Original_TotalInvoiceValue == null)) {
+            if ((Original_OtherTaxes == null)) {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_TotalInvoiceValue));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_OtherTaxes));
+            }
+            if ((Original_TotalTax == null)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_TotalTax));
+            }
+            if ((Original_TotalPurchaseValue == null)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_TotalPurchaseValue));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3358,6 +3563,43 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    int PurchaseNo, 
+                    int PurchaseYear, 
+                    string PurchaseCreatedBy, 
+                    global::System.Nullable<global::System.DateTime> PurchaseDate, 
+                    string CustomerName, 
+                    string CustomerAddress, 
+                    string CustomerGSTNumber, 
+                    string CustomerContactNumber, 
+                    string CompanyID, 
+                    string TotalCGST, 
+                    string TotalSGST, 
+                    string OtherTaxes, 
+                    string TotalTax, 
+                    string TotalPurchaseValue, 
+                    int Original_ID, 
+                    int Original_PurchaseNo, 
+                    int Original_PurchaseYear, 
+                    string Original_PurchaseCreatedBy, 
+                    global::System.Nullable<global::System.DateTime> Original_PurchaseDate, 
+                    string Original_CustomerName, 
+                    string Original_CustomerAddress, 
+                    string Original_CustomerGSTNumber, 
+                    string Original_CustomerContactNumber, 
+                    string Original_CompanyID, 
+                    string Original_TotalCGST, 
+                    string Original_TotalSGST, 
+                    string Original_OtherTaxes, 
+                    string Original_TotalTax, 
+                    string Original_TotalPurchaseValue) {
+            return this.Update(Original_ID, PurchaseNo, PurchaseYear, PurchaseCreatedBy, PurchaseDate, CustomerName, CustomerAddress, CustomerGSTNumber, CustomerContactNumber, CompanyID, TotalCGST, TotalSGST, OtherTaxes, TotalTax, TotalPurchaseValue, Original_ID, Original_PurchaseNo, Original_PurchaseYear, Original_PurchaseCreatedBy, Original_PurchaseDate, Original_CustomerName, Original_CustomerAddress, Original_CustomerGSTNumber, Original_CustomerContactNumber, Original_CompanyID, Original_TotalCGST, Original_TotalSGST, Original_OtherTaxes, Original_TotalTax, Original_TotalPurchaseValue);
         }
     }
     
@@ -3373,9 +3615,9 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private BillDetailsTableAdapter _billDetailsTableAdapter;
+        private PurchaseDetailsTableAdapter _purchaseDetailsTableAdapter;
         
-        private BillSummaryTableAdapter _billSummaryTableAdapter;
+        private PurchaseSummaryTableAdapter _purchaseSummaryTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -3397,12 +3639,12 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public BillDetailsTableAdapter BillDetailsTableAdapter {
+        public PurchaseDetailsTableAdapter PurchaseDetailsTableAdapter {
             get {
-                return this._billDetailsTableAdapter;
+                return this._purchaseDetailsTableAdapter;
             }
             set {
-                this._billDetailsTableAdapter = value;
+                this._purchaseDetailsTableAdapter = value;
             }
         }
         
@@ -3411,12 +3653,12 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public BillSummaryTableAdapter BillSummaryTableAdapter {
+        public PurchaseSummaryTableAdapter PurchaseSummaryTableAdapter {
             get {
-                return this._billSummaryTableAdapter;
+                return this._purchaseSummaryTableAdapter;
             }
             set {
-                this._billSummaryTableAdapter = value;
+                this._purchaseSummaryTableAdapter = value;
             }
         }
         
@@ -3439,13 +3681,13 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._billDetailsTableAdapter != null) 
-                            && (this._billDetailsTableAdapter.Connection != null))) {
-                    return this._billDetailsTableAdapter.Connection;
+                if (((this._purchaseDetailsTableAdapter != null) 
+                            && (this._purchaseDetailsTableAdapter.Connection != null))) {
+                    return this._purchaseDetailsTableAdapter.Connection;
                 }
-                if (((this._billSummaryTableAdapter != null) 
-                            && (this._billSummaryTableAdapter.Connection != null))) {
-                    return this._billSummaryTableAdapter.Connection;
+                if (((this._purchaseSummaryTableAdapter != null) 
+                            && (this._purchaseSummaryTableAdapter.Connection != null))) {
+                    return this._purchaseSummaryTableAdapter.Connection;
                 }
                 return null;
             }
@@ -3460,10 +3702,10 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._billDetailsTableAdapter != null)) {
+                if ((this._purchaseDetailsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._billSummaryTableAdapter != null)) {
+                if ((this._purchaseSummaryTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -3475,23 +3717,23 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(GTDDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._billDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BillDetails.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._purchaseDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PurchaseDetails.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._billDetailsTableAdapter.Update(updatedRows));
+                    result = (result + this._purchaseDetailsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._billSummaryTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BillSummary.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._purchaseSummaryTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.PurchaseSummary.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._billSummaryTableAdapter.Update(updatedRows));
+                    result = (result + this._purchaseSummaryTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -3503,21 +3745,21 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(GTDDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._billDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BillDetails.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._purchaseDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PurchaseDetails.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._billDetailsTableAdapter.Update(addedRows));
+                    result = (result + this._purchaseDetailsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._billSummaryTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BillSummary.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._purchaseSummaryTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.PurchaseSummary.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._billSummaryTableAdapter.Update(addedRows));
+                    result = (result + this._purchaseSummaryTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -3529,21 +3771,21 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(GTDDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._billSummaryTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.BillSummary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._purchaseSummaryTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PurchaseSummary.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._billSummaryTableAdapter.Update(deletedRows));
+                    result = (result + this._purchaseSummaryTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._billDetailsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.BillDetails.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._purchaseDetailsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.PurchaseDetails.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._billDetailsTableAdapter.Update(deletedRows));
+                    result = (result + this._purchaseDetailsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -3579,20 +3821,20 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DBDataSet dataSet) {
+        public virtual int UpdateAll(GTDDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._billDetailsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._billDetailsTableAdapter.Connection) == false))) {
+            if (((this._purchaseDetailsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._purchaseDetailsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._billSummaryTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._billSummaryTableAdapter.Connection) == false))) {
+            if (((this._purchaseSummaryTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._purchaseSummaryTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -3628,22 +3870,22 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._billDetailsTableAdapter != null)) {
-                    revertConnections.Add(this._billDetailsTableAdapter, this._billDetailsTableAdapter.Connection);
-                    this._billDetailsTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._billDetailsTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._billDetailsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._billDetailsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._billDetailsTableAdapter.Adapter);
+                if ((this._purchaseDetailsTableAdapter != null)) {
+                    revertConnections.Add(this._purchaseDetailsTableAdapter, this._purchaseDetailsTableAdapter.Connection);
+                    this._purchaseDetailsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._purchaseDetailsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._purchaseDetailsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._purchaseDetailsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._purchaseDetailsTableAdapter.Adapter);
                     }
                 }
-                if ((this._billSummaryTableAdapter != null)) {
-                    revertConnections.Add(this._billSummaryTableAdapter, this._billSummaryTableAdapter.Connection);
-                    this._billSummaryTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(workConnection));
-                    this._billSummaryTableAdapter.Transaction = ((global::System.Data.OleDb.OleDbTransaction)(workTransaction));
-                    if (this._billSummaryTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._billSummaryTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._billSummaryTableAdapter.Adapter);
+                if ((this._purchaseSummaryTableAdapter != null)) {
+                    revertConnections.Add(this._purchaseSummaryTableAdapter, this._purchaseSummaryTableAdapter.Connection);
+                    this._purchaseSummaryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._purchaseSummaryTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._purchaseSummaryTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._purchaseSummaryTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._purchaseSummaryTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -3704,13 +3946,13 @@ namespace GSTSoft_windows.DBDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._billDetailsTableAdapter != null)) {
-                    this._billDetailsTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._billDetailsTableAdapter]));
-                    this._billDetailsTableAdapter.Transaction = null;
+                if ((this._purchaseDetailsTableAdapter != null)) {
+                    this._purchaseDetailsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._purchaseDetailsTableAdapter]));
+                    this._purchaseDetailsTableAdapter.Transaction = null;
                 }
-                if ((this._billSummaryTableAdapter != null)) {
-                    this._billSummaryTableAdapter.Connection = ((global::System.Data.OleDb.OleDbConnection)(revertConnections[this._billSummaryTableAdapter]));
-                    this._billSummaryTableAdapter.Transaction = null;
+                if ((this._purchaseSummaryTableAdapter != null)) {
+                    this._purchaseSummaryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._purchaseSummaryTableAdapter]));
+                    this._purchaseSummaryTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

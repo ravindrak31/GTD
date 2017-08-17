@@ -12,7 +12,7 @@ namespace GSTSoft_windows
 {
     public partial class Main : Form
     {
-        private int childFormNumber = 0;
+       // private int childFormNumber = 0;
 
         public Main()
         {
@@ -21,10 +21,7 @@ namespace GSTSoft_windows
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new Customer();
-           
-            childForm.Show();
-            childForm.MdiParent = this;
+          
             //   childForm.StartPosition = FormStartPosition.Manual;
             //  childForm.Location = new Point(Location.X + (Width - childForm.Width) / 2, Location.Y + (Height - childForm.Height) / 2);
             //  childForm.Show();
@@ -117,17 +114,75 @@ namespace GSTSoft_windows
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'gTDDataSet.BillSummary' table. You can move, or remove it, as needed.
+           // this.billSummaryTableAdapter.Fill(this.gTDDataSet.BillSummary);
             toolStripStatusLabel.Text =Name;
+            toolStripLabel1.Text = DateTime.Now.ToShortDateString();
         }
 
         private void toolsMenu_Click(object sender, EventArgs e)
         {
             Form childform = new PrintReports();
             childform.MdiParent = this;
+            childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
 
             childform.Show();
         }
 
-       
+        private void Close_Form(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childform = new StockEntry();
+            childform.MdiParent = this;
+            childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
+
+            childform.Show();
+        }
+
+        private void CustomerMenu_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void billSummaryBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+           // this.billSummaryBindingSource.EndEdit();
+            //this.tableAdapterManager.UpdateAll(this.gTDDataSet);
+
+        }
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Form childForm = new Customer();
+
+            childForm.Show();
+            childForm.MdiParent = this;
+
+        }
+
+        private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childForm = new Supplier();
+            childForm.Show();
+            childForm.MdiParent = this;
+        }
+
+        private void editMenu_Click(object sender, EventArgs e)
+        {
+            Form childForm = new Purchase();
+            childForm.Show();
+            childForm.MdiParent = this;
+        }
     }
 }

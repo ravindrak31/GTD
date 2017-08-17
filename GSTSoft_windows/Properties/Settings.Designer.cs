@@ -26,8 +26,8 @@ namespace GSTSoft_windows.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\DB.accdb;Jet OLEDB:" +
-            "Database Password=GST")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.SqlClient.12.0;Data Source=|DataDirectory|\\DB.accdb;Jet Sq" +
+            "lClient:Database Password=GST")]
         public string DBConnectionString {
             get {
                 return ((string)(this["DBConnectionString"]));
@@ -37,11 +37,22 @@ namespace GSTSoft_windows.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\DB.accdb;Persist Security Info=T" +
-            "rue;Jet OLEDB:Database Password=GST")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.SqlClient.12.0;Data Source=F:\\GSTSoft_Windows\\DB.accdb;Per" +
+            "sist Security Info=True;Jet SqlClient:Database Password=GST")]
         public string DBConnectionString1 {
             get {
                 return ((string)(this["DBConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\GTD.mdf;Integ" +
+            "rated Security=True;Connect Timeout=30")]
+        public string GTDConnectionString {
+            get {
+                return ((string)(this["GTDConnectionString"]));
             }
         }
     }

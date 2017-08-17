@@ -1,6 +1,6 @@
 ﻿namespace GSTSoft_windows
 {
-    partial class Invoice
+    partial class Purchase
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.InvoiceReference = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.InvoiceID = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Close = new System.Windows.Forms.Button();
             this.btn_Print = new System.Windows.Forms.Button();
@@ -50,7 +43,6 @@
             this.txt_SGSTRate = new System.Windows.Forms.TextBox();
             this.txt_CGSTRate = new System.Windows.Forms.TextBox();
             this.lbl_productID = new System.Windows.Forms.Label();
-            this.lbl_Stock = new System.Windows.Forms.Label();
             this.HSNCode = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.txt_TotalItemValue = new System.Windows.Forms.TextBox();
@@ -69,7 +61,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lbl_InvoiceTotal = new System.Windows.Forms.Label();
+            this.lbl_PurchaseTotal = new System.Windows.Forms.Label();
             this.lbl_SGST = new System.Windows.Forms.Label();
             this.lbl_CGST = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -103,85 +95,21 @@
             this.ProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusbar = new System.Windows.Forms.ToolStripStatusLabel();
-            this.panel1.SuspendLayout();
+            this.label7 = new System.Windows.Forms.Label();
+            this.PurchaseID = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.InvoiceReference = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.PanelItemDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.InvoiceReference);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.InvoiceID);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(23, 79);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1252, 56);
-            this.panel1.TabIndex = 0;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(1036, 9);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 28);
-            this.dateTimePicker1.TabIndex = 14;
-            this.dateTimePicker1.Value = new System.DateTime(2017, 8, 12, 0, 0, 0, 0);
-            // 
-            // InvoiceReference
-            // 
-            this.InvoiceReference.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InvoiceReference.Location = new System.Drawing.Point(585, 12);
-            this.InvoiceReference.Name = "InvoiceReference";
-            this.InvoiceReference.Size = new System.Drawing.Size(204, 28);
-            this.InvoiceReference.TabIndex = 13;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(441, 17);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(127, 18);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Reference No : ";
-            // 
-            // InvoiceID
-            // 
-            this.InvoiceID.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InvoiceID.Location = new System.Drawing.Point(195, 12);
-            this.InvoiceID.Name = "InvoiceID";
-            this.InvoiceID.Size = new System.Drawing.Size(81, 28);
-            this.InvoiceID.TabIndex = 11;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(914, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 18);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Invoice Date : ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 17);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(175, 18);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Invoice No :  INV2017/";
             // 
             // panel2
             // 
@@ -261,14 +189,14 @@
             this.panel3.Controls.Add(this.txt_OtherCharges);
             this.panel3.Controls.Add(this.lbl_Others);
             this.panel3.Controls.Add(this.PanelItemDetails);
-            this.panel3.Controls.Add(this.lbl_InvoiceTotal);
+            this.panel3.Controls.Add(this.lbl_PurchaseTotal);
             this.panel3.Controls.Add(this.lbl_SGST);
             this.panel3.Controls.Add(this.lbl_CGST);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(23, 313);
+            this.panel3.Location = new System.Drawing.Point(23, 274);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1252, 362);
             this.panel3.TabIndex = 1;
@@ -284,7 +212,6 @@
             this.txt_OtherCharges.Size = new System.Drawing.Size(62, 27);
             this.txt_OtherCharges.TabIndex = 9;
             this.txt_OtherCharges.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            //this.txt_OtherCharges.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txt_OtherCharges_MaskInputRejected);
             this.txt_OtherCharges.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_OtherCharges_KeyPress);
             // 
             // lbl_Others
@@ -303,7 +230,6 @@
             this.PanelItemDetails.Controls.Add(this.txt_SGSTRate);
             this.PanelItemDetails.Controls.Add(this.txt_CGSTRate);
             this.PanelItemDetails.Controls.Add(this.lbl_productID);
-            this.PanelItemDetails.Controls.Add(this.lbl_Stock);
             this.PanelItemDetails.Controls.Add(this.HSNCode);
             this.PanelItemDetails.Controls.Add(this.button2);
             this.PanelItemDetails.Controls.Add(this.txt_TotalItemValue);
@@ -358,14 +284,6 @@
             this.lbl_productID.Size = new System.Drawing.Size(0, 17);
             this.lbl_productID.TabIndex = 20;
             this.lbl_productID.Visible = false;
-            // 
-            // lbl_Stock
-            // 
-            this.lbl_Stock.AutoSize = true;
-            this.lbl_Stock.Location = new System.Drawing.Point(536, 17);
-            this.lbl_Stock.Name = "lbl_Stock";
-            this.lbl_Stock.Size = new System.Drawing.Size(0, 17);
-            this.lbl_Stock.TabIndex = 19;
             // 
             // HSNCode
             // 
@@ -544,15 +462,15 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Product Name : ";
             // 
-            // lbl_InvoiceTotal
+            // lbl_PurchaseTotal
             // 
-            this.lbl_InvoiceTotal.AutoSize = true;
-            this.lbl_InvoiceTotal.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_InvoiceTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lbl_InvoiceTotal.Location = new System.Drawing.Point(1057, 324);
-            this.lbl_InvoiceTotal.Name = "lbl_InvoiceTotal";
-            this.lbl_InvoiceTotal.Size = new System.Drawing.Size(0, 20);
-            this.lbl_InvoiceTotal.TabIndex = 6;
+            this.lbl_PurchaseTotal.AutoSize = true;
+            this.lbl_PurchaseTotal.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PurchaseTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lbl_PurchaseTotal.Location = new System.Drawing.Point(1057, 324);
+            this.lbl_PurchaseTotal.Name = "lbl_PurchaseTotal";
+            this.lbl_PurchaseTotal.Size = new System.Drawing.Size(0, 20);
+            this.lbl_PurchaseTotal.TabIndex = 6;
             // 
             // lbl_SGST
             // 
@@ -614,14 +532,14 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SrNo,
@@ -638,15 +556,15 @@
             this.SGSTRATE,
             this.ExistingStock,
             this.ProduceCode});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.NullValue = null;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(47, 139);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -776,14 +694,14 @@
             this.panel4.Controls.Add(this.cmb_Customer);
             this.panel4.Location = new System.Drawing.Point(23, 141);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1252, 166);
+            this.panel4.Size = new System.Drawing.Size(1252, 129);
             this.panel4.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 118);
+            this.label10.Location = new System.Drawing.Point(7, 98);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(146, 18);
             this.label10.TabIndex = 7;
@@ -794,7 +712,7 @@
             this.lbl_ContactNumber.AutoSize = true;
             this.lbl_ContactNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbl_ContactNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ContactNumber.Location = new System.Drawing.Point(200, 116);
+            this.lbl_ContactNumber.Location = new System.Drawing.Point(200, 96);
             this.lbl_ContactNumber.Name = "lbl_ContactNumber";
             this.lbl_ContactNumber.Size = new System.Drawing.Size(0, 20);
             this.lbl_ContactNumber.TabIndex = 6;
@@ -803,7 +721,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(45, 76);
+            this.label6.Location = new System.Drawing.Point(32, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 18);
             this.label6.TabIndex = 5;
@@ -813,17 +731,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(809, 25);
+            this.label5.Location = new System.Drawing.Point(809, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 18);
+            this.label5.Size = new System.Drawing.Size(159, 18);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Billing Address : ";
+            this.label5.Text = "Suppliers Address : ";
             // 
             // lbl_address
             // 
             this.lbl_address.AutoSize = true;
             this.lbl_address.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_address.Location = new System.Drawing.Point(808, 54);
+            this.lbl_address.Location = new System.Drawing.Point(808, 34);
             this.lbl_address.Name = "lbl_address";
             this.lbl_address.Size = new System.Drawing.Size(0, 19);
             this.lbl_address.TabIndex = 3;
@@ -833,7 +751,7 @@
             this.lbl_GST.AutoSize = true;
             this.lbl_GST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lbl_GST.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_GST.Location = new System.Drawing.Point(200, 74);
+            this.lbl_GST.Location = new System.Drawing.Point(200, 54);
             this.lbl_GST.Name = "lbl_GST";
             this.lbl_GST.Size = new System.Drawing.Size(0, 20);
             this.lbl_GST.TabIndex = 2;
@@ -842,20 +760,20 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(69, 25);
+            this.label4.Location = new System.Drawing.Point(69, 5);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 18);
+            this.label4.Size = new System.Drawing.Size(84, 18);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Customer : ";
+            this.label4.Text = "Supplier : ";
             // 
             // cmb_Customer
             // 
             this.cmb_Customer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Customer.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_Customer.FormattingEnabled = true;
-            this.cmb_Customer.Location = new System.Drawing.Point(196, 25);
+            this.cmb_Customer.Location = new System.Drawing.Point(180, 5);
             this.cmb_Customer.Name = "cmb_Customer";
-            this.cmb_Customer.Size = new System.Drawing.Size(520, 26);
+            this.cmb_Customer.Size = new System.Drawing.Size(506, 26);
             this.cmb_Customer.TabIndex = 0;
             this.cmb_Customer.TextChanged += new System.EventHandler(this.cmb_Customer_SelectedIndexChanged);
             // 
@@ -866,7 +784,7 @@
             this.ProgressBar,
             this.toolStripStatusLabel1,
             this.statusbar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 682);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 637);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1293, 25);
             this.statusStrip1.TabIndex = 8;
@@ -891,12 +809,83 @@
             this.statusbar.Name = "statusbar";
             this.statusbar.Size = new System.Drawing.Size(0, 20);
             // 
-            // Invoice
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 17);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(202, 18);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Purchase No :  PUR2017/";
+            // 
+            // PurchaseID
+            // 
+            this.PurchaseID.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PurchaseID.Location = new System.Drawing.Point(227, 12);
+            this.PurchaseID.Name = "PurchaseID";
+            this.PurchaseID.Size = new System.Drawing.Size(74, 28);
+            this.PurchaseID.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.InvoiceReference);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.PurchaseID);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Location = new System.Drawing.Point(23, 79);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1252, 56);
+            this.panel1.TabIndex = 0;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(1036, 9);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(171, 28);
+            this.dateTimePicker1.TabIndex = 14;
+            this.dateTimePicker1.Value = new System.DateTime(2017, 8, 12, 0, 0, 0, 0);
+            // 
+            // InvoiceReference
+            // 
+            this.InvoiceReference.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvoiceReference.Location = new System.Drawing.Point(585, 12);
+            this.InvoiceReference.Name = "InvoiceReference";
+            this.InvoiceReference.Size = new System.Drawing.Size(204, 28);
+            this.InvoiceReference.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(441, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(127, 18);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Reference No : ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(901, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(134, 18);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Purchase Date : ";
+            // 
+            // Purchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1293, 707);
+            this.ClientSize = new System.Drawing.Size(1293, 662);
             this.ControlBox = false;
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.panel4);
@@ -905,12 +894,10 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Invoice";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Name = "Purchase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Invoice_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -921,14 +908,14 @@
             this.panel4.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -944,15 +931,8 @@
         private System.Windows.Forms.Button btn_Edit;
         private System.Windows.Forms.Button btn_New;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lbl_address;
         private System.Windows.Forms.Label lbl_GST;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox InvoiceReference;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox InvoiceID;
-        private System.Windows.Forms.Label lbl_InvoiceTotal;
+        private System.Windows.Forms.Label lbl_PurchaseTotal;
         private System.Windows.Forms.Label lbl_SGST;
         private System.Windows.Forms.Label lbl_CGST;
         private System.Windows.Forms.Label label10;
@@ -979,9 +959,7 @@
         private System.Windows.Forms.TextBox txt_ItemCGST;
         private System.Windows.Forms.TextBox txt_TaxableValue;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label HSNCode;
-        private System.Windows.Forms.Label lbl_Stock;
         private System.Windows.Forms.Label lbl_productID;
         private System.Windows.Forms.Label lbl_Others;
         private System.Windows.Forms.MaskedTextBox txt_OtherCharges;
@@ -1001,5 +979,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SGSTRATE;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExistingStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProduceCode;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox PurchaseID;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox InvoiceReference;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_address;
     }
 }

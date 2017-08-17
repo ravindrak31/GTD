@@ -7,8 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 using Microsoft.Reporting.WinForms;
+using System.IO;
+using System.Net.Mail;
+using System.Net;
 
 namespace GSTSoft_windows
 {
@@ -21,29 +24,31 @@ namespace GSTSoft_windows
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (radio_bill.Checked == true)
-            {
-                reportViewer1.LocalReport.ReportPath = @"C:\Users\Ravindra Kulkarni\Documents\Visual Studio 2015\Projects\GSTSoft_windows\GSTSoft_windows\Report2.rdlc";
+            reportViewer1.Visible = true;
+            
+            if (cmb_reportType.Text=="Invoice")
+                {
+                reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString+@"\DetailedInvoice - update.rdlc";
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
 
 
 
                 reportViewer1.LocalReport.DataSources.Clear();
 
-                string cmdText = "select * from BillSummary WHERE InvoiceNO='" + textBox2.Text+textBox1.Text + "';";
-                using (OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\DB.accdb;Jet OLEDB:Database Password=GST"))
+                string cmdText = "select * from BillSummary WHERE InvoiceNo='"+txt_invoiceNumber.Text + "';";
+                using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
                 {
-                    using (OleDbCommand cmd = new OleDbCommand(cmdText, con))
+                    using (SqlCommand cmd = new SqlCommand(cmdText, con))
                     {
                         con.Open();
-                        using (OleDbDataAdapter da = new OleDbDataAdapter(cmd))
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             DataSet ds = new DataSet();
                             da.Fill(ds);
                             DataTable dt = ds.Tables[0];
                             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet2", ds.Tables[0]));
 
-                            using (OleDbDataAdapter da1 = new OleDbDataAdapter("Select * from BillDetails WHERE InvoiceNo='" + textBox2.Text + textBox1.Text + "';", con))
+                            using (SqlDataAdapter da1 = new SqlDataAdapter("Select * from BillDetails WHERE InvoiceNo='"+ txt_invoiceNumber.Text + "';", con))
                             {
                                 DataSet ds1 = new DataSet();
                                 da1.Fill(ds1);
@@ -57,30 +62,42 @@ namespace GSTSoft_windows
                 reportViewer1.LocalReport.Refresh();
                 reportViewer1.RefreshReport();
             }
-            else if (radio_report.Checked == true)
+            else if (cmb_reportType.Text == "Sales Summary")
             {
 
-                reportViewer1.LocalReport.ReportPath = @"C:\Users\Ravindra Kulkarni\Documents\Visual Studio 2015\Projects\GSTSoft_windows\GSTSoft_windows\Report1.rdlc";
+                reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString+@"\Summary.rdlc";
                 reportViewer1.ProcessingMode = ProcessingMode.Local;
 
 
 
                 reportViewer1.LocalReport.DataSources.Clear();
 
-                string cmdText = "select * from BillSummary;";
-                using (OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\DB.accdb;Jet OLEDB:Database Password=GST"))
+                string cmdText = "select * from BillSummary WHERE [InvoiceDate] > = '"+FromDate1.Value.Date +"' AND [InvoiceDate] < =' "+Todate1.Value.Date+"';";
+                using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
                 {
-                    using (OleDbCommand cmd = new OleDbCommand(cmdText, con))
+                    using (SqlCommand cmd = new SqlCommand(cmdText, con))
                     {
                         con.Open();
-                        using (OleDbDataAdapter da = new OleDbDataAdapter(cmd))
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             DataSet ds = new DataSet();
                             da.Fill(ds);
                             
                             DataTable dt = ds.Tables[0];
                             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds.Tables[0]));
-                            
+
+                            /*ReportParameter[] parameter= new ReportParameter[2];
+
+                            parameter[0] = new ReportParameter("FromDate", FromDate1.Text.ToString());
+                            parameter[1] = new ReportParameter("ToDate", Todate1.Text.ToString());
+
+                            reportViewer1.LocalReport.SetParameters(parameter);*/
+                            // reportViewer1.LocalReport.SetParameters(ToDate);
+
+                            List<ReportParameter> rp = new List<ReportParameter>();
+                            rp.Add(new ReportParameter("FromDate", FromDate1.Text)); // If you want a value in the parameter
+                            rp.Add(new ReportParameter("ToDate", Todate1.Text)); // If you want null in the parameter
+                            reportViewer1.LocalReport.SetParameters(rp);
                         }
                         con.Close();
                     }
@@ -92,65 +109,149 @@ namespace GSTSoft_windows
 
         private void PrintReports_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DBDataSet.BillDetails' table. You can move, or remove it, as needed.
-            this.BillDetailsTableAdapter.Fill(this.DBDataSet.BillDetails);
-            // TODO: This line of code loads data into the 'DBDataSet.BillSummary' table. You can move, or remove it, as needed.
-            this.BillSummaryTableAdapter.Fill(this.DBDataSet.BillSummary);
-            // TODO: This line of code loads data into the 'DBDataSet.BillSummary' table. You can move, or remove it, as needed.
-            //  this.BillSummaryTableAdapter.Fill(this.DBDataSet.BillSummary);
-            // ConnectionInfo myConnectionInfo = new ConnectionInfo();
-            // myConnectionInfo.UserID = "ADMIN";
-            // myConnectionInfo.Password = "GST";
-            //setDBLOGONforREPORT(myConnectionInfo);
-            dateTimePicker1.Text = DateTime.Today.AddMonths(-1).ToShortDateString();
-            dateTimePicker1.Text = DateTime.Today.ToShortDateString();
-            /*  this.reportViewer1.RefreshReport();
-              string cmdText = "select * from BillSummary;";
-              using (OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\DB.accdb;Jet OLEDB:Database Password=GST"))
-              {
-                  using (OleDbCommand cmd = new OleDbCommand(cmdText, con))
-                  {
-                      con.Open();
-                      using (OleDbDataAdapter da = new OleDbDataAdapter(cmd))
-                      {
-                          DataSet ds = new DataSet();
-                          da.Fill(ds);
-                          reportViewer1.ProcessingMode = ProcessingMode.Local;
-                          ReportDataSource rds = new ReportDataSource();
-                          reportViewer1.LocalReport.DataSources.Clear();
-                          reportViewer1.LocalReport.DataSources.Add(rds);
-                          reportViewer1.LocalReport.Refresh();
-                          reportViewer1.Refresh();
-                      }
 
-                  }
-              }*/
+           
+            DateTime now = DateTime.Now;
+            int month = now.Month;
 
-            this.reportViewer1.RefreshReport();
-        }
-        private void radio_report_CheckedChanged(object sender, EventArgs e)
-        {
-            if (radio_report.Checked==true)
-            {
-                textBox1.Enabled = false;
-                dateTimePicker1.Enabled = true;
-                dateTimePicker2.Enabled = true;
-            }
+            FromDate1.Text = FirstDayOfMonth();
+            Todate1.Text = LastDayOfMonth();
+
         }
 
-        private void radio_bill_CheckedChanged(object sender, EventArgs e)
+        private String FirstDayOfMonth()
         {
-            if (radio_bill.Checked == true)
-            {
-                textBox1.Enabled = true;
-                dateTimePicker1.Enabled = false;
-                dateTimePicker2.Enabled = false;
-            }
+            return new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToShortDateString();
+        }
+
+        private String CurrentDateTime()
+        {
+            return new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).ToString();
+        }
+        private String LastDayOfMonth()
+        {
+            return new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1).ToShortDateString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             this.Close();
+        }
+
+        private void cmb_reportType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_reportType.Text == "Invoice")
+            {
+                grp_Invoice.Enabled = true;
+                grp_Summary.Enabled = false;
+            }
+            else if(cmb_reportType.Text == "Sales Summary")
+            {
+                grp_Invoice.Enabled = false;
+                grp_Summary.Enabled = true;
+            }
+        }
+
+        private void btn_Email_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btn_Send_Click(object sender, EventArgs e)
+        {
+
+            //save report to local
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string filenameExtension;
+            string typeofFile=null;
+            string extensionforfile=null;
+            Boolean processemail = false;
+
+            if (rdo_Excel.Checked)
+            {
+                typeofFile="Excel";
+                extensionforfile = ".xls";
+                processemail = true;
+            }
+            else if (rdo_PDF.Checked)
+            {
+                typeofFile="PDF";
+                extensionforfile = ".pdf";
+                processemail = true;
+
+            }
+            else if (rdo_Word.Checked)
+            {
+                typeofFile="Word";
+                extensionforfile = ".doc";
+                processemail = true;
+            }
+            else
+            {
+                MessageBox.Show("Choose attachment type");
+                processemail = false;
+            }
+            if (!processemail)
+            {
+
+            }
+            else
+            {
+                byte[] bytes = reportViewer1.LocalReport.Render(
+                    typeofFile, null, out mimeType, out encoding, out filenameExtension,
+                    out streamids, out warnings);
+                String FileName = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString + "\\output"+DateTime.Now.Day.ToString()+ DateTime.Now.Month.ToString()+ DateTime.Now.Year.ToString()+ DateTime.Now.Hour.ToString()+ DateTime.Now.Minute.ToString()+ DateTime.Now.Second.ToString() + extensionforfile;
+                using (FileStream fs = new FileStream(FileName, FileMode.Create))
+                {
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+                //Send Email
+
+                try
+                {
+                    MailMessage message = new MailMessage();
+                    SmtpClient smtp = new SmtpClient();
+
+                    message.From = new MailAddress("ravindra.kulkarni1@gmail.com");
+                    message.To.Add(new MailAddress(txt_MailTO.Text));
+                    if (cmb_reportType.Text == "Invoice")
+                    {
+
+                        message.Subject = "Gajanan Tea Depot - " + cmb_reportType.Text + " ID - INV/" + cmb_InvYear.Text + "/" + txt_invoiceNumber.Text;
+                        String body = "<h3>Greetings,</h3><p>Thanks for being our loyal customer, we appreciate it.</p><p>Please find attached copy of your recent trasanction with us. Should you have any quaries/questions please contact us via email -&nbsp;<a href='mailto: Aaghate19 @gmail.com'>Aaghate19@gmail.com</a>&nbsp;or ring us on <strong>09823052863</strong>.</p><p><strong>Please keep a copy of this invoice stored.</strong></p><p><strong>Regards</strong></p><p><strong>Gajanan Tea Depot&nbsp;</strong></p>";
+                        message.Attachments.Add(new Attachment(FileName));
+                        AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body);
+                        htmlView.ContentType = new System.Net.Mime.ContentType("text/html");
+                        message.AlternateViews.Add(htmlView);
+
+                    }
+                    else if (cmb_reportType.Text == "Sales Summary")
+                    {
+                        message.Subject = "Gajanan Tea Depot - " + cmb_reportType.Text + " From Date : " + FromDate1.Text + " To Date : " + Todate1.Text;
+                        String body="<h3>Greetings,</h3><p>Please find attached copy of " + cmb_reportType.Text + " From Date " + FromDate1.Text + " To Date " + Todate1.Text + ", Should you have any quaries/questions please contact us via email -&nbsp;<a href='mailto: Aaghate19 @gmail.com'>Aaghate19@gmail.com</a>&nbsp;or ring us on <strong>09823052863</strong>.</p><p><strong>Regards</strong></p><p><strong>Gajanan Tea Depot&nbsp;</strong></p>";
+                        message.Attachments.Add(new Attachment(FileName));
+                        AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body);
+                        htmlView.ContentType = new System.Net.Mime.ContentType("text/html");
+                        message.AlternateViews.Add(htmlView);
+                    }
+
+
+                    smtp.Port = 587;
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    smtp.UseDefaultCredentials = false;
+                    smtp.Credentials = new NetworkCredential("ravindra.kulkarni1@gmail.com", "donbhai31$");
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Send(message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("err: " + ex.Message);
+                }
+            }
         }
     }
 }

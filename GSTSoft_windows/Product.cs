@@ -8,7 +8,7 @@ using System.Text;
 using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 
 namespace GSTSoft_windows
 {
@@ -30,6 +30,7 @@ namespace GSTSoft_windows
                 btn_Delete.Enabled = true;
                 button2.Enabled = false;
                 btn_Close.Text = "&Close";
+                button2.Text = "&Save";
             }
             else
             {
@@ -44,31 +45,31 @@ namespace GSTSoft_windows
             btn_Edit.Enabled = false;
             btn_Delete.Enabled = false;
             btn_Close.Text = "&Cancel";
-
+            button2.Enabled = true;
             //get the last product id
+            productDetails.Enabled = true;
+            button2.Text = "&Save";
 
-
-            productDetails.Enabled = false;
 
             cmb_ProductID.BackColor = Color.LightGray;
             cmb_ProductID.Enabled = false;
            
-            OleDbDataReader reader = null;
-            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\DB.accdb;Jet OLEDB:Database Password=GST");
+           SqlDataReader reader = null;
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
             con.Open();
-            OleDbCommand command = new OleDbCommand("SELECT count(ProductID) FROM ProductInfo", con);
+            SqlCommand command = new SqlCommand("SELECT RIGHT('000'+ CONVERT(VARCHAR,count(ID)),3) FROM ProductInfo", con);
             reader = command.ExecuteReader();
             reader.Read();
-            if (reader[0].ToString() != null)
+            if (reader[0].ToString() != "0")
             {
-                cmb_ProductID.Text = "P00" + (int.Parse(reader[0].ToString()) + 1);
+                cmb_ProductID.Text ="00"+(int.Parse(reader[0].ToString())+1);
             }
             else
             {
-                cmb_ProductID.Text = "P001";
+                cmb_ProductID.Text = "001";
             }
             con.Close();
-            ProductName.Focus();
+            ProductName1.Focus();
             //
 
         }
@@ -95,36 +96,186 @@ namespace GSTSoft_windows
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try {
-                if (ProductName.Text != "" || HSNCode.Text != "")
+            try
+            {
+                if (button2.Text == "&Save")
                 {
-                    OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\DB.accdb;Jet OLEDB:Database Password=GST");
-                    con.Open();
-                    OleDbCommand command = new OleDbCommand("INSERT INTO ProductInfo (ProductID, ProductName,HSNCode,ProductRate, ValidInd, Product_RateCurrency) Values (?,?,?,?,?,?);", con);
-                    command.Parameters.AddWithValue("@ProductID", cmb_ProductID.Text);
-                    command.Parameters.AddWithValue("@Name", ProductName.Text);
-                    command.Parameters.AddWithValue("@HSNCode", HSNCode.Text);
-                    command.Parameters.AddWithValue("@rate", ProductRate.Text);
-                    command.Parameters.AddWithValue("@ValidInd", "Y");
-                    command.Parameters.AddWithValue("@Product_RateCurrency", "RS");
-                    command.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("New Product Added Successfully", "Product", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
-                    btn_New.Enabled = true;
-                    btn_Edit.Enabled = true;
-                    btn_Delete.Enabled = true;
-                    btn_Close.Text = "&Close";
-                    cmb_ProductID.Text = "";
-                    ProductName.Text = "";
-                    ProductRate.Text = "";
-                    HSNCode.Text = "";
+                    if (ProductName1.Text != "" || HSNCode.Text != "")
+                    {
+                        String Purchaseproductstring = "N";
 
+                        if (!isPurchaseProduct.Checked)
+                        {
+                            Purchaseproductstring = "N";
+                        }else
+                        {
+                            Purchaseproductstring = "Y";
+                        }
+                        
+                        SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
+                        con.Open();
+                        SqlCommand command = new SqlCommand("INSERT INTO ProductInfo (ID, ProductName,HSNCode,ProductRate, ValidInd, Product_RateCurrency,isPurchaseProduct) Values (" + int.Parse(cmb_ProductID.Text) + ",'" + ProductName1.Text + "','" + HSNCode.Text + "','" + ProductRate.Text + "','Y','RS','"+Purchaseproductstring+"');", con);
+
+                        command.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("New Product Added Successfully", "Product", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        btn_New.Enabled = true;
+                        btn_Edit.Enabled = true;
+                        btn_Delete.Enabled = true;
+                        btn_Close.Text = "&Close";
+                        cmb_ProductID.Text = "";
+                        ProductName1.Text = "";
+                        ProductRate.Text = "";
+                        HSNCode.Text = "";
+
+                    }
                 }
+                else if(button2.Text=="&Update")
+                {
+                    if (ProductName1.Text != "" || HSNCode.Text != "")
+                    {
+                        String Purchaseproductstring = "N";
+
+                        if (!isPurchaseProduct.Checked)
+                        {
+                            Purchaseproductstring = "N";
+                        }
+                        else
+                        {
+                            Purchaseproductstring = "Y";
+                        }
+                        SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
+                        con.Open();
+                        SqlCommand command = new SqlCommand("UPDATE ProductInfo SET ProductName='" + ProductName1.Text + "',HSNCode='" + HSNCode.Text + "', ProductRate='" + ProductRate.Text + "', ValidInd='Y', Product_RateCurrency='RS',isPurchaseProduct='"+Purchaseproductstring+"'  Where ID=" + int.Parse(cmb_ProductID.Text) + ";", con);
+                            
+                        command.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("Product Updated Successfully", "Product", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        btn_New.Enabled = true;
+                        btn_Edit.Enabled = true;
+                        btn_Delete.Enabled = true;
+                        button2.Text = "&Save";
+                        btn_Close.Text = "&Close";
+                        cmb_ProductID.Text = "";
+                        ProductName1.Text = "";
+                        ProductRate.Text = "";
+                        HSNCode.Text = "";
+                        refreshGrid();
+                    }
+                }
+                else
+                {
+
+                    if (ProductName1.Text != "" || HSNCode.Text != "")
+                    {
+                        SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
+                        con.Open();
+                        SqlCommand command = new SqlCommand("UPDATE ProductInfo SET ValidInd='N' Where ID=" + int.Parse(cmb_ProductID.Text) + ";", con);
+
+                        command.ExecuteNonQuery();
+                        con.Close();
+                        MessageBox.Show("Product Deleted Successfully", "Product", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        btn_New.Enabled = true;
+                        btn_Edit.Enabled = true;
+                        btn_Delete.Enabled = true;
+                        button2.Text = "&Save";
+                        button2.Enabled = false;
+                        btn_Close.Text = "&Close";
+                        cmb_ProductID.Text = "";
+                        ProductName1.Text = "";
+                        ProductRate.Text = "";
+                        HSNCode.Text = "";
+                        refreshGrid();
+                    }
+                }
+            
             }
-            catch (Exception e1){
+            catch
+            {
                 MessageBox.Show("Product Details Not Added", "Product", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+            refreshGrid();
+            btn_New.Enabled = false;
+            btn_Edit.Enabled = false;
+            btn_Delete.Enabled = false;
+            btn_Close.Text = "&Cancel";
+            button2.Text = "&Update";
+            button2.Enabled = true;
+            //get the last product id
+            productDetails.Enabled = true;
+        }
+        private void refreshGrid()
+        {
+            
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
+            con.Open();
+            SqlCommand command = new SqlCommand("SELECT ID, ProductName,HSNCode,ProductRate FROM ProductInfo WHERE ValidInd='Y';", con);
+            SqlDataAdapter da = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                dataGridView1.Refresh();
+                dataGridView1.DataSource = dt;
+
+                //show_description();
+            }
+            else
+            {
+                dataGridView1.Refresh();
+            }
+
+
+        }
+        public void fillgridtoFrom(object sender,EventArgs e)
+        {
+            try
+            {
+                int rowindex = dataGridView1.CurrentCell.RowIndex;
+                int columnindex = dataGridView1.CurrentCell.ColumnIndex;
+
+                cmb_ProductID.Text = dataGridView1.Rows[rowindex].Cells[0].Value.ToString();
+                ProductName1.Text = dataGridView1.Rows[rowindex].Cells[1].Value.ToString();
+                HSNCode.Text = dataGridView1.Rows[rowindex].Cells[2].Value.ToString();
+                ProductRate.Text = dataGridView1.Rows[rowindex].Cells[3].Value.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Please select product from list");
+            }
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            refreshGrid();
+            btn_New.Enabled = false;
+            btn_Edit.Enabled = false;
+            btn_Delete.Enabled = false;
+            btn_Close.Text = "&Cancel";
+            button2.Text = "&Delete";
+            button2.Enabled = true;
+            //get the last product id
+            productDetails.Enabled = true;
+        }
+
+        private void btn_Delete_Click_1(object sender, EventArgs e)
+        {
+            refreshGrid();
+            btn_New.Enabled = false;
+            btn_Edit.Enabled = false;
+            btn_Delete.Enabled = false;
+            btn_Close.Text = "&Cancel";
+            button2.Text = "&Delete";
+            button2.Enabled = true;
+            //get the last product id
+            productDetails.Enabled = true;
         }
     }
 }

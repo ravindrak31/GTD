@@ -12,10 +12,10 @@ using System.Text.RegularExpressions;
 
 namespace GSTSoft_windows
 {
-    public partial class Invoice : Form
+    public partial class Purchase : Form
     {
         private String currentID;
-        public Invoice()
+        public Purchase()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace GSTSoft_windows
             txt_OtherCharges.Text="00.00";
             lbl_CGST.Text = "0.00";
             lbl_SGST.Text = "0.00";
-            lbl_InvoiceTotal.Text = "0.00";
+            lbl_PurchaseTotal.Text = "0.00";
             ProgressBar.Value = 5;
             statusbar.Text = "Generating new invoice ID";
             // txt_invoicedate.Text=DateTime.Now()
@@ -38,16 +38,16 @@ namespace GSTSoft_windows
             SqlDataReader reader = null;
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand("SELECT count(InvoiceNo) FROM BillSummary;", con);
+            SqlCommand command1 = new SqlCommand("SELECT count(PurchaseNo) FROM PurchaseSummary;", con);
             try
             {
                 reader = command1.ExecuteReader();
                 reader.Read();
-                InvoiceID.Text = (int.Parse(reader[0].ToString()) + 1).ToString();
+                PurchaseID.Text = (int.Parse(reader[0].ToString()) + 1).ToString();
             }
             catch
             {
-                InvoiceID.Text = "1";
+                PurchaseID.Text = "1";
             }
             //  InvoiceID.Text = "INV2017/" + (int.Parse(reader[0].ToString())+1);
 
@@ -56,7 +56,7 @@ namespace GSTSoft_windows
             statusbar.Text = "Loading the list of customers";
             ProgressBar.Value = 30;
             reader.Close();
-            SqlCommand command = new SqlCommand("SELECT distinct(CompanyName),CustomerName, ID FROM CustomerInfo", con);
+            SqlCommand command = new SqlCommand("SELECT distinct(CompanyName),CustomerName, ID FROM SupplierInfo", con);
             cmb_Customer.Items.Clear();
             reader = command.ExecuteReader();
             while (reader.Read())
@@ -77,7 +77,7 @@ namespace GSTSoft_windows
             statusbar.Text = "Loading the list of products";
             //  SqlCommand command2 = new SqlCommand("SELECT distinct(CustomerName) FROM CustomerInfo", con);
             reader.Close();
-            SqlCommand command2 = new SqlCommand("SELECT distinct(ProductName),ProductSize FROM ProductInfo WHERE ValidInd='Y'", con);
+            SqlCommand command2 = new SqlCommand("SELECT distinct(ProductName),ProductSize FROM ProductInfo WHERE ValidInd='Y' AND isPurchaseProduct='Y'", con);
             SqlDataReader reader1 = null;
             reader1 = command2.ExecuteReader();
             cmb_Item.Items.Clear();
@@ -147,7 +147,7 @@ namespace GSTSoft_windows
                 SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
                 ProgressBar.Value = 20;
                 con.Open();
-                SqlCommand command = new SqlCommand("SELECT GSTNumber, Address, Taluka, District, State, PostCode,PhoneNo FROM CustomerInfo WHERE CustomerName='" + cmb_Customer.Text+"';", con);
+                SqlCommand command = new SqlCommand("SELECT GSTNumber, Address, Taluka, District, State, PostCode,PhoneNo FROM SupplierInfo WHERE CustomerName='" + cmb_Customer.Text+"';", con);
                 ProgressBar.Value = 30;
                 reader = command.ExecuteReader();
                // reader.Read();
@@ -156,7 +156,7 @@ namespace GSTSoft_windows
                     reader.Close();
                    // reader.Close();
 
-                    SqlCommand command1 = new SqlCommand("SELECT GSTNumber, Address, Taluka, District, State, PostCode,PhoneNo FROM CustomerInfo WHERE CompanyName='" + cmb_Customer.Text + "';", con);
+                    SqlCommand command1 = new SqlCommand("SELECT GSTNumber, Address, Taluka, District, State, PostCode,PhoneNo FROM SupplierInfo WHERE CompanyName='" + cmb_Customer.Text + "';", con);
                     ProgressBar.Value = 30;
                     SqlDataReader reader1 = command1.ExecuteReader();
                     ProgressBar.Value = 40;
@@ -234,21 +234,7 @@ namespace GSTSoft_windows
             HSNCode.Text = reader[2].ToString().Trim();
             lbl_productID.Text = reader[3].ToString().Trim();
             reader.Close();
-            SqlCommand command2 = new SqlCommand("SELECT FinalStock FROM StockInfo WHERE ID='" + lbl_productID.Text + "';", con);
-            SqlDataReader reader1 = command2.ExecuteReader();
-            reader1.Read();
-            if (!reader1.HasRows)
-            {
-                lbl_Stock.Text = "0";
-              //  currentID = reader1[1].ToString();
-
-            }
-            else
-            {
-                lbl_Stock.Text = reader1[0].ToString();
-             //   currentID = reader1[1].ToString();
-             
-            }
+           
             con.Close();
             txt_quantity.Text = "1";
             txt_Discount.Text = "0.00";
@@ -284,7 +270,7 @@ namespace GSTSoft_windows
 
             lbl_CGST.Text = Totalcgst.ToString("N2");
             lbl_SGST.Text = Totalsgst.ToString("N2");
-            lbl_InvoiceTotal.Text = (TotalAmount).ToString("N2");
+            lbl_PurchaseTotal.Text = (TotalAmount).ToString("N2");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -354,13 +340,13 @@ namespace GSTSoft_windows
                 try
                 {
                     con.Open();
-                    String billSummary = "INSERT INTO BillSummary(ID,InvoiceNo, InvoiceYear,InvoiceCreatedBy, InvoiceDate, CustomerName, CustomerAddress, CustomerGSTNumber, CustomerContactNumber, CompanyID, TotalCGST, TotalSGST, OtherTaxes, TotalTax, TotalInvoiceValue) VALUES (" + int.Parse(InvoiceID.Text) + ",'" + InvoiceID.Text + "'," + DateTime.Today.Year + ",'" + this.Name.Trim() + "','" + dateTimePicker1.Value.Date + "','" + cmb_Customer.Text + "','" + lbl_address.Text + "','" + lbl_GST.Text + "','" + lbl_ContactNumber.Text + "','1','" + lbl_CGST.Text + "','" + lbl_SGST.Text + "','" + txt_OtherCharges.Text + "','" + (double.Parse(lbl_CGST.Text) + double.Parse(lbl_SGST.Text)).ToString("N2") + "','" + lbl_InvoiceTotal.Text + "');";
-                    cmd.CommandText = billSummary;
+                    String PurchaseSummary = "INSERT INTO PurchaseSummary(ID,PurchaseNo, PurchaseYear,PurchaseCreatedBy, PurchaseDate, CustomerName, CustomerAddress, CustomerGSTNumber, CustomerContactNumber, CompanyID, TotalCGST, TotalSGST, OtherTaxes, TotalTax, TotalPurchaseValue) VALUES (" + int.Parse(PurchaseID.Text) + ",'" + PurchaseID.Text + "'," + DateTime.Today.Year + ",'" + this.Name.Trim() + "','" + dateTimePicker1.Value.Date + "','" + cmb_Customer.Text + "','" + lbl_address.Text + "','" + lbl_GST.Text + "','" + lbl_ContactNumber.Text + "','1','" + lbl_CGST.Text + "','" + lbl_SGST.Text + "','" + txt_OtherCharges.Text + "','" + (double.Parse(lbl_CGST.Text) + double.Parse(lbl_SGST.Text)).ToString("N2") + "','" + lbl_PurchaseTotal.Text + "');";
+                    cmd.CommandText = PurchaseSummary;
                     cmd.Connection = con;
                     cmd.ExecuteNonQuery();
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
-                        String StrQuery = @"INSERT INTO BillDetails(ID,InvoiceNo,ProductID,ProductName,Quantity,Rate,Discount,TaxableValue,CGST,SGST,TotalValue,CGSTRate,SGSTRate) VALUES ('" + int.Parse(InvoiceID.Text) + "_" + i + "'," + int.Parse(InvoiceID.Text) + ",'"
+                        String StrQuery = @"INSERT INTO PurchaseDetails(ID,PurchaseNo,ProductID,ProductName,Quantity,Rate,Discount,TaxableValue,CGST,SGST,TotalValue,CGSTRate,SGSTRate) VALUES ('" + int.Parse(PurchaseID.Text) + "_" + i + "'," + int.Parse(PurchaseID.Text) + ",'"
                             + dataGridView1.Rows[i].Cells["ItemCode"].Value + "','"
                             + dataGridView1.Rows[i].Cells["Itemdesc"].Value + "','"
                             + dataGridView1.Rows[i].Cells["Quantity"].Value + "','"
@@ -387,26 +373,10 @@ namespace GSTSoft_windows
                         cmd1.Connection = con;
 
                         
-                        string StockQuery;
-                        //UpdateEarlier entry
-                        if (dataGridView1.Rows[i].Cells["ExistingStock"].Value.ToString() == "0")
-                        {
-
-                            //  con.Open();
-
-                            StockQuery = "INSERT INTO StockInfo(ID, CurrentStock, ProductionStock, SaleStock, FinalStock) VALUES('" + dataGridView1.Rows[i].Cells["ProduceCode"].Value + "','" + dataGridView1.Rows[i].Cells["ExistingStock"].Value + "', '0', '" + dataGridView1.Rows[i].Cells["Quantity"].Value + "', '" + (Convert.ToDouble(dataGridView1.Rows[i].Cells["ExistingStock"].Value) - Convert.ToDouble(dataGridView1.Rows[i].Cells["Quantity"].Value)) + "'); ";
-
-                        }
-                        else
-                        {
-                            StockQuery = "UPDATE StockInfo SET CurrentStock = " + int.Parse(dataGridView1.Rows[i].Cells["ExistingStock"].Value.ToString()) + ",ProductionStock = 0,SaleStock = " + Convert.ToUInt16(dataGridView1.Rows[i].Cells["Quantity"].Value) + ",FinalStock = " + (Convert.ToInt16(dataGridView1.Rows[i].Cells["ExistingStock"].Value.ToString()) - Convert.ToInt16(dataGridView1.Rows[i].Cells["Quantity"].Value.ToString())) + " WHERE ID = '" + dataGridView1.Rows[i].Cells["ProduceCode"].Value + "';";
-                        }
-                        cmd1.CommandText = StockQuery;
-                        cmd1.ExecuteNonQuery();
                         con.Close();
 
-                        MessageBox.Show("New Invoice Created");
-                        btn_Print.Enabled = true;
+                        MessageBox.Show("New Purchase Created");
+                        btn_Print.Enabled = false;
                     }
                 }
                 catch
@@ -421,7 +391,7 @@ namespace GSTSoft_windows
         private void btn_Print_Click(object sender, EventArgs e)
         {
             PrintInvoice Invoice1 = new PrintInvoice();
-            Invoice1.Name = InvoiceID.Text;
+            Invoice1.Name = PurchaseID.Text;
             Invoice1.ShowDialog();
             // EmptyForm();
             btn_New.Enabled = true;
@@ -468,14 +438,14 @@ namespace GSTSoft_windows
 
         private void EmptyForm()
         {
-            InvoiceID.Clear();
+            PurchaseID.Clear();
             cmb_Customer.Items.Clear();
             lbl_GST.Text = "";
             lbl_address.Text = "";
             lbl_ContactNumber.Text = "";
             lbl_CGST.Text = "0.00";
             lbl_SGST.Text = "0.00";
-            lbl_InvoiceTotal.Text = "0.00";
+            lbl_PurchaseTotal.Text = "0.00";
             txt_Discount.Text = "0.00";
             lbl_Stock.Text = "";
             txt_ItemCGST.Text = "0.00";

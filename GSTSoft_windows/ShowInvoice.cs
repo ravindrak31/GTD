@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 using Microsoft.Reporting.WinForms;
 
 namespace GSTSoft_windows
@@ -27,27 +27,27 @@ namespace GSTSoft_windows
         private void PrintInvoice_Load(object sender, EventArgs e)
         {
             String InvoiceNo = this.Name;
-            reportViewer1.LocalReport.ReportPath = @"C:\Users\Ravindra Kulkarni\Documents\Visual Studio 2015\Projects\GSTSoft_windows\GSTSoft_windows\Report2.rdlc";
+            reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString+@"\DetailedInvoice - update.rdlc";
             reportViewer1.ProcessingMode = ProcessingMode.Local;
 
 
 
             reportViewer1.LocalReport.DataSources.Clear();
 
-            string cmdText = "select * from BillSummary WHERE InvoiceNO='" + InvoiceNo + "';";
-            using (OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=c:\DB.accdb;Jet OLEDB:Database Password=GST"))
+            string cmdText = "select * from BillSummary WHERE InvoiceNo='" +InvoiceNo + "';";
+            using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
             {
-                using (OleDbCommand cmd = new OleDbCommand(cmdText, con))
+                using (SqlCommand cmd = new SqlCommand(cmdText, con))
                 {
                     con.Open();
-                    using (OleDbDataAdapter da = new OleDbDataAdapter(cmd))
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         DataSet ds = new DataSet();
                         da.Fill(ds);
                         DataTable dt = ds.Tables[0];
                         reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet2", ds.Tables[0]));
 
-                        using (OleDbDataAdapter da1 = new OleDbDataAdapter("Select * from BillDetails WHERE InvoiceNo='" + InvoiceNo + "';", con))
+                        using (SqlDataAdapter da1 = new SqlDataAdapter("Select * from BillDetails WHERE InvoiceNo='" + InvoiceNo + "';", con))
                         {
                             DataSet ds1 = new DataSet();
                             da1.Fill(ds1);
@@ -60,7 +60,6 @@ namespace GSTSoft_windows
             }
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport();
-            this.reportViewer1.RefreshReport();
         }
     }
     

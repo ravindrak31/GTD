@@ -38,13 +38,18 @@
             this.cmb_ProductID = new System.Windows.Forms.ComboBox();
             this.HSNCode = new System.Windows.Forms.TextBox();
             this.ProductRate = new System.Windows.Forms.TextBox();
-            this.ProductName = new System.Windows.Forms.TextBox();
+            this.ProductName1 = new System.Windows.Forms.TextBox();
             this.lbl_Rate = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.isPurchaseProduct = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.productDetails.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -82,6 +87,7 @@
             this.btn_Delete.TabIndex = 3;
             this.btn_Delete.Text = "&Delete";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click_1);
             // 
             // button2
             // 
@@ -105,6 +111,7 @@
             this.btn_Edit.TabIndex = 1;
             this.btn_Edit.Text = "&Edit";
             this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Click += new System.EventHandler(this.btn_Edit_Click);
             // 
             // btn_New
             // 
@@ -121,10 +128,11 @@
             // productDetails
             // 
             this.productDetails.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.productDetails.Controls.Add(this.isPurchaseProduct);
             this.productDetails.Controls.Add(this.cmb_ProductID);
             this.productDetails.Controls.Add(this.HSNCode);
             this.productDetails.Controls.Add(this.ProductRate);
-            this.productDetails.Controls.Add(this.ProductName);
+            this.productDetails.Controls.Add(this.ProductName1);
             this.productDetails.Controls.Add(this.lbl_Rate);
             this.productDetails.Controls.Add(this.label3);
             this.productDetails.Controls.Add(this.label2);
@@ -162,14 +170,14 @@
             this.ProductRate.Size = new System.Drawing.Size(95, 27);
             this.ProductRate.TabIndex = 5;
             // 
-            // ProductName
+            // ProductName1
             // 
-            this.ProductName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProductName.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductName.Location = new System.Drawing.Point(179, 54);
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Size = new System.Drawing.Size(314, 27);
-            this.ProductName.TabIndex = 2;
+            this.ProductName1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ProductName1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductName1.Location = new System.Drawing.Point(179, 54);
+            this.ProductName1.Name = "ProductName1";
+            this.ProductName1.Size = new System.Drawing.Size(314, 27);
+            this.ProductName1.TabIndex = 2;
             // 
             // lbl_Rate
             // 
@@ -211,12 +219,46 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Product ID : ";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Location = new System.Drawing.Point(13, 263);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(547, 106);
+            this.panel1.TabIndex = 6;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(541, 100);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.fillgridtoFrom);
+            // 
+            // isPurchaseProduct
+            // 
+            this.isPurchaseProduct.AutoSize = true;
+            this.isPurchaseProduct.Location = new System.Drawing.Point(387, 15);
+            this.isPurchaseProduct.Name = "isPurchaseProduct";
+            this.isPurchaseProduct.Size = new System.Drawing.Size(149, 22);
+            this.isPurchaseProduct.TabIndex = 6;
+            this.isPurchaseProduct.Text = "Purchase Product";
+            this.isPurchaseProduct.UseVisualStyleBackColor = true;
+            // 
             // Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 262);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(569, 381);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.productDetails);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -228,6 +270,8 @@
             this.panel2.ResumeLayout(false);
             this.productDetails.ResumeLayout(false);
             this.productDetails.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -247,7 +291,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox HSNCode;
         private System.Windows.Forms.TextBox ProductRate;
-        private System.Windows.Forms.TextBox ProductName;
+        private System.Windows.Forms.TextBox ProductName1;
         private System.Windows.Forms.ComboBox cmb_ProductID;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox isPurchaseProduct;
     }
 }

@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace GSTSoft_windows
 {
-    public partial class Customer : Form
+    public partial class Supplier : Form
     {
-        public Customer()
+        public Supplier()
         {
             InitializeComponent();
         }
@@ -22,6 +22,7 @@ namespace GSTSoft_windows
         {
             // this.MdiParent = Main;
             refreshgrid();
+            dataGridView1.Enabled = false;
             SqlDataReader reader = null;
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
             con.Open();
@@ -89,7 +90,7 @@ namespace GSTSoft_windows
                 //SqlDataReader reader = null;
                 SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select Count(*) from CustomerInfo;", con);
+                SqlCommand cmd = new SqlCommand("select Count(*) from SupplierInfo;", con);
                 
                     
                     // cmd.Parameters.AddWithValue("@p1", textBox2.Text);
@@ -97,15 +98,15 @@ namespace GSTSoft_windows
                     int result = (int)cmd.ExecuteScalar();
 
                 SqlCommand command = new SqlCommand();
-                /*   SqlCommand command = new SqlCommand("INSERT INTO CustomerInfo(CompanyName, CustomerName, GSTNumber, PhoneNo, EmailID, Address, Taluka, District, State, Country, Comment, SendEmail, SendSMS, PostCode) Values('" + txt_Company.Text + "', '" + txt_CustomerName.Text + "', '" + txt_GSTNumber.Text + "', '" + txt_PhoneNumber.Text + "', '" + txt_Email.Text + "', '" + txt_address.Text + "', '" + cmb_Taluka.Text + "', '" + cmb_District.Text + "', '" + comboBox3.Text + "', 'India', '" + txt_Comment.Text + "', 'Yes', 'Yes', '" + txt_PostCode.Text + "'); ",con);*/
+                /*   SqlCommand command = new SqlCommand("INSERT INTO SupplierInfo(CompanyName, CustomerName, GSTNumber, PhoneNo, EmailID, Address, Taluka, District, State, Country, Comment, SendEmail, SendSMS, PostCode) Values('" + txt_Company.Text + "', '" + txt_CustomerName.Text + "', '" + txt_GSTNumber.Text + "', '" + txt_PhoneNumber.Text + "', '" + txt_Email.Text + "', '" + txt_address.Text + "', '" + cmb_Taluka.Text + "', '" + cmb_District.Text + "', '" + comboBox3.Text + "', 'India', '" + txt_Comment.Text + "', 'Yes', 'Yes', '" + txt_PostCode.Text + "'); ",con);*/
                 if (txt_Company.Text !=null)
                 {
-                    command.CommandText = "INSERT INTO CustomerInfo (ID,CompanyName, CustomerName, GSTNumber,PANNumber, PhoneNo, EmailID, Address, Taluka, District, State, Country, Comment, SendEmail, SendSMS,PostCode) Values(" + result + 1 + ",'" + txt_Company.Text + "','" + txt_CustomerName.Text + "','" + txt_GSTNumber.Text + "','" + txt_PANNumber.Text + "','" + txt_PhoneNumber.Text + "','" + txt_Email.Text + "','" + txt_address.Text + "','" + cmb_Taluka.Text + "','" + cmb_District.Text + "','" + comboBox3.Text + "','India','" + txt_Comment.Text + "','Yes','Yes','" + txt_PostCode.Text + "');";
+                    command.CommandText = "INSERT INTO SupplierInfo (ID,CompanyName, CustomerName, GSTNumber,PANNumber, PhoneNo, EmailID, Address, Taluka, District, State, Country, Comment, SendEmail, SendSMS,PostCode) Values(" + result + 1 + ",'" + txt_Company.Text + "','" + txt_CustomerName.Text + "','" + txt_GSTNumber.Text + "','" + txt_PANNumber.Text + "','" + txt_PhoneNumber.Text + "','" + txt_Email.Text + "','" + txt_address.Text + "','" + cmb_Taluka.Text + "','" + cmb_District.Text + "','" + comboBox3.Text + "','India','" + txt_Comment.Text + "','Yes','Yes','" + txt_PostCode.Text + "');";
                     command.Connection = con;
                 }
                 else
                 {
-                    command.CommandText = "INSERT INTO CustomerInfo (ID,CompanyName, CustomerName, GSTNumber,PANNumber, PhoneNo, EmailID, Address, Taluka, District, State, Country, Comment, SendEmail, SendSMS,PostCode) Values(" + result + 1 + ",'" + txt_CustomerName.Text + "','" + txt_CustomerName.Text + "','" + txt_GSTNumber.Text + "','" + txt_PANNumber.Text + "','" + txt_PhoneNumber.Text + "','" + txt_Email.Text + "','" + txt_address.Text + "','" + cmb_Taluka.Text + "','" + cmb_District.Text + "','" + comboBox3.Text + "','India','" + txt_Comment.Text + "','Yes','Yes','" + txt_PostCode.Text + "');";
+                    command.CommandText = "INSERT INTO SupplierInfo (ID,CompanyName, CustomerName, GSTNumber,PANNumber, PhoneNo, EmailID, Address, Taluka, District, State, Country, Comment, SendEmail, SendSMS,PostCode) Values(" + result + 1 + ",'" + txt_CustomerName.Text + "','" + txt_CustomerName.Text + "','" + txt_GSTNumber.Text + "','" + txt_PANNumber.Text + "','" + txt_PhoneNumber.Text + "','" + txt_Email.Text + "','" + txt_address.Text + "','" + cmb_Taluka.Text + "','" + cmb_District.Text + "','" + comboBox3.Text + "','India','" + txt_Comment.Text + "','Yes','Yes','" + txt_PostCode.Text + "');";
                     command.Connection = con;
                 }
                 command.ExecuteNonQuery();
@@ -131,6 +132,7 @@ namespace GSTSoft_windows
         {
             panel_data.Enabled = true;
             EmptyForm();
+            dataGridView1.Enabled = true;
             btn_New.Enabled = false;
             btn_Edit.Enabled = false;
             btn_Delete.Enabled = false;
@@ -142,6 +144,7 @@ namespace GSTSoft_windows
         {
             if (btn_Close.Text == "&Cancel")
             {
+                dataGridView1.Enabled = true;
                 EmptyForm();
                 btn_New.Enabled = true;
                 btn_Edit.Enabled = true;
@@ -166,6 +169,7 @@ namespace GSTSoft_windows
         private void btn_Edit_Click(object sender, EventArgs e)
         {
             panel_data.Enabled = true;
+            dataGridView1.Enabled = true;
             EmptyForm();
             button2.Enabled = true;
             btn_New.Enabled = false;
@@ -180,7 +184,7 @@ namespace GSTSoft_windows
             dataGridView1.Font = new Font("Arial", 9);
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
             con.Open();
-            SqlCommand command = new SqlCommand("SELECT [CompanyName] ,[CustomerName] ,[GSTNumber] ,[PANNumber] ,[PhoneNo] ,[EmailID] ,[Address] ,[Taluka] ,[District] ,[State],[PostCode],[Comment] FROM CustomerInfo;", con);
+            SqlCommand command = new SqlCommand("SELECT [CompanyName] ,[CustomerName] ,[GSTNumber] ,[PANNumber] ,[PhoneNo] ,[EmailID] ,[Address] ,[Taluka] ,[District] ,[State],[PostCode],[Comment] FROM SupplierInfo;", con);
             SqlDataAdapter da = new SqlDataAdapter(command);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -203,11 +207,27 @@ namespace GSTSoft_windows
             {
                 int rowindex = dataGridView1.CurrentCell.RowIndex;
                 int columnindex = dataGridView1.CurrentCell.ColumnIndex;
-/*
-                cmb_ProductID.Text = dataGridView1.Rows[rowindex].Cells[0].Value.ToString();
-                ProductName1.Text = dataGridView1.Rows[rowindex].Cells[1].Value.ToString();
-                HSNCode.Text = dataGridView1.Rows[rowindex].Cells[2].Value.ToString();
-                ProductRate.Text = dataGridView1.Rows[rowindex].Cells[3].Value.ToString();*/
+
+                txt_Company.Text = dataGridView1.Rows[rowindex].Cells[0].Value.ToString();
+                txt_CustomerName.Text = dataGridView1.Rows[rowindex].Cells[1].Value.ToString();
+                txt_address.Text = dataGridView1.Rows[rowindex].Cells[6].Value.ToString();
+                txt_Comment.Text = dataGridView1.Rows[rowindex].Cells[11].Value.ToString();
+                txt_Email.Text = dataGridView1.Rows[rowindex].Cells[5].Value.ToString();
+                txt_GSTNumber.Text = dataGridView1.Rows[rowindex].Cells[2].Value.ToString();
+                txt_PANNumber.Text = dataGridView1.Rows[rowindex].Cells[3].Value.ToString();
+                txt_PhoneNumber.Text = dataGridView1.Rows[rowindex].Cells[4].Value.ToString();
+                txt_PostCode.Text = dataGridView1.Rows[rowindex].Cells[10].Value.ToString();
+                cmb_District.Text = dataGridView1.Rows[rowindex].Cells[8].Value.ToString();
+                comboBox3.Text = dataGridView1.Rows[rowindex].Cells[9].Value.ToString();
+                cmb_Taluka.Text = dataGridView1.Rows[rowindex].Cells[7].Value.ToString();
+
+                /*
+                 * 
+                 * 
+                                cmb_ProductID.Text = dataGridView1.Rows[rowindex].Cells[0].Value.ToString();
+                                ProductName1.Text = dataGridView1.Rows[rowindex].Cells[1].Value.ToString();
+                                HSNCode.Text = dataGridView1.Rows[rowindex].Cells[2].Value.ToString();
+                                ProductRate.Text = dataGridView1.Rows[rowindex].Cells[3].Value.ToString();*/
             }
             catch
             {

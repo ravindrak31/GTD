@@ -12,13 +12,15 @@ using Microsoft.Reporting.WinForms;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using System.Globalization;
 
 namespace GSTSoft_windows
 {
-    public partial class PrintReports : Form
+    public partial class PrintInvoice : Form
     {
+        //static String UserName;
         public static string UserName;
-        public PrintReports(String OperatorName)
+        public PrintInvoice(String OperatorName)
         {
             InitializeComponent();
             UserName = OperatorName;
@@ -26,107 +28,82 @@ namespace GSTSoft_windows
 
         private void button1_Click(object sender, EventArgs e)
         {
-            reportViewer1.Visible = true;
-            
-            if (this.Name=="Invoice")
+            if (textBox1.Text != "")
+            {
+                reportViewer1.Visible = true;
+
+                if (this.Name == "Invoice")
                 {
-                reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString+@"\DetailedInvoice - update.rdlc";
-                reportViewer1.ProcessingMode = ProcessingMode.Local;
+                    reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString + "Invoice.rdlc";
+                    reportViewer1.ProcessingMode = ProcessingMode.Local;
 
 
 
-                reportViewer1.LocalReport.DataSources.Clear();
+                    reportViewer1.LocalReport.DataSources.Clear();
 
-             /*   string cmdText = "select * from BillSummary WHERE InvoiceNo='"+txt_invoiceNumber.Text + "';";
-                using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(cmdText, con))
+                    string cmdText = "SELECT ID ,InvoiceNo ,InvoiceYear ,InvoiceCreatedBy ,Convert(varchar,InvoiceDate,103) as InvoiceDate ,CustomerName ,CustomerAddress ,CustomerGSTNumber ,CustomerContactNumber ,CompanyID ,TotalCGST ,TotalSGST ,OtherTaxes ,TotalTax ,TotalInvoiceValue FROM BillSummary WHERE InvoiceNo='" + textBox1.Text + "' AND InvoiceYear='" + comboBox1.Text + "';";
+                    using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
                     {
-                        con.Open();
-                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        using (SqlCommand cmd = new SqlCommand(cmdText, con))
                         {
-                            DataSet ds = new DataSet();
-                            da.Fill(ds);
-                            DataTable dt = ds.Tables[0];
-                            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet2", ds.Tables[0]));
-
-                            using (SqlDataAdapter da1 = new SqlDataAdapter("Select * from BillDetails WHERE InvoiceNo='"+ + "';", con))
+                            con.Open();
+                            using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                             {
-                                DataSet ds1 = new DataSet();
-                                da1.Fill(ds1);
-                                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds1.Tables[0]));
+                                DataSet ds = new DataSet();
+                                //     ds.Tables[0].Columns[4].DataType = typeof(String);
+                                da.Fill(ds);
+
+
+                                DataTable dt = new DataTable();
+
+                                //   dt.Columns[4].DataType= typeof(String);
+                                dt = ds.Tables[0];
+                                
+                                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("InvoiceDetails", dt));
+
+                                using (SqlDataAdapter da1 = new SqlDataAdapter("Select * from BillDetails WHERE InvoiceNo='" + textBox1.Text + "' AND InvoiceYear='" + comboBox1.Text + "';", con))
+                                {
+                                    DataSet ds1 = new DataSet();
+                                    da1.Fill(ds1);
+                                    reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("InvoiceDataSet", ds1.Tables[0]));
+                                }
+
                             }
-                            
+                            con.Close();
                         }
-                        con.Close();
                     }
+                    reportViewer1.LocalReport.Refresh();
+                    reportViewer1.RefreshReport();
                 }
-                reportViewer1.LocalReport.Refresh();
-                reportViewer1.RefreshReport();*/
             }
             else
             {
-
-                reportViewer1.LocalReport.ReportPath = System.Configuration.ConfigurationManager.ConnectionStrings["ReportPath"].ConnectionString+this.Name+".rdlc";
-                reportViewer1.ProcessingMode = ProcessingMode.Local;
-
-
-
-                reportViewer1.LocalReport.DataSources.Clear();
-                string cmdText = "";
-                if (this.Name == "Sale Summary")
-                {
-                    cmdText = "select * from BillSummary WHERE [InvoiceDate] > = '" + FromDate1.Value.Date + "' AND [InvoiceDate] < =' " + Todate1.Value.Date + "';";
-                }
-                else
-                {
-                    cmdText = "select * from PurchaseSummary WHERE [PurchaseDate] > = '" + FromDate1.Value.Date + "' AND [PurchaseDate] < =' " + Todate1.Value.Date + "';";
-                }
-                using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
-                {
-                    using (SqlCommand cmd = new SqlCommand(cmdText, con))
-                    {
-                        con.Open();
-                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                        {
-                            DataSet ds = new DataSet();
-                            da.Fill(ds);
-                            
-                            DataTable dt = ds.Tables[0];
-                            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", ds.Tables[0]));
-
-                            /*ReportParameter[] parameter= new ReportParameter[2];
-
-                            parameter[0] = new ReportParameter("FromDate", FromDate1.Text.ToString());
-                            parameter[1] = new ReportParameter("ToDate", Todate1.Text.ToString());
-
-                            reportViewer1.LocalReport.SetParameters(parameter);*/
-                            // reportViewer1.LocalReport.SetParameters(ToDate);
-
-                            List<ReportParameter> rp = new List<ReportParameter>();
-                            rp.Add(new ReportParameter("FromDate", FromDate1.Text)); // If you want a value in the parameter
-                            rp.Add(new ReportParameter("ToDate", Todate1.Text)); // If you want null in the parameter
-                            reportViewer1.LocalReport.SetParameters(rp);
-                        }
-                        con.Close();
-                    }
-                }
-                reportViewer1.LocalReport.Refresh();
-                reportViewer1.RefreshReport();
+                MessageBox.Show("Please enter invoice number and year", "Invoice Printing", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void PrintReports_Load(object sender, EventArgs e)
         {
 
-           
-            DateTime now = DateTime.Now;
-            int month = now.Month;
+            String cmdText = "Select distinct(InvoiceYear) from BillSummary;";
+            using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(cmdText, con))
+                {
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    // reader.Read();
+                    comboBox1.Text = DateTime.Now.Year.ToString();
+                    while (reader.Read())
+                    {
+                        comboBox1.Items.Add(reader[0].ToString());
+                    }
+                  
 
-            FromDate1.Text = FirstDayOfMonth();
-            Todate1.Text = LastDayOfMonth();
 
+                    }
+                
+            }
         }
 
         private String FirstDayOfMonth()
@@ -217,13 +194,12 @@ namespace GSTSoft_windows
                 //Collect info from DB
                 SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
                 con.Open();
-                SqlCommand command = new SqlCommand("SELECT EmailID,EmailPassword FROM LoginInfo Where Name=+'" + UserName + "';", con);
+                SqlCommand command = new SqlCommand("SELECT EmailID,EmailPassword FROM LoginInfo Where Name=+'"+UserName+"';", con);
                 SqlDataReader reader = command.ExecuteReader();
                 reader.Read();
                 String EmailID = reader[0].ToString();
                 String EmailPassword = reader[1].ToString();
                 con.Close();
-
 
                 //Send Email
 
@@ -233,12 +209,11 @@ namespace GSTSoft_windows
                     SmtpClient smtp = new SmtpClient();
 
                     message.From = new MailAddress(EmailID, "Gajanan Tea Depot");
-                    
                     message.To.Add(new MailAddress(txt_MailTO.Text));
                     if (this.Name == "Invoice")
                     {
 
-                      //  message.Subject = "Gajanan Tea Depot - " + cmb_reportType.Text + " ID - INV/" + cmb_InvYear.Text + "/" + txt_invoiceNumber.Text;
+                       message.Subject = "Gajanan Tea Depot - " + this.Name + " ID - INV/" + comboBox1.Text + "/" + textBox1.Text;
                         String body = "<h3>Greetings,</h3><p>Thanks for being our loyal customer, we appreciate it.</p><p>Please find attached copy of your recent trasanction with us. Should you have any quaries/questions please contact us via email -&nbsp;<a href='mailto: Aaghate19 @gmail.com'>Aaghate19@gmail.com</a>&nbsp;or ring us on <strong>09823052863</strong>.</p><p><strong>Please keep a copy of this invoice stored.</strong></p><p><strong>Regards</strong></p><p><strong>Gajanan Tea Depot&nbsp;</strong></p>";
                         message.Attachments.Add(new Attachment(FileName));
                         AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body);
@@ -246,16 +221,7 @@ namespace GSTSoft_windows
                         message.AlternateViews.Add(htmlView);
 
                     }
-                    else
-                    {
-                        message.Subject = "Gajanan Tea Depot - " + this.Name + " From Date : " + FromDate1.Text + " To Date : " + Todate1.Text;
-                        String body="<h3>Greetings,</h3><p>Please find attached copy of " + this.Name + " From Date " + FromDate1.Text + " To Date " + Todate1.Text + ", Should you have any quaries/questions please contact us via email -&nbsp;<a href='mailto: Aaghate19 @gmail.com'>Aaghate19@gmail.com</a>&nbsp;or ring us on <strong>09823052863</strong>.</p><p><strong>Regards</strong></p><p><strong>Gajanan Tea Depot&nbsp;</strong></p>";
-                        message.Attachments.Add(new Attachment(FileName));
-                        AlternateView htmlView = AlternateView.CreateAlternateViewFromString(body);
-                        htmlView.ContentType = new System.Net.Mime.ContentType("text/html");
-                        message.AlternateViews.Add(htmlView);
-                    }
-
+                
 
                     smtp.Port = 587;
                     smtp.Host = "smtp.gmail.com";
@@ -265,7 +231,7 @@ namespace GSTSoft_windows
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                     smtp.Send(message);
                     Application.UseWaitCursor = false;
-                    MessageBox.Show("Email Sent Succussfully", "Email Sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Email Sent Successfully","Email",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {

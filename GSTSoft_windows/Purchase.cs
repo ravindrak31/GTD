@@ -15,6 +15,7 @@ namespace GSTSoft_windows
     public partial class Purchase : Form
     {
         private String currentID;
+     //   double cessvalue = 00.00;
         public Purchase()
         {
             InitializeComponent();
@@ -223,9 +224,9 @@ namespace GSTSoft_windows
             SqlDataReader reader = null;
             SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
             con.Open();
-            String productCode;
+           // String productCode;
 
-                SqlCommand command1 = new SqlCommand("SELECT ProductRate,Product_RateCurrency,HSNCode,ID FROM ProductInfo WHERE ProductName='" + cmb_Item.Text + "';", con);
+                SqlCommand command1 = new SqlCommand("SELECT ProductRate,Product_RateCurrency,HSNCode,ID FROM ProductInfo WHERE ProductName='" + cmb_Item.Text + "' AND isPurchaseProduct='Y';", con);
             
 
             reader = command1.ExecuteReader();
@@ -247,10 +248,16 @@ namespace GSTSoft_windows
                 double rate = Convert.ToDouble(txt_ItemRate.Text);
                 double quantity = Convert.ToDouble(this.txt_quantity.Text);
                 double discount = Convert.ToDouble(this.txt_Discount.Text);
+               double cessValue = Convert.ToDouble(this.txt_Cess.Text);
+                double ItemOtherCharges = Convert.ToDouble(txt_ItemOtherCharges.Text);
 
-                txt_TaxableValue.Text = ((rate * quantity) - discount).ToString("N2");
+                txt_TaxableValue.Text = (rate * quantity).ToString("N2");
+                Txt_Cess_Amount.Text = (Convert.ToDouble(txt_TaxableValue.Text) * cessValue / 100).ToString("N2");
+                txt_TaxableValue.Text = (Convert.ToDouble(txt_TaxableValue.Text)+Convert.ToDouble(Txt_Cess_Amount.Text)).ToString("N2");
+                txt_TaxableValue.Text = (Convert.ToDouble(txt_TaxableValue.Text) +ItemOtherCharges).ToString("N2");
+                txt_TaxableValue.Text = (Convert.ToDouble(txt_TaxableValue.Text) - discount).ToString("N2");
                 txt_ItemCGST.Text = ((double.Parse(this.txt_TaxableValue.Text) * double.Parse(txt_CGSTRate.Text) / 100)).ToString("N2");
-                txt_ItemSGST.Text = ((double.Parse(txt_TaxableValue.Text) * double.Parse(txt_CGSTRate.Text) / 100)).ToString("N2");
+                txt_ItemSGST.Text = ((double.Parse(txt_TaxableValue.Text) * double.Parse(txt_SGSTRate.Text) / 100)).ToString("N2");
                 txt_TotalItemValue.Text = ((double.Parse(txt_TaxableValue.Text)) + (double.Parse(txt_ItemCGST.Text)) + (double.Parse(txt_ItemSGST.Text))).ToString("N2");
             }
         }
@@ -275,7 +282,7 @@ namespace GSTSoft_windows
 
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add(dataGridView1.Rows.Count + 1, HSNCode.Text, cmb_Item.Text, txt_ItemRate.Text, txt_quantity.Text, txt_Discount.Text, txt_TaxableValue.Text, txt_ItemCGST.Text, txt_ItemSGST.Text, txt_TotalItemValue.Text,txt_CGSTRate.Text,txt_SGSTRate.Text,"",lbl_productID.Text);
+            dataGridView1.Rows.Add(dataGridView1.Rows.Count + 1, HSNCode.Text, cmb_Item.Text, txt_ItemRate.Text, txt_quantity.Text,txt_Cess.Text,txt_ItemOtherCharges.Text, txt_Discount.Text, txt_TaxableValue.Text, txt_ItemCGST.Text, txt_ItemSGST.Text, txt_TotalItemValue.Text,txt_CGSTRate.Text,txt_SGSTRate.Text,"",lbl_productID.Text,((Convert.ToDouble(txt_ItemRate.Text)* Convert.ToDouble(txt_ItemRate.Text))*Convert.ToDouble(txt_Cess.Text)/100));
             cmb_Item.Text = "";
           //  dataGridView1.Rows.HeaderCell.Value = String.Format("{0}", row.Index + 1);
             txt_ItemRate.Text = "0.00";
@@ -298,8 +305,8 @@ namespace GSTSoft_windows
         {
             if (txt_quantity.Text == "")
             {
-                txt_quantity.Text = "0";
-                Calculate();
+  //              txt_quantity.Text = "0";
+//                Calculate();
             }
             else
             {
@@ -324,6 +331,23 @@ namespace GSTSoft_windows
         {
             btn_Print.Enabled = false;
             dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            SqlDataReader reader = null;
+            SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString);
+            con.Open();
+            // String productCode;
+           // toolStripStatusLabel1.Text = "Please press New Button to start";
+            //toolStripStatusLabel1.ForeColor = Color.Red;
+            SqlCommand command1 = new SqlCommand("SELECT Distinct(UnitCode) FROM UnitInfo;", con);
+            cmb_Unit.Items.Clear();
+            reader = command1.ExecuteReader();
+          while(reader.Read())
+            {
+                cmb_Unit.Items.Add(reader[0].ToString());
+            }
+          
+            reader.Close();
+            con.Close();
+
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -374,7 +398,16 @@ namespace GSTSoft_windows
                         con.Close();
 
                         MessageBox.Show("New Purchase Created");
+                      //  btn_Print.Enabled = false;
+
+
+                        //Temp change
+
+                        btn_New.Enabled = true;
+                        btn_Edit.Enabled = true;
                         btn_Print.Enabled = false;
+                        btn_Close.Text = "&Close";
+                        EmptyForm();
                     }
                 }
                 catch
@@ -388,7 +421,7 @@ namespace GSTSoft_windows
 
         private void btn_Print_Click(object sender, EventArgs e)
         {
-            PrintInvoice Invoice1 = new PrintInvoice();
+            PrintInvoice1 Invoice1 = new PrintInvoice1();
             Invoice1.Name = PurchaseID.Text;
             Invoice1.ShowDialog();
             // EmptyForm();
@@ -488,6 +521,74 @@ namespace GSTSoft_windows
             }
         }
 
-      
+        private void txt_CGSTRate_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_CGSTRate.Text == "")
+            {
+                txt_CGSTRate.Text = "0.00";
+                Calculate();
+            }
+            else
+            {
+                Calculate();
+            }
+        }
+
+        private void txt_SGSTRate_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_SGSTRate.Text == "")
+            {
+                txt_SGSTRate.Text = "0.00";
+                Calculate();
+            }
+            else
+            {
+                Calculate();
+            }
+        }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_Customer_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Edit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Cess_TextChanged(object sender, EventArgs e)
+        {
+          //  double cessvalue;
+            if (txt_Cess.Text == "")
+            {
+                txt_Cess.Text ="00.00";
+            }
+            else
+            {
+               // txt_Cess.Text = Convert.ToDouble(txt_Cess.Text);
+            }
+            Calculate();
+        }
+
+        private void txt_ItemOtherCharges_TextChanged(object sender, EventArgs e)
+        {
+
+            //  double cessvalue;
+            if (txt_ItemOtherCharges.Text == "")
+            {
+                txt_ItemOtherCharges.Text ="00.00";
+            }
+            else
+            {
+                //cessvalue = Convert.ToDouble(txt_ItemOtherCharges.Text);
+            }
+            Calculate();
+        }
     }
     }

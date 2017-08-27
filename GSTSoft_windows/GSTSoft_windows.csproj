@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationRevision>21</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -113,6 +113,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GTDDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GTDDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GTDDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrintInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintInvoice.Designer.cs">
+      <DependentUpon>PrintInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Purchase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +194,16 @@
     <Compile Include="Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInfo.Designer.cs">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Invoice.rdlc" />
+    <EmbeddedResource Include="PrintInvoice.resx">
+      <DependentUpon>PrintInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sale Summary.rdlc" />
     <EmbeddedResource Include="Purchase.resx">
       <DependentUpon>Purchase.cs</DependentUpon>
@@ -202,10 +223,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrintReports.resx">
       <DependentUpon>PrintReports.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Report2.rdlc">
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -238,6 +255,9 @@
     <EmbeddedResource Include="Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInfo.resx">
+      <DependentUpon>UserInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="GTDDataSet.xsc">
       <DependentUpon>GTDDataSet.xsd</DependentUpon>
     </None>
@@ -260,6 +280,17 @@
     <None Include="GTDDataSet1.xss">
       <DependentUpon>GTDDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="GTDDataSet2.xsc">
+      <DependentUpon>GTDDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GTDDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GTDDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GTDDataSet2.xss">
+      <DependentUpon>GTDDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -278,7 +309,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
@@ -320,53 +350,66 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fleur lys.ico" />
-    <Content Include="GTD.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GTD_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <DependentUpon>GTD.mdf</DependentUpon>
-    </Content>
+    <None Include="Resources\eye-24.jpg" />
+    <None Include="Resources\eye-48.jpg" />
+    <None Include="Resources\cash-receiving-256.png" />
+    <None Include="images\add-user-256.png" />
+    <None Include="images\cart-69-256.png" />
+    <None Include="images\credit-card-5-256.png" />
+    <Content Include="images\Customer.png" />
+    <None Include="images\email-5-256.png" />
+    <None Include="images\group-256.png" />
+    <Content Include="images\gtd.png" />
+    <None Include="images\indian-rupee-256.png" />
+    <Content Include="images\keys_icon.png" />
+    <None Include="images\login-256.png" />
+    <Content Include="images\logout-xxl.png" />
+    <Content Include="images\Password.png" />
+    <None Include="images\purchase-order-256 %281%29.png" />
+    <None Include="images\purchase-order-256.png" />
+    <None Include="images\report-256.png" />
+    <Content Include="images\Untitled-2copy.png" />
+    <Content Include="images\user.png" />
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="GTD_log.ldf">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.Common">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

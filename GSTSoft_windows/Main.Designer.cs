@@ -45,8 +45,9 @@
             this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.UserName = new System.Windows.Forms.ToolStripLabel();
+            this.DateTimeTimer = new System.Windows.Forms.ToolStripLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             this.CustomerMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerToolStripMenuItem,
             this.supplierToolStripMenuItem});
+            this.CustomerMenu.Image = global::GSTSoft_windows.Properties.Resources.add_user_256;
             this.CustomerMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.CustomerMenu.Name = "CustomerMenu";
             this.CustomerMenu.ShortcutKeys = System.Windows.Forms.Keys.F1;
@@ -82,28 +84,35 @@
             // productsToolStripMenuItem
             // 
             this.productsToolStripMenuItem.AutoSize = false;
+            this.productsToolStripMenuItem.Image = global::GSTSoft_windows.Properties.Resources.purchase_order_256;
             this.productsToolStripMenuItem.Name = "productsToolStripMenuItem";
             this.productsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.productsToolStripMenuItem.Size = new System.Drawing.Size(117, 50);
             this.productsToolStripMenuItem.Text = "P&roducts";
+            this.productsToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
             // 
             // editMenu
             // 
             this.editMenu.AutoSize = false;
+            this.editMenu.Image = global::GSTSoft_windows.Properties.Resources.indian_rupee_256;
             this.editMenu.Name = "editMenu";
             this.editMenu.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.editMenu.Size = new System.Drawing.Size(101, 50);
+            this.editMenu.Size = new System.Drawing.Size(120, 50);
             this.editMenu.Text = "&Purchase";
+            this.editMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
             // 
             // viewMenu
             // 
             this.viewMenu.AutoSize = false;
+            this.viewMenu.Image = global::GSTSoft_windows.Properties.Resources.cash_receiving_256;
+            this.viewMenu.ImageTransparentColor = System.Drawing.Color.White;
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.viewMenu.Size = new System.Drawing.Size(117, 50);
-            this.viewMenu.Text = "&Sales Invoice";
+            this.viewMenu.Text = "&Sales";
+            this.viewMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.viewMenu.Click += new System.EventHandler(this.viewMenu_Click);
             // 
             // toolsMenu
@@ -113,17 +122,21 @@
             this.invoiceToolStripMenuItem,
             this.salesSummaryToolStripMenuItem,
             this.purchaseSummaryToolStripMenuItem});
+            this.toolsMenu.Image = global::GSTSoft_windows.Properties.Resources.report_256;
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.toolsMenu.Size = new System.Drawing.Size(101, 50);
             this.toolsMenu.Text = "&Reports";
+            this.toolsMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.toolsMenu.Click += new System.EventHandler(this.toolsMenu_Click);
             // 
             // invoiceToolStripMenuItem
             // 
+            this.invoiceToolStripMenuItem.Image = global::GSTSoft_windows.Properties.Resources.purchase_order_256__1_;
             this.invoiceToolStripMenuItem.Name = "invoiceToolStripMenuItem";
             this.invoiceToolStripMenuItem.Size = new System.Drawing.Size(251, 28);
             this.invoiceToolStripMenuItem.Text = "Invoice";
+            this.invoiceToolStripMenuItem.Click += new System.EventHandler(this.invoiceToolStripMenuItem_Click);
             // 
             // salesSummaryToolStripMenuItem
             // 
@@ -165,53 +178,64 @@
             // stockToolStripMenuItem
             // 
             this.stockToolStripMenuItem.AutoSize = false;
+            this.stockToolStripMenuItem.Image = global::GSTSoft_windows.Properties.Resources.cart_69_256;
             this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
             this.stockToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
             this.stockToolStripMenuItem.Size = new System.Drawing.Size(117, 50);
             this.stockToolStripMenuItem.Text = "Stock";
+            this.stockToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.AutoSize = false;
+            this.exitToolStripMenuItem.Image = global::GSTSoft_windows.Properties.Resources.logout_xxl;
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(101, 50);
             this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.exitToolStripMenuItem.ToolTipText = "You can also use ALT+X";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel,
-            this.toolStripLabel1});
+            this.UserName,
+            this.DateTimeTimer});
             this.toolStrip1.Location = new System.Drawing.Point(150, 618);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1021, 28);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripStatusLabel
+            // UserName
             // 
-            this.toolStripStatusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(142, 25);
-            this.toolStripStatusLabel.Text = "toolStripLabel1";
+            this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.UserName.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.UserName.Image = global::GSTSoft_windows.Properties.Resources.user;
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(162, 25);
+            this.UserName.Text = "toolStripLabel1";
+            this.UserName.Click += new System.EventHandler(this.toolStripStatusLabel_Click);
             // 
-            // toolStripLabel1
+            // DateTimeTimer
             // 
-            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.toolStripLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.toolStripLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStripLabel1.Size = new System.Drawing.Size(142, 25);
-            this.toolStripLabel1.Text = "toolStripLabel1";
-            this.toolStripLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DateTimeTimer.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.DateTimeTimer.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DateTimeTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.DateTimeTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.DateTimeTimer.Name = "DateTimeTimer";
+            this.DateTimeTimer.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DateTimeTimer.Size = new System.Drawing.Size(142, 25);
+            this.DateTimeTimer.Text = "toolStripLabel1";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main
             // 
@@ -251,15 +275,16 @@
         private System.Windows.Forms.ToolStripMenuItem toolsMenu;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripLabel toolStripStatusLabel;
+        private System.Windows.Forms.ToolStripLabel UserName;
         private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripLabel DateTimeTimer;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem invoiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salesSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchaseSummaryToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

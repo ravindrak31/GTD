@@ -1349,7 +1349,7 @@
         <Top>0.06944in</Top>
         <Left>0.07588in</Left>
         <Height>1.39167in</Height>
-        <Width>7.12656in</Width>
+        <Width>7.12655in</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1764,7 +1764,7 @@
         </Style>
       </Line>
     </ReportItems>
-    <Height>2.40805in</Height>
+    <Height>3.31638in</Height>
     <Style>
       <Border />
       <TopBorder>
@@ -2278,7 +2278,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=cDate(String.Format("{0:dd/MM/yyyy}", First(Fields!InvoiceDate.Value, "DataSet2").ToString())).ToShortDateString()</Value>
+                      <Value>=String.Format("{0:dd/MM/yyyy}", First(Fields!InvoiceDate.Value, "DataSet2"))</Value>
                       <Style>
                         <FontFamily>Microsoft sans Serif</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -2362,7 +2362,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.75474in</Height>
+      <Height>0.53333in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2385,7 +2385,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox66</rd:DefaultName>
-          <Top>0.51667in</Top>
+          <Top>0.26667in</Top>
           <Left>5.44667in</Left>
           <Height>0.23333in</Height>
           <Width>1.76109in</Width>

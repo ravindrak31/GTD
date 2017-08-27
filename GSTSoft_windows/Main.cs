@@ -100,7 +100,7 @@ namespace GSTSoft_windows
             Form childform = new Invoice();
             childform.MdiParent = this;
             childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
-            childform.Name = toolStripStatusLabel.Text;
+            childform.Name = UserName.Text;
             childform.Show();
         }
 
@@ -108,16 +108,18 @@ namespace GSTSoft_windows
         {
             Form childform = new Product();
             childform.MdiParent = this;
-
+            
             childform.Show();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'gTDDataSet.BillSummary' table. You can move, or remove it, as needed.
-           // this.billSummaryTableAdapter.Fill(this.gTDDataSet.BillSummary);
-            toolStripStatusLabel.Text =Name;
-            toolStripLabel1.Text = DateTime.Now.ToShortDateString();
+        
+            UserName.Text =Name.Trim()+" - Manage - Users";
+            
+            timer1.Start();
+             
+          // DateTimeTimer.Text = DateTime.Now.ToShortDateString();
         }
 
         private void toolsMenu_Click(object sender, EventArgs e)
@@ -161,29 +163,34 @@ namespace GSTSoft_windows
         {
 
             Form childForm = new Customer();
-
-            childForm.Show();
             childForm.MdiParent = this;
+            childForm.Location = new Point(Location.X + (Width - childForm.Width) / 2, Location.Y + (Height - childForm.Height) / 2);
+            childForm.Show();
+            
 
         }
 
         private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form childForm = new Supplier();
-            childForm.Show();
             childForm.MdiParent = this;
+            childForm.Location = new Point(Location.X + (Width - childForm.Width) / 2, Location.Y + (Height - childForm.Height) / 2);
+            childForm.Show();
+            
         }
 
         private void editMenu_Click(object sender, EventArgs e)
         {
             Form childForm = new Purchase();
-            childForm.Show();
             childForm.MdiParent = this;
+            childForm.Location = new Point(Location.X + (Width - childForm.Width) / 2, Location.Y + (Height - childForm.Height) / 2);
+            childForm.Show();
+            
         }
 
         private void salesSummaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form childform = new PrintReports();
+            Form childform = new PrintReports(UserName.Text);
             childform.MdiParent = this;
             childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
             childform.Name = "Sale Summary";
@@ -192,11 +199,35 @@ namespace GSTSoft_windows
 
         private void purchaseSummaryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form childform = new PrintReports();
+            Form childform = new PrintReports(UserName.Text);
             childform.MdiParent = this;
             childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
             childform.Name = "Purchase Summary";
             childform.Show();
+        }
+
+        private void invoiceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form childform = new PrintInvoice(UserName.Text);
+            childform.MdiParent = this;
+            childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
+            childform.Name = "Invoice";
+            
+            childform.Show();
+        }
+
+        private void toolStripStatusLabel_Click(object sender, EventArgs e)
+        {
+            Form childform = new UserInfo();
+            childform.MdiParent = this;
+            childform.Location = new Point(Location.X + (Width - childform.Width) / 2, Location.Y + (Height - childform.Height) / 2);
+            childform.Name = "UserInfo";
+            childform.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTimeTimer.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
         }
     }
 }

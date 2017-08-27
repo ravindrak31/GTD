@@ -12,9 +12,9 @@ using Microsoft.Reporting.WinForms;
 
 namespace GSTSoft_windows
 {
-    public partial class PrintInvoice : Form
+    public partial class PrintInvoice1 : Form
     {
-        public PrintInvoice()
+        public PrintInvoice1()
         {
             InitializeComponent();
         }

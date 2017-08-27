@@ -1,6 +1,6 @@
 ﻿namespace GSTSoft_windows
 {
-    partial class PrintInvoice
+    partial class PrintInvoice1
     {
         /// <summary>
         /// Required designer variable.

@@ -17,14 +17,23 @@ namespace GSTSoft_windows
         {
             InitializeComponent();
         }
-
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
             // string cmdText = "select Count(*) from Login where UserName=? and PassWord=?";
             using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["GTDConnectionString"].ConnectionString))
             {
-                using (SqlCommand cmd = new SqlCommand("select Name from LoginInfo where Username ='" + textBox2.Text + "' and Password ='" + textBox1.Text + "';", con))
+                using (SqlCommand cmd = new SqlCommand("select Name from LoginInfo where Username ='" + textBox2.Text + "' and Password ='" +Base64Encode( textBox1.Text )+ "';", con))
                 {
                     con.Open();
 
